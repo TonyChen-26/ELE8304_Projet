@@ -71,6 +71,6 @@ gen_Add:for i in 0 to N-1 generate
 end generate gen_Add;
 
 
-o_sum <= "000000000000000000000000001010101";
+o_sum <= o_sum_buffer2;
 end architecture beh;
 
