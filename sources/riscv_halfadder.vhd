@@ -17,9 +17,10 @@ entity riscv_halfadder is
   port (
         in_a    : in  std_logic;
         in_b    : in  std_logic;
-        o_carry : out std_logic;
-	out_sum : out std_logic
-  );
+ 	out_sum : out std_logic;
+	o_carry : out std_logic
+	--out_sum : out std_logic 
+);
 end entity riscv_halfadder;
 
 architecture beh of riscv_halfadder is

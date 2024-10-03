@@ -46,12 +46,12 @@ begin
     process
     begin
         -- Test Case 1: 3 + 2
-        i_a <= "00000000000000000000000001010101";  -- 3 in binary
-        i_b <= "00000000000000000000000001101010";  -- 2 in binary
-        i_sign <= '0';  -- Addition
-        i_sub <= '0';   -- Not used in this case
+        i_a <= "00000000000100000000001000000001";  -- 3 in binary
+        i_b <= "00000000000100000000001000000001";  -- 2 in binary
+        i_sign <= '1';  -- Unsigned
+        i_sub <= '1';   -- Not used in this case
         wait for 10 ns;
-        --assert (o_sum = "00001") report "Test Case 1 Failed!" severity error;  -- Expected output: 5
+       -- assert (o_sum = "1000000000000000000001010111111") report "Test Case 1 Failed!" severity error;  -- Expected output: 5
 
         -- End simulation
         wait;

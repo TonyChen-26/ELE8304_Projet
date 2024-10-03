@@ -1,0 +1,475 @@
+# //  Questa Sim-64
+# //  Version 2022.1_2 linux_x86_64 Apr  2 2022
+# //
+# //  Copyright 1991-2022 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+project open /export/tmp/8304_8/Labs/lab2/sources/Lab2
+# reading modelsim.ini
+# Loading project Lab2
+# Compile of riscv_adder.vhd was successful.
+vsim -64 work.tb_riscv_adder
+# vsim -64 work.tb_riscv_adder 
+# Start time: 11:45:31 on Oct 03,2024
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.tb_riscv_adder(test)#1
+# Loading work.riscv_adder(beh)#1
+add wave -position end  sim:/tb_riscv_adder/i_a
+add wave -position end  sim:/tb_riscv_adder/i_b
+add wave -position end  sim:/tb_riscv_adder/o_sum
+
+run 1m
+# Invalid time value: 1m
+run 1ms
+# Compile of riscv_adder.vhd was successful.
+vsim -64 work.tb_riscv_adder
+# End time: 11:48:46 on Oct 03,2024, Elapsed time: 0:03:15
+# Errors: 0, Warnings: 3
+# vsim -64 work.tb_riscv_adder 
+# Start time: 11:48:46 on Oct 03,2024
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.tb_riscv_adder(test)#1
+# Loading work.riscv_adder(beh)#1
+add wave -position end  sim:/tb_riscv_adder/i_a
+add wave -position end  sim:/tb_riscv_adder/i_b
+add wave -position end  sim:/tb_riscv_adder/o_sum
+run 1ms
+# Compile of riscv_halfadder.vhd was successful.
+# Load canceled
+vsim -64 work.tb_riscv_adder
+# End time: 11:57:47 on Oct 03,2024, Elapsed time: 0:09:01
+# Errors: 0, Warnings: 2
+# vsim -64 work.tb_riscv_adder 
+# Start time: 11:57:47 on Oct 03,2024
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.tb_riscv_adder(test)#1
+# Loading work.riscv_adder(beh)#1
+add wave -position end  sim:/tb_riscv_adder/i_a
+add wave -position end  sim:/tb_riscv_adder/i_b
+add wave -position end  sim:/tb_riscv_adder/o_sum
+run 1ms
+# Compile of riscv_adder.vhd failed with 2 errors.
+# Compile of riscv_adder.vhd was successful.
+# Load canceled
+vsim -64 work.tb_riscv_adder
+# End time: 12:00:48 on Oct 03,2024, Elapsed time: 0:03:01
+# Errors: 0, Warnings: 3
+# vsim -64 work.tb_riscv_adder 
+# Start time: 12:00:48 on Oct 03,2024
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.tb_riscv_adder(test)#1
+# Loading work.riscv_adder(beh)#1
+add wave -position end  sim:/tb_riscv_adder/i_a
+add wave -position end  sim:/tb_riscv_adder/i_b
+add wave -position end  sim:/tb_riscv_adder/o_sum
+run 1ms
+# Compile of riscv_adder.vhd was successful.
+# Compile of riscv_halfadder.vhd was successful.
+vsim -64 work.tb_riscv_adder
+# End time: 12:02:49 on Oct 03,2024, Elapsed time: 0:02:01
+# Errors: 0, Warnings: 3
+# vsim -64 work.tb_riscv_adder 
+# Start time: 12:02:49 on Oct 03,2024
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.tb_riscv_adder(test)#1
+# Loading work.riscv_adder(beh)#1
+add wave -position end  sim:/tb_riscv_adder/i_a
+add wave -position end  sim:/tb_riscv_adder/i_b
+add wave -position end  sim:/tb_riscv_adder/o_sum
+run 1ms
+# Compile of riscv_adder.vhd was successful.
+# Compile of riscv_halfadder.vhd failed with 1 errors.
+# 2 compiles, 1 failed with 1 error.
+# Compile of riscv_adder.vhd was successful.
+# Compile of riscv_halfadder.vhd failed with 1 errors.
+# 2 compiles, 1 failed with 1 error.
+# Compile of riscv_halfadder.vhd failed with 1 errors.
+# Compile of riscv_halfadder.vhd was successful.
+vsim -64 work.tb_riscv_adder
+# End time: 12:09:41 on Oct 03,2024, Elapsed time: 0:06:52
+# Errors: 0, Warnings: 5
+# vsim -64 work.tb_riscv_adder 
+# Start time: 12:09:41 on Oct 03,2024
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Error (suppressible): /export/tmp/8304_8/Labs/lab2/sources/riscv_adder.vhd(48): (vopt-1270) Bad default binding for component instance "u_add: riscv_halfadder".
+#  (Component port "o_sum" is not on the entity.)
+# ** Error (suppressible): /export/tmp/8304_8/Labs/lab2/sources/riscv_adder.vhd(55): (vopt-1270) Bad default binding for component instance "u_add: riscv_halfadder".
+#  (Component port "o_sum" is not on the entity.)
+# ** Error (suppressible): /export/tmp/8304_8/Labs/lab2/sources/riscv_adder.vhd(55): (vopt-1270) Bad default binding for component instance "u_add: riscv_halfadder".
+#  (Component port "o_sum" is not on the entity.)
+# ** Error (suppressible): /export/tmp/8304_8/Labs/lab2/sources/riscv_adder.vhd(55): (vopt-1270) Bad default binding for component instance "u_add: riscv_halfadder".
+#  (Component port "o_sum" is not on the entity.)
+# ** Error (suppressible): /export/tmp/8304_8/Labs/lab2/sources/riscv_adder.vhd(55): (vopt-1270) Bad default binding for component instance "u_add: riscv_halfadder".
+#  (Component port "o_sum" is not on the entity.)
+# ** Error (suppressible): /export/tmp/8304_8/Labs/lab2/sources/riscv_adder.vhd(55): (vopt-1270) Bad default binding for component instance "u_add: riscv_halfadder".
+#  (Component port "o_sum" is not on the entity.)
+# ** Error (suppressible): /export/tmp/8304_8/Labs/lab2/sources/riscv_adder.vhd(55): (vopt-1270) Bad default binding for component instance "u_add: riscv_halfadder".
+#  (Component port "o_sum" is not on the entity.)
+# ** Error (suppressible): /export/tmp/8304_8/Labs/lab2/sources/riscv_adder.vhd(55): (vopt-1270) Bad default binding for component instance "u_add: riscv_halfadder".
+#  (Component port "o_sum" is not on the entity.)
+# ** Error (suppressible): /export/tmp/8304_8/Labs/lab2/sources/riscv_adder.vhd(55): (vopt-1270) Bad default binding for component instance "u_add: riscv_halfadder".
+#  (Component port "o_sum" is not on the entity.)
+# ** Error (suppressible): /export/tmp/8304_8/Labs/lab2/sources/riscv_adder.vhd(55): (vopt-1270) Bad default binding for component instance "u_add: riscv_halfadder".
+#  (Component port "o_sum" is not on the entity.)
+# ** Error (suppressible): /export/tmp/8304_8/Labs/lab2/sources/riscv_adder.vhd(55): (vopt-1270) Bad default binding for component instance "u_add: riscv_halfadder".
+#  (Component port "o_sum" is not on the entity.)
+# ** Error (suppressible): /export/tmp/8304_8/Labs/lab2/sources/riscv_adder.vhd(55): (vopt-1270) Bad default binding for component instance "u_add: riscv_halfadder".
+#  (Component port "o_sum" is not on the entity.)
+# ** Error (suppressible): /export/tmp/8304_8/Labs/lab2/sources/riscv_adder.vhd(55): (vopt-1270) Bad default binding for component instance "u_add: riscv_halfadder".
+#  (Component port "o_sum" is not on the entity.)
+# ** Error (suppressible): /export/tmp/8304_8/Labs/lab2/sources/riscv_adder.vhd(55): (vopt-1270) Bad default binding for component instance "u_add: riscv_halfadder".
+#  (Component port "o_sum" is not on the entity.)
+# ** Error (suppressible): /export/tmp/8304_8/Labs/lab2/sources/riscv_adder.vhd(55): (vopt-1270) Bad default binding for component instance "u_add: riscv_halfadder".
+#  (Component port "o_sum" is not on the entity.)
+# ** Error (suppressible): /export/tmp/8304_8/Labs/lab2/sources/riscv_adder.vhd(55): (vopt-1270) Bad default binding for component instance "u_add: riscv_halfadder".
+#  (Component port "o_sum" is not on the entity.)
+# ** Error (suppressible): /export/tmp/8304_8/Labs/lab2/sources/riscv_adder.vhd(55): (vopt-1270) Bad default binding for component instance "u_add: riscv_halfadder".
+#  (Component port "o_sum" is not on the entity.)
+# ** Error (suppressible): /export/tmp/8304_8/Labs/lab2/sources/riscv_adder.vhd(55): (vopt-1270) Bad default binding for component instance "u_add: riscv_halfadder".
+#  (Component port "o_sum" is not on the entity.)
+# ** Error (suppressible): /export/tmp/8304_8/Labs/lab2/sources/riscv_adder.vhd(55): (vopt-1270) Bad default binding for component instance "u_add: riscv_halfadder".
+#  (Component port "o_sum" is not on the entity.)
+# ** Error (suppressible): /export/tmp/8304_8/Labs/lab2/sources/riscv_adder.vhd(55): (vopt-1270) Bad default binding for component instance "u_add: riscv_halfadder".
+#  (Component port "o_sum" is not on the entity.)
+# ** Error (suppressible): /export/tmp/8304_8/Labs/lab2/sources/riscv_adder.vhd(55): (vopt-1270) Bad default binding for component instance "u_add: riscv_halfadder".
+#  (Component port "o_sum" is not on the entity.)
+# ** Error (suppressible): /export/tmp/8304_8/Labs/lab2/sources/riscv_adder.vhd(55): (vopt-1270) Bad default binding for component instance "u_add: riscv_halfadder".
+#  (Component port "o_sum" is not on the entity.)
+# ** Error (suppressible): /export/tmp/8304_8/Labs/lab2/sources/riscv_adder.vhd(55): (vopt-1270) Bad default binding for component instance "u_add: riscv_halfadder".
+#  (Component port "o_sum" is not on the entity.)
+# ** Error (suppressible): /export/tmp/8304_8/Labs/lab2/sources/riscv_adder.vhd(55): (vopt-1270) Bad default binding for component instance "u_add: riscv_halfadder".
+#  (Component port "o_sum" is not on the entity.)
+# ** Error (suppressible): /export/tmp/8304_8/Labs/lab2/sources/riscv_adder.vhd(55): (vopt-1270) Bad default binding for component instance "u_add: riscv_halfadder".
+#  (Component port "o_sum" is not on the entity.)
+# ** Error (suppressible): /export/tmp/8304_8/Labs/lab2/sources/riscv_adder.vhd(55): (vopt-1270) Bad default binding for component instance "u_add: riscv_halfadder".
+#  (Component port "o_sum" is not on the entity.)
+# ** Error (suppressible): /export/tmp/8304_8/Labs/lab2/sources/riscv_adder.vhd(55): (vopt-1270) Bad default binding for component instance "u_add: riscv_halfadder".
+#  (Component port "o_sum" is not on the entity.)
+# ** Error (suppressible): /export/tmp/8304_8/Labs/lab2/sources/riscv_adder.vhd(55): (vopt-1270) Bad default binding for component instance "u_add: riscv_halfadder".
+#  (Component port "o_sum" is not on the entity.)
+# ** Error (suppressible): /export/tmp/8304_8/Labs/lab2/sources/riscv_adder.vhd(55): (vopt-1270) Bad default binding for component instance "u_add: riscv_halfadder".
+#  (Component port "o_sum" is not on the entity.)
+# ** Error (suppressible): /export/tmp/8304_8/Labs/lab2/sources/riscv_adder.vhd(55): (vopt-1270) Bad default binding for component instance "u_add: riscv_halfadder".
+#  (Component port "o_sum" is not on the entity.)
+# ** Error (suppressible): /export/tmp/8304_8/Labs/lab2/sources/riscv_adder.vhd(55): (vopt-1270) Bad default binding for component instance "u_add: riscv_halfadder".
+#  (Component port "o_sum" is not on the entity.)
+# Optimization failed
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=31, Warnings=0.
+# Error loading design
+# End time: 12:09:41 on Oct 03,2024, Elapsed time: 0:00:00
+# Errors: 31, Warnings: 1
+# Compile of riscv_halfadder.vhd was successful.
+# Compile of riscv_adder.vhd was successful.
+vsim -64 work.tb_riscv_adder
+# vsim -64 work.tb_riscv_adder 
+# Start time: 12:11:05 on Oct 03,2024
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Error (suppressible): /export/tmp/8304_8/Labs/lab2/sources/riscv_adder.vhd(48): (vopt-1270) Bad default binding for component instance "u_add: riscv_halfadder".
+#  (Component port "out_carry" is not on the entity.)
+# ** Error (suppressible): /export/tmp/8304_8/Labs/lab2/sources/riscv_adder.vhd(55): (vopt-1270) Bad default binding for component instance "u_add: riscv_halfadder".
+#  (Component port "out_carry" is not on the entity.)
+# ** Error (suppressible): /export/tmp/8304_8/Labs/lab2/sources/riscv_adder.vhd(55): (vopt-1270) Bad default binding for component instance "u_add: riscv_halfadder".
+#  (Component port "out_carry" is not on the entity.)
+# ** Error (suppressible): /export/tmp/8304_8/Labs/lab2/sources/riscv_adder.vhd(55): (vopt-1270) Bad default binding for component instance "u_add: riscv_halfadder".
+#  (Component port "out_carry" is not on the entity.)
+# ** Error (suppressible): /export/tmp/8304_8/Labs/lab2/sources/riscv_adder.vhd(55): (vopt-1270) Bad default binding for component instance "u_add: riscv_halfadder".
+#  (Component port "out_carry" is not on the entity.)
+# ** Error (suppressible): /export/tmp/8304_8/Labs/lab2/sources/riscv_adder.vhd(55): (vopt-1270) Bad default binding for component instance "u_add: riscv_halfadder".
+#  (Component port "out_carry" is not on the entity.)
+# ** Error (suppressible): /export/tmp/8304_8/Labs/lab2/sources/riscv_adder.vhd(55): (vopt-1270) Bad default binding for component instance "u_add: riscv_halfadder".
+#  (Component port "out_carry" is not on the entity.)
+# ** Error (suppressible): /export/tmp/8304_8/Labs/lab2/sources/riscv_adder.vhd(55): (vopt-1270) Bad default binding for component instance "u_add: riscv_halfadder".
+#  (Component port "out_carry" is not on the entity.)
+# ** Error (suppressible): /export/tmp/8304_8/Labs/lab2/sources/riscv_adder.vhd(55): (vopt-1270) Bad default binding for component instance "u_add: riscv_halfadder".
+#  (Component port "out_carry" is not on the entity.)
+# ** Error (suppressible): /export/tmp/8304_8/Labs/lab2/sources/riscv_adder.vhd(55): (vopt-1270) Bad default binding for component instance "u_add: riscv_halfadder".
+#  (Component port "out_carry" is not on the entity.)
+# ** Error (suppressible): /export/tmp/8304_8/Labs/lab2/sources/riscv_adder.vhd(55): (vopt-1270) Bad default binding for component instance "u_add: riscv_halfadder".
+#  (Component port "out_carry" is not on the entity.)
+# ** Error (suppressible): /export/tmp/8304_8/Labs/lab2/sources/riscv_adder.vhd(55): (vopt-1270) Bad default binding for component instance "u_add: riscv_halfadder".
+#  (Component port "out_carry" is not on the entity.)
+# ** Error (suppressible): /export/tmp/8304_8/Labs/lab2/sources/riscv_adder.vhd(55): (vopt-1270) Bad default binding for component instance "u_add: riscv_halfadder".
+#  (Component port "out_carry" is not on the entity.)
+# ** Error (suppressible): /export/tmp/8304_8/Labs/lab2/sources/riscv_adder.vhd(55): (vopt-1270) Bad default binding for component instance "u_add: riscv_halfadder".
+#  (Component port "out_carry" is not on the entity.)
+# ** Error (suppressible): /export/tmp/8304_8/Labs/lab2/sources/riscv_adder.vhd(55): (vopt-1270) Bad default binding for component instance "u_add: riscv_halfadder".
+#  (Component port "out_carry" is not on the entity.)
+# ** Error (suppressible): /export/tmp/8304_8/Labs/lab2/sources/riscv_adder.vhd(55): (vopt-1270) Bad default binding for component instance "u_add: riscv_halfadder".
+#  (Component port "out_carry" is not on the entity.)
+# ** Error (suppressible): /export/tmp/8304_8/Labs/lab2/sources/riscv_adder.vhd(55): (vopt-1270) Bad default binding for component instance "u_add: riscv_halfadder".
+#  (Component port "out_carry" is not on the entity.)
+# ** Error (suppressible): /export/tmp/8304_8/Labs/lab2/sources/riscv_adder.vhd(55): (vopt-1270) Bad default binding for component instance "u_add: riscv_halfadder".
+#  (Component port "out_carry" is not on the entity.)
+# ** Error (suppressible): /export/tmp/8304_8/Labs/lab2/sources/riscv_adder.vhd(55): (vopt-1270) Bad default binding for component instance "u_add: riscv_halfadder".
+#  (Component port "out_carry" is not on the entity.)
+# ** Error (suppressible): /export/tmp/8304_8/Labs/lab2/sources/riscv_adder.vhd(55): (vopt-1270) Bad default binding for component instance "u_add: riscv_halfadder".
+#  (Component port "out_carry" is not on the entity.)
+# ** Error (suppressible): /export/tmp/8304_8/Labs/lab2/sources/riscv_adder.vhd(55): (vopt-1270) Bad default binding for component instance "u_add: riscv_halfadder".
+#  (Component port "out_carry" is not on the entity.)
+# ** Error (suppressible): /export/tmp/8304_8/Labs/lab2/sources/riscv_adder.vhd(55): (vopt-1270) Bad default binding for component instance "u_add: riscv_halfadder".
+#  (Component port "out_carry" is not on the entity.)
+# ** Error (suppressible): /export/tmp/8304_8/Labs/lab2/sources/riscv_adder.vhd(55): (vopt-1270) Bad default binding for component instance "u_add: riscv_halfadder".
+#  (Component port "out_carry" is not on the entity.)
+# ** Error (suppressible): /export/tmp/8304_8/Labs/lab2/sources/riscv_adder.vhd(55): (vopt-1270) Bad default binding for component instance "u_add: riscv_halfadder".
+#  (Component port "out_carry" is not on the entity.)
+# ** Error (suppressible): /export/tmp/8304_8/Labs/lab2/sources/riscv_adder.vhd(55): (vopt-1270) Bad default binding for component instance "u_add: riscv_halfadder".
+#  (Component port "out_carry" is not on the entity.)
+# ** Error (suppressible): /export/tmp/8304_8/Labs/lab2/sources/riscv_adder.vhd(55): (vopt-1270) Bad default binding for component instance "u_add: riscv_halfadder".
+#  (Component port "out_carry" is not on the entity.)
+# ** Error (suppressible): /export/tmp/8304_8/Labs/lab2/sources/riscv_adder.vhd(55): (vopt-1270) Bad default binding for component instance "u_add: riscv_halfadder".
+#  (Component port "out_carry" is not on the entity.)
+# ** Error (suppressible): /export/tmp/8304_8/Labs/lab2/sources/riscv_adder.vhd(55): (vopt-1270) Bad default binding for component instance "u_add: riscv_halfadder".
+#  (Component port "out_carry" is not on the entity.)
+# ** Error (suppressible): /export/tmp/8304_8/Labs/lab2/sources/riscv_adder.vhd(55): (vopt-1270) Bad default binding for component instance "u_add: riscv_halfadder".
+#  (Component port "out_carry" is not on the entity.)
+# ** Error (suppressible): /export/tmp/8304_8/Labs/lab2/sources/riscv_adder.vhd(55): (vopt-1270) Bad default binding for component instance "u_add: riscv_halfadder".
+#  (Component port "out_carry" is not on the entity.)
+# ** Error (suppressible): /export/tmp/8304_8/Labs/lab2/sources/riscv_adder.vhd(55): (vopt-1270) Bad default binding for component instance "u_add: riscv_halfadder".
+#  (Component port "out_carry" is not on the entity.)
+# Optimization failed
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=31, Warnings=0.
+# Error loading design
+# End time: 12:11:05 on Oct 03,2024, Elapsed time: 0:00:00
+# Errors: 31, Warnings: 3
+# Compile of riscv_adder.vhd was successful.
+vsim -64 work.tb_riscv_adder
+# vsim -64 work.tb_riscv_adder 
+# Start time: 12:11:56 on Oct 03,2024
+# ** Note: (vsim-3812) Design is being optimized...
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.tb_riscv_adder(test)#1
+# Loading work.riscv_adder(beh)#1
+add wave -position end  sim:/tb_riscv_adder/i_a
+add wave -position end  sim:/tb_riscv_adder/i_b
+add wave -position end  sim:/tb_riscv_adder/o_sum
+run 1ms
+# Compile of riscv_adder.vhd was successful.
+vsim -64 work.tb_riscv_adder
+# End time: 12:12:28 on Oct 03,2024, Elapsed time: 0:00:32
+# Errors: 0, Warnings: 3
+# vsim -64 work.tb_riscv_adder 
+# Start time: 12:12:28 on Oct 03,2024
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.tb_riscv_adder(test)#1
+# Loading work.riscv_adder(beh)#1
+add wave -position end  sim:/tb_riscv_adder/i_a
+add wave -position end  sim:/tb_riscv_adder/i_b
+add wave -position end  sim:/tb_riscv_adder/o_sum
+run 1ms
+# Compile of riscv_adder.vhd was successful.
+run 1ms
+vsim -64 work.tb_riscv_adder
+# End time: 12:13:58 on Oct 03,2024, Elapsed time: 0:01:30
+# Errors: 0, Warnings: 2
+# vsim -64 work.tb_riscv_adder 
+# Start time: 12:13:58 on Oct 03,2024
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.tb_riscv_adder(test)#1
+# Loading work.riscv_adder(beh)#1
+vsim -64 work.tb_riscv_adder
+# End time: 12:14:30 on Oct 03,2024, Elapsed time: 0:00:32
+# Errors: 0, Warnings: 1
+# vsim -64 work.tb_riscv_adder 
+# Start time: 12:14:30 on Oct 03,2024
+# ** Note: (vsim-8009) Loading existing optimized design _opt1
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.tb_riscv_adder(test)#1
+# Loading work.riscv_adder(beh)#1
+add wave -position end  sim:/tb_riscv_adder/i_a
+add wave -position end  sim:/tb_riscv_adder/i_b
+add wave -position end  sim:/tb_riscv_adder/o_sum
+run 1ms
+# Compile of riscv_adder.vhd was successful.
+vsim -64 work.tb_riscv_adder
+# End time: 12:15:49 on Oct 03,2024, Elapsed time: 0:01:19
+# Errors: 0, Warnings: 2
+# vsim -64 work.tb_riscv_adder 
+# Start time: 12:15:49 on Oct 03,2024
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.tb_riscv_adder(test)#1
+# Loading work.riscv_adder(beh)#1
+# Loading work.riscv_halfadder(beh)#1
+add wave -position end  sim:/tb_riscv_adder/i_a
+add wave -position end  sim:/tb_riscv_adder/i_b
+add wave -position end  sim:/tb_riscv_adder/o_sum
+run 1ms
+# Compile of riscv_adder.vhd was successful.
+vsim -64 work.tb_riscv_adder
+# End time: 12:16:58 on Oct 03,2024, Elapsed time: 0:01:09
+# Errors: 0, Warnings: 2
+# vsim -64 work.tb_riscv_adder 
+# Start time: 12:16:58 on Oct 03,2024
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.tb_riscv_adder(test)#1
+# Loading work.riscv_adder(beh)#1
+# Loading work.riscv_halfadder(beh)#1
+add wave -position end  sim:/tb_riscv_adder/i_a
+add wave -position end  sim:/tb_riscv_adder/i_b
+add wave -position end  sim:/tb_riscv_adder/o_sum
+run 1ms
+# Compile of riscv_adder_tb.vhd was successful.
+vsim -64 work.tb_riscv_adder
+# End time: 12:20:44 on Oct 03,2024, Elapsed time: 0:03:46
+# Errors: 0, Warnings: 2
+# vsim -64 work.tb_riscv_adder 
+# Start time: 12:20:44 on Oct 03,2024
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.tb_riscv_adder(test)#1
+# Loading work.riscv_adder(beh)#1
+# Loading work.riscv_halfadder(beh)#1
+add wave -position end  sim:/tb_riscv_adder/dut/i_a
+add wave -position end  sim:/tb_riscv_adder/dut/i_b
+add wave -position end  sim:/tb_riscv_adder/dut/o_sum
+
+run 1ms
+# ** Error: Test Case 1 Failed!
+#    Time: 10 ns  Iteration: 0  Instance: /tb_riscv_adder
+quit -sim
+# End time: 12:22:19 on Oct 03,2024, Elapsed time: 0:01:35
+# Errors: 1, Warnings: 1
+# Compile of riscv_adder.vhd was successful.
+# Compile of riscv_adder_tb.vhd was successful.
+# 2 compiles, 0 failed with no errors.
+vsim -64 work.tb_riscv_adder
+# vsim -64 work.tb_riscv_adder 
+# Start time: 12:24:19 on Oct 03,2024
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.tb_riscv_adder(test)#1
+# Loading work.riscv_adder(beh)#1
+# Loading work.riscv_halfadder(beh)#1
+add wave -position end  sim:/tb_riscv_adder/o_sum
+run 1ms
+# ** Error: Test Case 1 Failed!
+#    Time: 10 ns  Iteration: 0  Instance: /tb_riscv_adder
+# Compile of riscv_adder.vhd failed with 1 errors.
+# Compile of riscv_adder.vhd failed with 1 errors.
+# Compile of riscv_core_tb.vhd failed with 15 errors.
+# Compile of riscv_adder.vhd failed with 1 errors.
+# Compile of riscv_adder.vhd failed with 2 errors.
+# Compile of riscv_adder.vhd failed with 2 errors.
+# Compile of riscv_adder.vhd failed with 3 errors.
+# Compile of riscv_adder.vhd failed with 3 errors.
+# Compile of riscv_adder.vhd was successful with warnings.
+# Compile of riscv_adder.vhd was successful with warnings.
+# Compile of riscv_adder.vhd was successful with warnings.
+# Compile of riscv_adder.vhd was successful with warnings.
+# Compile of riscv_adder_tb.vhd was successful.
+# 2 compiles, 0 failed with no errors.
+vsim -64 work.tb_riscv_adder
+# End time: 12:41:23 on Oct 03,2024, Elapsed time: 0:17:04
+# Errors: 1, Warnings: 14
+# vsim -64 work.tb_riscv_adder 
+# Start time: 12:41:23 on Oct 03,2024
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.tb_riscv_adder(test)#1
+# Loading work.riscv_adder(beh)#1
+run 1ms
+add wave -position end  sim:/tb_riscv_adder/o_sum
+add wave -position 13  sim:/tb_riscv_adder/i_b
+add wave -position 1  sim:/tb_riscv_adder/i_a
+# Compile of riscv_adder.vhd was successful with warnings.
+# Compile of riscv_adder_tb.vhd was successful.
+# 2 compiles, 0 failed with no errors.
+vsim -64 work.tb_riscv_adder
+# End time: 12:43:36 on Oct 03,2024, Elapsed time: 0:02:13
+# Errors: 0, Warnings: 2
+# vsim -64 work.tb_riscv_adder 
+# Start time: 12:43:36 on Oct 03,2024
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.tb_riscv_adder(test)#1
+# Loading work.riscv_adder(beh)#1
+add wave -position end  sim:/tb_riscv_adder/o_sum
+add wave -position end  sim:/tb_riscv_adder/i_b
+add wave -position end  sim:/tb_riscv_adder/i_a
+
+run 1ms
+# Compile of riscv_adder.vhd failed with 1 errors.
+# Compile of riscv_adder_tb.vhd was successful.
+# 2 compiles, 1 failed with 1 error.
+# Compile of riscv_adder.vhd was successful with warnings.
+# Compile of riscv_adder.vhd failed with 2 errors.
+# Compile of riscv_adder.vhd was successful with warnings.
+# Load canceled
+# Compile of riscv_adder.vhd was successful with warnings.
+# Compile of riscv_adder_tb.vhd was successful.
+vsim -64 work.tb_riscv_adder
+# End time: 13:07:21 on Oct 03,2024, Elapsed time: 0:23:45
+# Errors: 0, Warnings: 7
+# vsim -64 work.tb_riscv_adder 
+# Start time: 13:07:21 on Oct 03,2024
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.tb_riscv_adder(test)#1
+# Loading work.riscv_adder(beh)#1
+add wave -position end  sim:/tb_riscv_adder/o_sum
+
+run 1ms

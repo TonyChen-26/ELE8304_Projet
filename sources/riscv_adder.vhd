@@ -33,44 +33,130 @@ architecture beh of riscv_adder is
 	port (  
 		in_a    : in  std_logic;
     		in_b    : in  std_logic;
-    		o_carry : out std_logic;
-		out_sum : out std_logic
+		out_sum : out std_logic;
+    		o_carry : out std_logic
 		); 
    end component riscv_halfadder;
 
 signal o_sum_buffer : std_logic_vector(N downto 0); --:= (others => '0');
-signal o_sum_buffer2 : std_logic_vector(N downto 0);-- := (others => '0');
+signal o_sum_buffer2 : std_logic_vector(N downto 0) := (others => '0');
 signal carry : std_logic_vector(N downto 0); 
 signal carry2 : std_logic_vector(N downto 0); 
-begin
-gen_Add:for i in 0 to N-1 generate
-	gen_0:if (i=0) generate 
-		u_add:riscv_halfadder port map(
-		'0', '1', o_sum_buffer2(0), carry(0));
-		--u_add2:riscv_halfadder port map (carry(i),o_sum_buffer(i+1),o_sum_buffer2(i+1),carry2(i));
-	end generate gen_0;	
+signal SecondComplement : std_logic_vector(N-1 downto 0);
+
+begin 
+SecondComplement <= std_logic_vector(unsigned(not i_a)+1);
+
+gen_unsigned: if i_sign = '0' generate
+gen_adder : if i_sub = '0' generate
+
+	gen_Add:for i in 0 to N-1 generate
+		gen_0:if (i=0) generate 
+			u_add:riscv_halfadder port map(
+			i_a(0), i_b(0), o_sum_buffer2(0), carry(0));
+			u_add2:riscv_halfadder port map (carry(i),o_sum_buffer(i+1),o_sum_buffer2(i+1),carry2(i));
+		end generate gen_0;	
 
 
-	--gen_i:if (i > 0 and i < N-1) generate
-	--	u_add:riscv_halfadder port map(
-		--i_a(i),i_b(i),o_sum_buffer(i),carry(i));
-		--gen_i2:if (i < N-2 ) generate
-		--	--u_add2:riscv_halfadder port map (carry(i) OR carry2(i-1),o_sum_buffer(i+1),o_sum_buffer2(i+1),carry2(i));
-		--end generate gen_i2;
-	--end generate gen_i;	
+		gen_i:if (i > 0 and i < N-1) generate
+			u_add:riscv_halfadder port map(
+			i_a(i),i_b(i),o_sum_buffer(i),carry(i));
+			gen_i2:if (i < N-2 ) generate
+			u_add2:riscv_halfadder port map (carry(i) OR carry2(i-1),o_sum_buffer(i+1),o_sum_buffer2(i+1),carry2(i));
+			end generate gen_i2;
+		end generate gen_i;	
 
-	--gen_N:if (i = N-1) generate
-		--u_add:riscv_halfadder port map(
-		--i_a(N-1),i_b(N-1),o_sum_buffer2(N-1),carry(N-1));
-	--end generate gen_N;
+		gen_N:if (i = N-1) generate
+			u_add:riscv_halfadder port map(
+			i_a(N-1),i_b(N-1),o_sum_buffer2(N-1),carry(N-1));
+		end generate gen_N;
+	end generate gen_Add;
+
+end generate gen_adder;
+
+gen_substitution: if i_sub = '1' generate
+
+	gen_sub:for i in 0 to N-1 generate
+		gen_0:if (i=0) generate 
+			u_add:riscv_halfadder port map(
+			not i_a(0), i_b(0), o_sum_buffer2(0), carry(0));
+			u_add2:riscv_halfadder port map (carry(i),o_sum_buffer(i+1),o_sum_buffer2(i+1),carry2(i));
+		end generate gen_0;	
 
 
-	
+		gen_i:if (i > 0 and i < N-1) generate
+			u_add:riscv_halfadder port map(
+			not i_a(i),i_b(i),o_sum_buffer(i),carry(i));
+			gen_i2:if (i < N-2 ) generate
+			u_add2:riscv_halfadder port map (carry(i) OR carry2(i-1),o_sum_buffer(i+1),o_sum_buffer2(i+1),carry2(i));
+			end generate gen_i2;
+		end generate gen_i;	
+
+		gen_N:if (i = N-1) generate
+			u_add:riscv_halfadder port map(
+			not i_a(N-1),i_b(N-1),o_sum_buffer2(N-1),carry(N-1));
+		end generate gen_N;
+	end generate gen_sub;
+
+end generate gen_substitution;
+end generate gen_unsigned;
+
+gen_signed: if i_sign = '1' generate
+	gen_adder : if i_sub = '0' generate
+
+	gen_Add:for i in 0 to N-1 generate
+		gen_0:if (i=0) generate 
+			u_add:riscv_halfadder port map(
+			SecondComplement(0), i_b(0), o_sum_buffer2(0), carry(0));
+			u_add2:riscv_halfadder port map (carry(i),o_sum_buffer(i+1),o_sum_buffer2(i+1),carry2(i));
+		end generate gen_0;	
 
 
-end generate gen_Add;
+		gen_i:if (i > 0 and i < N-1) generate
+			u_add:riscv_halfadder port map(
+			i_a(i),i_b(i),o_sum_buffer(i),carry(i));
+			gen_i2:if (i < N-2 ) generate
+			u_add2:riscv_halfadder port map (carry(i) OR carry2(i-1),o_sum_buffer(i+1),o_sum_buffer2(i+1),carry2(i));
+			end generate gen_i2;
+		end generate gen_i;	
+
+		gen_N:if (i = N-1) generate
+			u_add:riscv_halfadder port map(
+			i_a(N-1),i_b(N-1),o_sum_buffer2(N-1),carry(N-1));
+		end generate gen_N;
+	end generate gen_Add;
+
+end generate gen_adder;
+
+gen_substitution: if i_sub = '1' generate
+
+	gen_sub:for i in 0 to N-1 generate
+		gen_0:if (i=0) generate 
+			u_add:riscv_halfadder port map(
+			SecondComplement(0), i_b(0), o_sum_buffer2(0), carry(0));
+			u_add2:riscv_halfadder port map (carry(i),o_sum_buffer(i+1),o_sum_buffer2(i+1),carry2(i));
+		end generate gen_0;	
 
 
-o_sum <= "000000000000000000000000001010101";
+		gen_i:if (i > 0 and i < N-1) generate
+			u_add:riscv_halfadder port map(
+			SecondComplement(i),i_b(i),o_sum_buffer(i),carry(i));
+			gen_i2:if (i < N-2 ) generate
+			u_add2:riscv_halfadder port map (carry(i) OR carry2(i-1),o_sum_buffer(i+1),o_sum_buffer2(i+1),carry2(i));
+			end generate gen_i2;
+		end generate gen_i;	
+
+		gen_N:if (i = N-1) generate
+			u_add:riscv_halfadder port map(
+			SecondComplement(N-1),i_b(N-1),o_sum_buffer2(N-1),carry(N-1));
+		end generate gen_N;
+	end generate gen_sub;
+
+end generate gen_substitution;
+
+end generate gen_signed;
+
+o_sum <= o_sum_buffer2;
+
 end architecture beh;
 
