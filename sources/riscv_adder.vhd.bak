@@ -57,6 +57,7 @@ signal carry8: std_logic_vector(N-1 downto 0);
 
 signal SecondComplement : std_logic_vector(N-1 downto 0);
 signal SecondComplement2 : std_logic_vector(N-1 downto 0);
+signal SecondComplementb : std_logic_vector(N-1 downto 0);
 signal sign: std_logic;
 signal sub: std_logic;
 signal subsign: std_logic_vector(1 downto 0);
@@ -66,12 +67,35 @@ signal o_rafraichi_subUnSign : std_logic_vector(N downto 0):= (others => '0');
 signal o_rafraichi_subSign : std_logic_vector(N downto 0):= (others => '0');
 signal o_rafraichi_AddSign : std_logic_vector(N downto 0):= (others => '0');
 
+signal CarryBuff1: std_logic;
+signal CarryBuff2: std_logic;
+
+signal APourSign: std_logic_vector(N-1 downto 0):= (others => '0');
+signal BPourSign: std_logic_vector(N-1 downto 0):= (others => '0');
+signal BuffA: std_logic_vector(N-1 downto 0):= (others => '0');
+signal BuffB: std_logic_vector(N-1 downto 0):= (others => '0');
+
 begin 
 SecondComplement <= std_logic_vector(unsigned(not i_a)+1);
 SecondComplement2 <= std_logic_vector(unsigned(not i_a)+1);
+SecondComplementb <= std_logic_vector(unsigned(not i_b)+1);
 sign <= i_sign;
 sub <= i_sub;
 subsign <= sub & sign;
+BuffA<=i_a;
+BuffB<=i_b;
+
+with i_a(31) select
+	APourSign <= SecondComplement when '1',
+	   BuffA when '0',
+	(others=>'1') when others;
+
+with i_b(31) select
+	APourSign <= SecondComplementb when '1',
+	   BuffB when '0',
+	(others=>'1') when others;
+
+
 --gen_unsigned: if i_sign = '0' generate
 	--gen_adder : if i_sub = '0' generate
 
@@ -93,7 +117,7 @@ subsign <= sub & sign;
 
 		gen_N:if (i = N-1) generate
 			u_add:riscv_halfadder port map(
-			i_a(N-1),i_b(N-1),o_sum_buffer2(N-1),carry(N-1));
+			i_a(N-1),i_b(N-1),o_sum_buffer2(N-1),carry(N-2));
 		end generate gen_N;
 	end generate gen_Add;
 
@@ -120,7 +144,7 @@ subsign <= sub & sign;
 
 		gen_N:if (i = N-1) generate
 			u_add:riscv_halfadder port map(
-			not i_a(N-1),i_b(N-1),o_sum_buffer4(N-1),carry3(N-1));
+			not i_a(N-1),i_b(N-1),o_sum_buffer4(N-1),carry3(N-2));
 		end generate gen_N;
 	end generate gen_sub;
 
@@ -149,7 +173,7 @@ subsign <= sub & sign;
 
 		gen_N:if (i = N-1) generate
 			u_add:riscv_halfadder port map(
-			i_a(N-1),i_b(N-1),o_sum_buffer6(N-1),carry5(N-1));
+			i_a(i),i_b(i),o_sum_buffer5(i),carry5(i));
 		end generate gen_N;
 	end generate gen_Add1;
 --
@@ -175,23 +199,22 @@ subsign <= sub & sign;
 
 		gen_N:if (i = N-1) generate
 			u_add:riscv_halfadder port map(
-			SecondComplement2(N-1),i_b(N-1),o_sum_buffer8(N-1),carry7(N-1));
+			SecondComplement2(N-1),i_b(N-1),o_sum_buffer8(N-1),carry7(N-2));
 		end generate gen_N;
 	end generate gen_sub2;
---
---end generate gen_substitution;
---
---end generate gen_signed;
---
-o_rafraichi_AddunSign <=carry2(31) &o_sum_buffer2;
-o_rafraichi_subUnSign <= carry4(31) & not(o_sum_buffer4);
-o_rafraichi_AddSign <= carry6(31) & o_sum_buffer6;
-o_rafraichi_subSign <= carry8(31) & not(o_sum_buffer8);
+
+CarryBuff1 <= (carry5(30) XOR carry5(29));
+CarryBuff2 <=  (carry7(30) XOR carry7(29));
+
+o_rafraichi_AddunSign <=  carry(30) & o_sum_buffer2;
+o_rafraichi_subUnSign <=  carry3(30) & not(o_sum_buffer4);
+o_rafraichi_AddSign <=     CarryBuff1  & o_sum_buffer6;
+o_rafraichi_subSign <=   CarryBuff2 &  o_sum_buffer8;
 
 with subsign select
-	o_sum <=  o_rafraichi_AddunSignwhen  "00",
+	o_sum <=  o_rafraichi_AddunSign when  "00",
 		o_rafraichi_subUnSign when "10",
-		 o_rafraichi_AddSign when   "01",
+		 o_rafraichi_AddSign when  "01",
 		o_rafraichi_subSign when "11",
 		(others=>'1') when others;
 		

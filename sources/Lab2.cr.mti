@@ -1,13 +1,4 @@
-/export/tmp/8304_8/Labs/lab2/sources/riscv_adder_tb.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /export/tmp/8304_8/Labs/lab2/sources/riscv_adder_tb.vhd
-QuestaSim-64 vcom 2022.1_2 Compiler 2022.04 Apr  2 2022
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package NUMERIC_STD
--- Compiling entity tb_riscv_adder
--- Compiling architecture test of tb_riscv_adder
-
-} {} {}} /export/tmp/8304_8/Labs/lab2/sources/riscv_pkg.vhd {1 {vcom -work work -2008 -explicit -vopt -stats=none /export/tmp/8304_8/Labs/lab2/sources/riscv_pkg.vhd
+/export/tmp/8304_8/Labs/lab2/sources/riscv_pkg.vhd {1 {vcom -work work -2008 -explicit -vopt -stats=none /export/tmp/8304_8/Labs/lab2/sources/riscv_pkg.vhd
 QuestaSim-64 vcom 2022.1_2 Compiler 2022.04 Apr  2 2022
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -15,6 +6,50 @@ QuestaSim-64 vcom 2022.1_2 Compiler 2022.04 Apr  2 2022
 -- Loading package NUMERIC_STD
 -- Loading package MATH_REAL
 -- Compiling package riscv_pkg
+
+} {} {}} /export/tmp/8304_8/Labs/lab2/sources/riscv_halfadder.vhd {1 {vcom -work work -2008 -explicit -vopt -stats=none /export/tmp/8304_8/Labs/lab2/sources/riscv_halfadder.vhd
+QuestaSim-64 vcom 2022.1_2 Compiler 2022.04 Apr  2 2022
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity riscv_halfadder
+-- Compiling architecture beh of riscv_halfadder
+
+} {} {}} /export/tmp/8304_8/Labs/lab2/sources/riscv_pc.vhd {1 {vcom -work work -2008 -explicit -vopt -stats=none /export/tmp/8304_8/Labs/lab2/sources/riscv_pc.vhd
+QuestaSim-64 vcom 2022.1_2 Compiler 2022.04 Apr  2 2022
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package MATH_REAL
+-- Loading package riscv_pkg
+-- Compiling entity riscv_pc
+-- Compiling architecture beh of riscv_pc
+
+} {} {}} /export/tmp/8304_8/Labs/lab2/sources/riscv_alu_tb.vhdl {1 {vcom -work work -2002 -explicit -vopt -stats=none /export/tmp/8304_8/Labs/lab2/sources/riscv_alu_tb.vhdl
+QuestaSim-64 vcom 2022.1_2 Compiler 2022.04 Apr  2 2022
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package MATH_REAL
+-- Loading package riscv_pkg
+-- Compiling entity tb_riscv_alu
+-- Compiling architecture beh of tb_riscv_alu
+-- Loading entity riscv_alu
+
+} {} {}} /export/tmp/8304_8/Labs/lab2/sources/riscv_rf_tb.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /export/tmp/8304_8/Labs/lab2/sources/riscv_rf_tb.vhd
+QuestaSim-64 vcom 2022.1_2 Compiler 2022.04 Apr  2 2022
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package MATH_REAL
+-- Loading package riscv_pkg
+-- Compiling entity tb_riscv_rf
+-- Compiling architecture beh of tb_riscv_rf
+-- Loading entity riscv_rf
 
 } {} {}} /export/tmp/8304_8/Labs/lab2/sources/riscv_core_tb.vhd {0 {vcom -work work -2008 -explicit -vopt -stats=none /export/tmp/8304_8/Labs/lab2/sources/riscv_core_tb.vhd
 QuestaSim-64 vcom 2022.1_2 Compiler 2022.04 Apr  2 2022
@@ -44,7 +79,7 @@ QuestaSim-64 vcom 2022.1_2 Compiler 2022.04 Apr  2 2022
 ** Error: /export/tmp/8304_8/Labs/lab2/sources/riscv_core_tb.vhd(86): Unknown expanded name.
 ** Note: /export/tmp/8304_8/Labs/lab2/sources/riscv_core_tb.vhd(108): VHDL Compiler exiting
 
-} {10.0 22.0 24.0 25.0 26.0 27.0} {}} /export/tmp/8304_8/Labs/lab2/sources/riscv_alu.vhd {1 {vcom -work work -2008 -explicit -vopt -stats=none /export/tmp/8304_8/Labs/lab2/sources/riscv_alu.vhd
+} {10.0 22.0 24.0 25.0 26.0 27.0} {}} /export/tmp/8304_8/Labs/lab2/sources/riscv_pc_tb.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /export/tmp/8304_8/Labs/lab2/sources/riscv_pc_tb.vhd
 QuestaSim-64 vcom 2022.1_2 Compiler 2022.04 Apr  2 2022
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -52,38 +87,9 @@ QuestaSim-64 vcom 2022.1_2 Compiler 2022.04 Apr  2 2022
 -- Loading package NUMERIC_STD
 -- Loading package MATH_REAL
 -- Loading package riscv_pkg
--- Compiling entity riscv_alu
--- Compiling architecture beh of riscv_alu
-
-} {} {}} /export/tmp/8304_8/Labs/lab2/sources/riscv_pc.vhd {1 {vcom -work work -2008 -explicit -vopt -stats=none /export/tmp/8304_8/Labs/lab2/sources/riscv_pc.vhd
-QuestaSim-64 vcom 2022.1_2 Compiler 2022.04 Apr  2 2022
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package NUMERIC_STD
--- Loading package MATH_REAL
--- Loading package riscv_pkg
--- Compiling entity riscv_pc
--- Compiling architecture beh of riscv_pc
-
-} {} {}} /export/tmp/8304_8/Labs/lab2/sources/dpm.vhd {1 {vcom -work work -2008 -explicit -vopt -stats=none /export/tmp/8304_8/Labs/lab2/sources/dpm.vhd
-QuestaSim-64 vcom 2022.1_2 Compiler 2022.04 Apr  2 2022
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package NUMERIC_STD
--- Loading package std_logic_textio
--- Compiling entity dpm
--- Compiling architecture beh of dpm
-
-} {} {}} /export/tmp/8304_8/Labs/lab2/sources/riscv_halfadder.vhd {1 {vcom -work work -2008 -explicit -vopt -stats=none /export/tmp/8304_8/Labs/lab2/sources/riscv_halfadder.vhd
-QuestaSim-64 vcom 2022.1_2 Compiler 2022.04 Apr  2 2022
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package NUMERIC_STD
--- Compiling entity riscv_halfadder
--- Compiling architecture beh of riscv_halfadder
+-- Compiling entity tb_riscv_pc
+-- Compiling architecture beh of tb_riscv_pc
+-- Loading entity riscv_pc
 
 } {} {}} /export/tmp/8304_8/Labs/lab2/sources/riscv_rf.vhd {1 {vcom -work work -2008 -explicit -vopt -stats=none /export/tmp/8304_8/Labs/lab2/sources/riscv_rf.vhd
 QuestaSim-64 vcom 2022.1_2 Compiler 2022.04 Apr  2 2022
@@ -95,5 +101,35 @@ QuestaSim-64 vcom 2022.1_2 Compiler 2022.04 Apr  2 2022
 -- Loading package riscv_pkg
 -- Compiling entity riscv_rf
 -- Compiling architecture beh of riscv_rf
+
+} {} {}} /export/tmp/8304_8/Labs/lab2/sources/riscv_alu.vhd {1 {vcom -work work -2008 -explicit -vopt -stats=none /export/tmp/8304_8/Labs/lab2/sources/riscv_alu.vhd
+QuestaSim-64 vcom 2022.1_2 Compiler 2022.04 Apr  2 2022
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package MATH_REAL
+-- Loading package riscv_pkg
+-- Compiling entity riscv_alu
+-- Compiling architecture beh of riscv_alu
+
+} {} {}} /export/tmp/8304_8/Labs/lab2/sources/dpm.vhd {1 {vcom -work work -2008 -explicit -vopt -stats=none /export/tmp/8304_8/Labs/lab2/sources/dpm.vhd
+QuestaSim-64 vcom 2022.1_2 Compiler 2022.04 Apr  2 2022
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package std_logic_textio
+-- Compiling entity dpm
+-- Compiling architecture beh of dpm
+
+} {} {}} /export/tmp/8304_8/Labs/lab2/sources/riscv_adder_tb.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /export/tmp/8304_8/Labs/lab2/sources/riscv_adder_tb.vhd
+QuestaSim-64 vcom 2022.1_2 Compiler 2022.04 Apr  2 2022
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity tb_riscv_adder
+-- Compiling architecture test of tb_riscv_adder
 
 } {} {}}
