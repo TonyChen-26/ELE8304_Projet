@@ -2,7 +2,7 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
--- Import the RISC-V package
+
 library work;
 use work.riscv_pkg.all;
 
@@ -11,7 +11,7 @@ end tb_riscv_pc;
 
 architecture beh of tb_riscv_pc is
 
-  -- Signals for connecting to the PC module
+ 
   signal tb_clk       : std_logic := '0';
   signal tb_rstn      : std_logic := '1';
   signal tb_stall     : std_logic := '0';
@@ -19,12 +19,12 @@ architecture beh of tb_riscv_pc is
   signal tb_target    : std_logic_vector(XLEN-1 downto 0) := (others => '0');
   signal tb_pc        : std_logic_vector(XLEN-1 downto 0);
 
-  -- Clock period definition
+ 
   constant clk_period : time := 10 ns;
 
 begin
 
-  -- Instantiate the PC module
+
   uut: entity work.riscv_pc
     generic map (RESET_VECTOR => 16#00000000#)
     port map (
@@ -36,7 +36,7 @@ begin
       o_pc        => tb_pc
     );
 
-  -- Clock generation process
+
   process
   begin
     tb_clk <= '0';
@@ -45,15 +45,15 @@ begin
     wait for clk_period / 2;
   end process;
 
-  -- Test process to verify functionality
+
   process
   begin
-    -- Test case 1: Reset the program counter
+    -- Test case 1: Reset counter
     tb_rstn <= '0';  -- Assert reset
     wait for clk_period;
 
 
-    -- Check if the PC was reset to the RESET_VECTOR value
+    -- Check if the PC = RESET_VECTOR 
     assert tb_pc = std_logic_vector(to_unsigned(16#00000000#, XLEN))
     report "PC reset failed" severity error;
     tb_rstn <= '1';  -- Deassert reset

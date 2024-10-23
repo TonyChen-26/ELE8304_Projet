@@ -79,12 +79,12 @@ begin
     tb_transfert <= '1';  -- Enable transfer
     tb_target <= std_logic_vector(to_unsigned(16#12345678#, XLEN));  -- Target address
     wait for clk_period;
---
---    -- Check if the PC jumped to the target address
---    assert tb_pc = std_logic_vector(to_unsigned(16#12345678#, XLEN))
---      report "PC transfer failed" severity error;
---
---    -- End simulation
+
+    -- Check if the PC jumped to the target address
+    assert tb_pc = std_logic_vector(to_unsigned(16#12345678#, XLEN))
+      report "PC transfer failed" severity error;
+
+    -- End simulation
     wait;
   end process;
 

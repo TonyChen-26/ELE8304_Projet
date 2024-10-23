@@ -47,35 +47,35 @@ begin
   -- Test sequence
   stim_proc: process
   begin
---     --Test 1: Simple addition
---    i_arith  <= '0';
---    i_sign   <= '0';
---    i_opcode <= ALUOP_ADD;
---    i_shamt  <= (others => '0');
---    i_src1   <= std_logic_vector(to_unsigned(10, XLEN));
---    i_src2   <= std_logic_vector(to_unsigned(5, XLEN));
---
---    wait for 20 ns;
---    assert (o_res = "00000000000000000000000000001111") report "Test Case 1 Failed!" severity error; 
---
---    -- Test 2: Simple subtraction
---    i_arith  <= '1'; -- Subtraction
---    i_opcode <= ALUOP_ADD;
---    i_src1   <= std_logic_vector(to_unsigned(15, XLEN));
---    i_src2   <= std_logic_vector(to_unsigned(5, XLEN));
---
---    wait for 20 ns;
---    assert (o_res = "00000000000000000000000000001010") report "Test Case 2 Failed!" severity error; 
---
-    -- Test 3: Logical AND
---    i_arith  <= '0';
---    i_opcode <= ALUOP_AND;
---    i_src1   <= std_logic_vector(to_unsigned(15, XLEN));
---    i_src2   <= std_logic_vector(to_unsigned(5, XLEN));
---
---    wait for 20 ns;
---    assert (o_res = "00000000000000000000000000000101") report "Test Case 3 Failed!" severity error; 
---
+     --Test 1: Simple addition
+    i_arith  <= '0';
+    i_sign   <= '0';
+    i_opcode <= ALUOP_ADD;
+    i_shamt  <= (others => '0');
+    i_src1   <= std_logic_vector(to_unsigned(10, XLEN));
+    i_src2   <= std_logic_vector(to_unsigned(5, XLEN));
+
+    wait for 20 ns;
+    assert (o_res = "00000000000000000000000000001111") report "Test Case 1 Failed!" severity error; 
+
+    -- Test 2: Simple subtraction
+    i_arith  <= '1'; -- Subtraction
+    i_opcode <= ALUOP_ADD;
+    i_src1   <= std_logic_vector(to_unsigned(15, XLEN));
+    i_src2   <= std_logic_vector(to_unsigned(5, XLEN));
+
+    wait for 20 ns;
+    assert (o_res = "00000000000000000000000000001010") report "Test Case 2 Failed!" severity error; 
+
+     --Test 3: Logical AND
+    i_arith  <= '0';
+    i_opcode <= ALUOP_AND;
+    i_src1   <= std_logic_vector(to_unsigned(15, XLEN));
+    i_src2   <= std_logic_vector(to_unsigned(5, XLEN));
+
+    wait for 20 ns;
+    assert (o_res = "00000000000000000000000000000101") report "Test Case 3 Failed!" severity error; 
+
     -- Test 4: Shift left
     i_arith  <= '0';
     i_opcode <= ALUOP_SL;

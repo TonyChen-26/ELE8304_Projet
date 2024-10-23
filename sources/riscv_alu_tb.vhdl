@@ -9,7 +9,7 @@ entity tb_riscv_alu is
 end entity tb_riscv_alu;
 
 architecture beh of tb_riscv_alu is
-  -- Signals to connect to the ALU
+
   signal i_arith   : std_logic;
   signal i_sign    : std_logic;
   signal i_opcode  : std_logic_vector(ALUOP_WIDTH-1 downto 0);
@@ -18,12 +18,12 @@ architecture beh of tb_riscv_alu is
   signal i_src2    : std_logic_vector(XLEN-1 downto 0);
   signal o_res     : std_logic_vector(XLEN-1 downto 0);
 
-  -- Clock and reset signals
+
   signal clk       : std_logic := '0';
   signal rst       : std_logic := '0';
 
 begin
-  -- Instantiate the ALU
+
   uut: entity work.riscv_alu
     port map(
       i_arith  => i_arith,
@@ -35,7 +35,7 @@ begin
       o_res    => o_res
     );
 
-  -- Clock generation
+
   clk_process : process
   begin
     clk <= '0';
@@ -44,10 +44,10 @@ begin
     wait for 10 ns;
   end process;
 
-  -- Test sequence
+
   stim_proc: process
   begin
-     --Test 1: Simple addition
+     --Test 1:  addition
     i_arith  <= '0';
     i_sign   <= '0';
     i_opcode <= ALUOP_ADD;
@@ -58,7 +58,7 @@ begin
     wait for 20 ns;
     assert (o_res = "00000000000000000000000000001111") report "Test Case 1 Failed!" severity error; 
 
-    -- Test 2: Simple subtraction
+    -- Test 2:  subtraction
     i_arith  <= '1'; -- Subtraction
     i_opcode <= ALUOP_ADD;
     i_src1   <= std_logic_vector(to_unsigned(15, XLEN));
@@ -67,7 +67,7 @@ begin
     wait for 20 ns;
     assert (o_res = "00000000000000000000000000001010") report "Test Case 2 Failed!" severity error; 
 
-     --Test 3: Logical AND
+     --Test 3:  AND
     i_arith  <= '0';
     i_opcode <= ALUOP_AND;
     i_src1   <= std_logic_vector(to_unsigned(15, XLEN));
