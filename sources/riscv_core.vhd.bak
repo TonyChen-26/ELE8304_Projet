@@ -21,4 +21,10 @@ entity riscv_core is
 end entity riscv_core;
 
 architecture beh of riscv_core is
+
+
+
+
+
+
 end architecture beh;

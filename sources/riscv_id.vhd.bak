@@ -1,26 +1,237 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
 
-library IEEE;
-use IEEE.STD_LOGIC_1164.ALL;
-use IEEE.STD_LOGIC_ARITH.ALL;
-use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
-entity DECODE is
-    Port (
-        i_clk         : in  STD_LOGIC;
-        i_flush       : in  STD_LOGIC;
-        i_instruction : in  STD_LOGIC_VECTOR(31 downto 0);
-        i_wb          : in  STD_LOGIC;
-        i_rd_addr     : in STD_LOGIC_VECTOR(4 downto 0);  
-        i_rd_data     : in STD_LOGIC_VECTOR(4 downto 0);  
-        o_rs1_data    : out STD_LOGIC_VECTOR(31 downto 0); 
-        o_rs2_data    : out STD_LOGIC_VECTOR(31 downto 0); 
-        o_imm         : out STD_LOGIC_VECTOR(31 downto 0); 
-        o_src_imm     : out STD_LOGIC_VECTOR(31 downto 0); 
-        o_branch      : out STD_LOGIC;
-        o_jump        : out STD_LOGIC;
-        o_wb          : out STD_LOGIC
-        o_arith       : out STD_LOGIC;
-        o_sign        : out STD_LOGIC;
-        o_wb          : out STD_LOGIC;
+library work;
+use work.riscv_pkg.all;
+
+
+
+entity id is
+  port (
+    i_clk       : in  std_logic;
+    i_rstn      : in  std_logic;
+    i_instr     : in std_logic_vector(31 downto 0);  -- Input i_instruction from fetch stage
+    i_wb        : in std_logic;                      -- Write-back enable
+    i_rd_addr   : in std_logic_vector(4 downto 0);   -- Address to write data to in register file
+    i_rd_data   : in std_logic_vector(31 downto 0);  -- Data to write back to register file
+    i_flush     : in std_logic;
+
+    -- Outputs to IF/EX stage
+
+    o_rs1_data  : out std_logic_vector(31 downto 0);
+    o_rs2_data  : out std_logic_vector(31 downto 0);
+    o_branch    : out std_logic;
+    o_jump      : out std_logic;
+    o_rw        : out std_logic;
+    o_wb_out    : out std_logic;
+    o_arith     : out std_logic;
+    o_sign      : out std_logic;
+    o_src_imm   : out std_logic;
+    o_alu_op    : out std_logic_vector(3 downto 0);
+    o_imm       : out std_logic_vector(31 downto 0)
+  );
+end entity id;
+
+architecture beh of id is
+
+	component riscv_predecode is
+	Port (
+		i_instr	   : 	in std_logic_vector ( 31 downto 0);
+		o_rs1_addr :	out std_logic_vector( 4 downto 0 );
+		o_rs2_addr :	out std_logic_vector( 4 downto 0 );
+		o_opcode   :    out std_logic_vector(6 downto 0);
+		o_funct3   : 	out std_logic_vector(2 downto 0);
+        	o_funct7   : 	out std_logic_vector(6 downto 0);
+       		o_rd 	   : 	out std_logic_vector(4 downto 0)
+--        	o_imm 	   : 	out std_logic_vector(31 downto 0)
+	);
+end component riscv_predecode;
+
+	component riscv_rf is
+  	port (
+    		i_clk     : in  std_logic;
+    		i_rstn    : in  std_logic;
+    		i_we      : in  std_logic;
+    		i_addr_ra : in  std_logic_vector(REG_WIDTH-1 downto 0);
+    		o_data_ra : out std_logic_vector(XLEN-1 downto 0);
+    		i_addr_rb : in  std_logic_vector(REG_WIDTH-1 downto 0);
+    		o_data_rb : out std_logic_vector(XLEN-1 downto 0);
+    		i_addr_w  : in  std_logic_vector(REG_WIDTH-1 downto 0);
+    		i_data_w  : in  std_logic_vector(XLEN-1 downto 0)
+	);
+	end component riscv_rf;
+
+	component riscv_decode is
+ 	 Port (
+    		i_opcode  : in std_logic_vector(6 downto 0);
+    		i_funct3  : in std_logic_vector(2 downto 0);
+    		i_funct7  : in std_logic_vector(6 downto 0);
+    		i_instr   : in std_logic_vector(31 downto 0);
+
+    		o_branch  : out std_logic;
+    		o_jump    : out std_logic;
+    		o_rw      : out std_logic;
+    		o_wb      : out std_logic;
+    		o_arith   : out std_logic;
+    		o_sign    : out std_logic;
+   		 o_src_imm : out std_logic;
+    		o_alu_op  : out std_logic_vector(3 downto 0);
+    		o_imm     : out std_logic_vector(31 downto 0)
+ 	);
+end component riscv_decode;
+
+  -- Signals to connect internal components
+  signal i_clk_buffer :std_logic;
+  signal i_rstn_buffer    :   std_logic;
+  signal instr    : std_logic_vector(31 downto 0); 
+  signal opcode   : std_logic_vector(6 downto 0);
+  signal funct3   : std_logic_vector(2 downto 0);
+  signal funct7   : std_logic_vector(6 downto 0);
+  signal rs1_addr : std_logic_vector(4 downto 0);
+  signal rs2_addr : std_logic_vector(4 downto 0);
+
+  signal rs1_addr_buffer: std_logic_vector(REG_WIDTH-1 downto 0);
+  signal rs2_addr_buffer: std_logic_vector(REG_WIDTH-1 downto 0);
+  signal rd_addr_buffer : std_logic_vector(REG_WIDTH-1 downto 0) := (others => '0');
+
+  signal o_data_ra_buffer      : std_logic_vector(XLEN-1 downto 0);
+  signal o_data_rb_buffer      : std_logic_vector(XLEN-1 downto 0);
+  signal i_data_w_buffer       : std_logic_vector(XLEN-1 downto 0);
+
+  signal i_we_buffer           :   std_logic;
+		
+  signal  i_opcode_buffer  :  std_logic_vector(6 downto 0);
+  signal  i_funct3_buffer  :  std_logic_vector(2 downto 0);
+  signal  i_funct7_buffer  :  std_logic_vector(6 downto 0);
+  signal  i_instr_buffer   :  std_logic_vector(31 downto 0);
+
+  signal  o_branch_buffer  :  std_logic;
+  signal  o_jump_buffer    :  std_logic;
+  signal  o_rw_buffer      :  std_logic;
+  signal  o_wb_buffer      :  std_logic;
+  signal  o_arith_buffer   :  std_logic;
+  signal  o_sign_buffer    :  std_logic;
+  signal  o_src_imm_buffer :  std_logic;
+  signal  o_alu_op_buffer  :  std_logic_vector(3 downto 0);
+  signal  o_imm_buffer     :  std_logic_vector(31 downto 0);
+
+    signal o_rs1_data_buffer_2  : std_logic_vector(31 downto 0);  -- 32-bit buffer for rs1 data
+  signal o_rs2_data_buffer_2  : std_logic_vector(31 downto 0);  -- 32-bit buffer for rs2 data
+  signal o_imm_buffer_2       : std_logic_vector(31 downto 0);  -- 32-bit buffer for immediate data
+  signal o_alu_op_buffer_2    : std_logic_vector(3 downto 0);   -- 4-bit buffer for ALU operation code
+  
+  -- Buffer signals for control outputs (single-bit buffers for control signals)
+  signal o_branch_buffer_2    : std_logic;  -- Buffer for branch control signal
+  signal o_jump_buffer_2      : std_logic;  -- Buffer for jump control signal
+  signal o_rw_buffer_2        : std_logic;  -- Buffer for read/write control signal
+  signal o_wb_out_buffer_2    : std_logic;  -- Buffer for write-back output signal
+  signal o_arith_buffer_2     : std_logic;  -- Buffer for arithmetic operation signal
+  signal o_sign_buffer_2      : std_logic;  -- Buffer for sign extension signal
+  signal o_src_imm_buffer_2   : std_logic;  -- Buffer for source immediate signal
+
+
+begin
+
+  -- Instantiate the predecode module
+  predecode_inst : riscv_predecode
+    port map (
+      i_instr     => instr,
+      o_opcode    => opcode,
+      o_funct3    => funct3,
+      o_funct7    => funct7,
+      o_rs1_addr  => rs1_addr,
+      o_rs2_addr  => rs2_addr
     );
-end DECODE;
+
+  -- Instantiate the register file module
+  register_file_inst : riscv_rf
+    port map (
+      i_clk     => i_clk_buffer,
+      i_rstn    => i_rstn_buffer,
+      i_addr_ra  => rs1_addr_buffer,
+      i_addr_rb  => rs2_addr_buffer,
+      i_addr_w   => rd_addr_buffer,
+      i_data_w   => i_data_w_buffer,
+      i_we        => i_we_buffer,
+      o_data_ra  => o_data_ra_buffer,
+      o_data_rb  => o_data_rb_buffer
+    );
+
+  -- Instantiate the decode module
+  decode_inst : riscv_decode
+    port map (
+      i_opcode  => i_opcode_buffer,
+      i_funct3  => i_funct3_buffer,
+      i_funct7  => i_funct7_buffer,
+      i_instr   => i_instr_buffer,
+
+      o_branch  => o_branch_buffer,
+      o_jump    => o_jump_buffer,
+      o_rw      => o_rw_buffer,
+      o_wb      => o_wb_buffer,
+      o_arith   => o_arith_buffer,
+      o_sign    => o_sign_buffer,
+      o_src_imm => o_src_imm_buffer,
+      o_alu_op  => o_alu_op_buffer,
+      o_imm     => o_imm_buffer
+    );
+
+
+
+
+
+process(i_clk,i_flush,i_rstn)
+begin 
+	
+    if (i_rstn = '0') then  -- Active-low reset (when i_rstn is '0')
+      -- Reset all output buffers to zero
+      o_rs1_data_buffer_2  <= (others => '0');
+      o_rs2_data_buffer_2  <= (others => '0');
+      o_branch_buffer_2    <= '0';
+      o_jump_buffer_2      <= '0';
+      o_rw_buffer_2        <= '0';
+      o_wb_out_buffer_2    <= '0';
+      o_arith_buffer_2     <= '0';
+      o_sign_buffer_2      <= '0';
+      o_src_imm_buffer_2   <= '0';
+      o_alu_op_buffer_2    <= (others => '0');
+      o_imm_buffer_2       <= (others => '0');
+
+    -- Flush condition to erase only the data signals
+    elsif (i_flush = '1') then
+      -- Erase only the data signals, not control signals
+      o_rs1_data_buffer_2  <= (others => '0');
+      o_rs2_data_buffer_2  <= (others => '0');
+      o_imm_buffer_2       <= (others => '0');
+
+
+    elsif rising_edge(i_clk) then 
+
+	      o_rs1_data_buffer_2  <= o_rs1_data_buffer_2;  -- Hold value
+      	      o_rs2_data_buffer_2  <= o_rs2_data_buffer_2;  -- Hold value
+      	      o_branch_buffer_2    <= o_branch_buffer_2;     -- Hold value
+      	      o_jump_buffer_2      <= o_jump_buffer_2;       -- Hold value
+      	      o_rw_buffer_2        <= o_rw_buffer_2;         -- Hold value
+      	      o_wb_out_buffer_2    <= o_wb_out_buffer_2;     -- Hold value
+      	      o_arith_buffer_2     <= o_arith_buffer_2;      -- Hold value
+      	      o_sign_buffer_2      <= o_sign_buffer_2;       -- Hold value
+      	      o_src_imm_buffer_2   <= o_src_imm_buffer_2;    -- Hold value
+      	      o_alu_op_buffer_2    <= o_alu_op_buffer_2;     -- Hold value
+      	      o_imm_buffer_2       <= o_imm_buffer_2;        -- Hold value
+	end if;
+end process
+      o_rs1_data  <= o_rs1_data_buffer_2;  -- Link buffer to real output
+      o_rs2_data  <= o_rs2_data_buffer_2;  -- Link buffer to real output
+      o_branch    <= o_branch_buffer_2;     -- Link buffer to real output
+      o_jump      <= o_jump_buffer_2;       -- Link buffer to real output
+      o_rw        <= o_rw_buffer_2;         -- Link buffer to real output
+      o_wb_out    <= o_wb_out_buffer_2;     -- Link buffer to real output
+      o_arith     <= o_arith_buffer_2;      -- Link buffer to real output
+      o_sign      <= o_sign_buffer_2;       -- Link buffer to real output
+      o_src_imm   <= o_src_imm_buffer_2;    -- Link buffer to real output
+      o_alu_op    <= o_alu_op_buffer_2;     -- Link buffer to real output
+      o_imm       <= o_imm_buffer_2;        -- Link buffer to real output
+
+end architecture beh;
