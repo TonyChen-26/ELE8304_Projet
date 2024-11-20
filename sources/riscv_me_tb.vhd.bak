@@ -1,0 +1,119 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity tb_memory is
+end entity;
+
+architecture Behavioral of tb_memory is
+
+  -- Component Declaration
+  component memory
+    port (
+      i_clk           : in std_logic;
+      i_store_data    : in std_logic_vector(31 downto 0);
+      i_rw            : in std_logic;
+      i_we            : in std_logic;
+      i_alu_result    : in std_logic_vector(31 downto 0);
+      i_wb            : in std_logic;
+      i_rd_addr       : in std_logic_vector(4 downto 0);
+
+      o_load_data     : out std_logic_vector(31 downto 0);
+      o_alu_result    : out std_logic_vector(31 downto 0);
+      o_wb            : out std_logic;
+      o_rd_addr       : out std_logic_vector(4 downto 0)
+    );
+  end component;
+
+  -- Clock signal
+  signal clk           : std_logic := '0';
+
+  -- Input signals
+  signal store_data    : std_logic_vector(31 downto 0) := (others => '0');
+  signal rw            : std_logic := '0';
+  signal we            : std_logic := '0';
+  signal alu_result    : std_logic_vector(31 downto 0) := (others => '0');
+  signal wb            : std_logic := '0';
+  signal rd_addr       : std_logic_vector(4 downto 0) := (others => '0');
+
+  -- Output signals
+  signal load_data     : std_logic_vector(31 downto 0);
+  signal alu_result_out : std_logic_vector(31 downto 0);
+  signal wb_out        : std_logic;
+  signal rd_addr_out   : std_logic_vector(4 downto 0);
+
+  constant CLK_PERIOD  : time := 10 ns;
+
+begin
+
+  -- Instantiate the DUT (Device Under Test)
+  uut: memory
+    port map (
+      i_clk        => clk,
+      i_store_data => store_data,
+      i_rw         => rw,
+      i_we         => we,
+      i_alu_result => alu_result,
+      i_wb         => wb,
+      i_rd_addr    => rd_addr,
+
+      o_load_data  => load_data,
+      o_alu_result => alu_result_out,
+      o_wb         => wb_out,
+      o_rd_addr    => rd_addr_out
+    );
+
+  -- Clock generation process
+  clk_process : process
+  begin
+    clk <= '0';
+    wait for CLK_PERIOD / 2;
+    clk <= '1';
+    wait for CLK_PERIOD / 2;
+  end process;
+
+  -- Stimulus process
+  stimulus : process
+  begin
+    -- Test Case 1: Write to Memory
+    rw <= '0';                       -- Write mode
+    we <= '1';                   -- Enable write
+    wb <= '1';  
+    alu_result <= x"00000004";         -- Address in memory
+    store_data <= "10101010101010101010101010101010";           -- Data to store
+                           -- Write-back signal
+    rd_addr <= "00010";                -- Register address
+    wait for CLK_PERIOD;
+
+    -- Check results after write
+    assert alu_result_out = alu_result report "ALU Result Mismatch on Write" severity error;
+    assert wb_out = wb report "Write-Back Signal Mismatch on Write" severity error;
+    assert rd_addr_out = rd_addr report "Register Address Mismatch on Write" severity error;
+
+    -- Test Case 2: Read from Memory
+    rw <= '0';                       -- Read mode
+    we <= '0';             -- Disable write
+    alu_result <= x"00000004";         -- Same address
+    wait for CLK_PERIOD;
+
+    -- Check results after read
+    assert load_data(31 downto 0) = store_data report "Memory Read Data Mismatch" severity error;
+    assert alu_result_out = alu_result report "ALU Result Mismatch on Read" severity error;
+    assert wb_out = wb report "Write-Back Signal Mismatch on Read" severity error;
+    assert rd_addr_out = rd_addr report "Register Address Mismatch on Read" severity error;
+
+    -- Test Case 3: Idle State (No Operation)
+    rw <= '0';                       -- No read/write
+    we <= '0';
+    alu_result <= x"00000008";         -- Unused address
+    wait for CLK_PERIOD;
+
+    -- Check results after idle
+    assert load_data = "00000000000000000000000000000000" report "Unexpected Memory Operation in Idle" severity error;
+
+    -- Test completed
+    report "All test cases passed!" severity note;
+    wait;
+  end process;
+
+end Behavioral;

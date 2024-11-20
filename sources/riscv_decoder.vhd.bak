@@ -2,7 +2,7 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
-entity decode is
+entity riscv_decode is
   Port (
     i_opcode  : in std_logic_vector(6 downto 0);
     i_funct3  : in std_logic_vector(2 downto 0);
@@ -19,7 +19,7 @@ entity decode is
     o_alu_op  : out std_logic_vector(3 downto 0);
     o_imm     : out std_logic_vector(31 downto 0)
   );
-end entity decode;
+end entity riscv_decode;
 
 architecture beh of decode is
 

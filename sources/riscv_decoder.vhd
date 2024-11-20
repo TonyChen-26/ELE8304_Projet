@@ -21,7 +21,7 @@ entity riscv_decode is
   );
 end entity riscv_decode;
 
-architecture beh of decode is
+architecture beh of riscv_decode is
 
 
 signal o_branch_buffer : std_logic:= '0';

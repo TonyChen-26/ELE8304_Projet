@@ -1,0 +1,41 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity write_back is
+  port (
+    -- Inputs
+    i_rw         : in  std_logic;                     -- Read/Write control signal
+    i_wb         : in  std_logic;                     -- Write-Back control signal
+    i_load_data  : in  std_logic_vector(31 downto 0); -- Data from memory
+    i_alu_result : in  std_logic_vector(31 downto 0); -- Data from ALU
+    i_rd_addr    : in  std_logic_vector(4 downto 0);  -- Register destination address
+
+    -- Outputs
+    o_rd_data    : out std_logic_vector(31 downto 0); -- Data to write-back to the register
+    o_wb         : out std_logic;                     -- Pass-through WB signal
+    o_rd_addr    : out std_logic_vector(4 downto 0)   -- Pass-through destination address
+  );
+end write_back;
+
+architecture behavior of write_back is
+begin
+  process(i_rw,i_wb,i_load_data,i_alu_result,i_rd_addr)
+  begin
+    if i_wb = '1' then
+      -- Select data based on the RW signal
+      if i_rw = '1' then
+        o_rd_data <= i_load_data;  -- Write memory data
+      else
+        o_rd_data <= i_alu_result; -- Write ALU result
+      end if;
+    else
+      o_rd_data <= (others => '0'); -- Default value if WB is not active
+    end if;
+
+    -- Pass-through signals
+   
+    o_wb      <= i_wb;
+    o_rd_addr <= i_rd_addr;
+  end process;
+end behavior;
