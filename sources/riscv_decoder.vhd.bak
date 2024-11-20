@@ -21,7 +21,7 @@ entity riscv_decode is
   );
 end entity riscv_decode;
 
-architecture beh of decode is
+architecture beh of riscv_decode is
 
 
 signal o_branch_buffer : std_logic:= '0';
@@ -49,7 +49,7 @@ begin
   process(i_opcode, i_funct3, i_funct7, i_instr)
   begin
 
-o_branch  <= o_branch_buffer ;
+--o_branch  <= o_branch_buffer ;
 	
 	o_branch_buffer <= '0';
         o_jump_buffer <= '0';
@@ -65,15 +65,15 @@ o_branch  <= o_branch_buffer ;
 
     case i_opcode is
       when "0110111" => --LUI
-        o_wb_buffer <= '1';
+        --o_wb_buffer <= '1';
         o_imm_buffer <= std_logic_vector(signed(i_instr(31 downto 12)) & "000000000000");
       when "1101111" => --JAL
         o_jump_buffer <= '1';
-        o_wb_buffer <= '1'; 
+        --o_wb_buffer <= '1'; 
         o_imm_buffer <= std_logic_vector(signed(i_instr(31) & i_instr(19 downto 12) & i_instr(20) & i_instr(30 downto 21) & "000000000000"));
       when "1100111" => --JALR
         o_jump_buffer <= '1';
-        o_wb_buffer <='1';
+        --o_wb_buffer <='1';
         o_src_imm_buffer <= '1'; 
         o_imm_buffer <= std_logic_vector(signed(i_instr(31 downto 20) & "00000000000000000000"));
 
@@ -83,7 +83,7 @@ o_branch  <= o_branch_buffer ;
 
       when "0000011" =>  -- LW
         o_rw_buffer <= '1';
-        o_wb_buffer <= '1';
+        --o_wb_buffer <= '1';
         o_src_imm_buffer <= '1';
         o_imm_buffer <= std_logic_vector(signed(i_instr(31 downto 20) & "00000000000000000000"));
 
@@ -93,7 +93,7 @@ o_branch  <= o_branch_buffer ;
 
       when "0010011" =>  -- I-type ALU (e.g., ADDI, ANDI)
         o_arith_buffer <= '1';
-        o_wb_buffer <= '1';
+        --o_wb_buffer <= '1';
         o_src_imm_buffer <= '1';
         o_imm_buffer <= std_logic_vector(signed(i_instr(31 downto 20) & "00000000000000000000"));
 
@@ -106,8 +106,8 @@ o_branch  <= o_branch_buffer ;
         end case;
 
       when "0110011" =>  -- R-type ALU (e.g., ADD, SUB, AND)
-        o_arith <= '1';
-        o_wb <= '1';
+        o_arith_buffer <= '1';
+        --o_wb_buffer <= '1';
 
         -- ALU operation based on funct3 and funct7
         case i_funct3 is

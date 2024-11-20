@@ -25,7 +25,7 @@ entity riscv_id is
     o_branch    : out std_logic;
     o_jump      : out std_logic;
     o_rw        : out std_logic;
-    o_wb_out    : out std_logic;
+    o_wb_out        : out std_logic;
     o_arith     : out std_logic;
     o_sign      : out std_logic;
     o_src_imm   : out std_logic;
@@ -205,38 +205,39 @@ begin
 if rising_edge(i_clk) then
     if (i_rstn = '1') then  -- Active-low reset (when i_rstn is '0')
       -- Reset all output buffers to zero
-      o_rs1_data_buffer  <= (others => '0');
-      o_rs2_data_buffer  <= (others => '0');
-      o_branch_buffer    <= '0';
-      o_jump_buffer      <= '0';
-      o_rw_buffer        <= '0';
-      o_wb_out_buffer    <= '0';
-      o_arith_buffer     <= '0';
-      o_sign_buffer      <= '0';
-      o_src_imm_buffer   <= '0';
-      o_alu_op_buffer    <= (others => '0');
-      o_imm_buffer       <= (others => '0');
+      o_rs1_data_buffer_2  <= (others => '0');
+      o_rs2_data_buffer_2  <= (others => '0');
+      o_branch_buffer_2    <= '0';
+      o_jump_buffer_2      <= '0';
+      o_rw_buffer_2        <= '0';
+      o_wb_out_buffer_2    <= '0';
+      o_arith_buffer_2     <= '0';
+      o_sign_buffer_2      <= '0';
+      o_src_imm_buffer_2   <= '0';
+      o_alu_op_buffer_2    <= (others => '0');
+      o_imm_buffer_2       <= (others => '0');
 
-    -- Flush condition to erase only the data signals
-    elsif (i_flush = '1') then
-      -- Erase only the data signals, not control signals
-     o_branch_buffer <= '0';
-      o_jump_buffer <= '0';
-      o_rw_buffer <= '0';
-      o_wb_buffer <= '0';
-      o_arith_buffer <= '0';
-      o_sign_buffer <= '0';
-      o_src_imm_buffer <= '0';
-      o_alu_op_buffer <= (others => '0');
-      o_imm_buffer <= (others => '0');
+--    -- Flush condition to erase only the data signals
+--    elsif (i_flush = '1') then
+--      -- Erase only the data signals, not control signals
+--     o_branch_buffer <= '0';
+--      o_jump_buffer <= '0';
+--      o_rw_buffer <= '0';
+--      o_wb_buffer <= '0';
+--      o_arith_buffer <= '0';
+--      o_sign_buffer <= '0';
+--      o_src_imm_buffer <= '0';
+--      o_alu_op_buffer <= (others => '0');
+--      o_imm_buffer <= (others => '0');
+--
+	else
 
-	end if;
 	      o_rs1_data_buffer_2  <= o_rs1_data_buffer;  -- Hold value
       	      o_rs2_data_buffer_2  <= o_rs2_data_buffer;  -- Hold value
       	      o_branch_buffer_2    <= o_branch_buffer;     -- Hold value
       	      o_jump_buffer_2      <= o_jump_buffer;       -- Hold value
       	      o_rw_buffer_2        <= o_rw_buffer;         -- Hold value
-      	      o_wb_out_buffer_2    <= o_wb_out_buffer;     -- Hold value
+      	      o_wb_out_buffer_2   <= o_wb_buffer;          -- Hold value
       	      o_arith_buffer_2     <= o_arith_buffer;      -- Hold value
       	      o_sign_buffer_2      <= o_sign_buffer;       -- Hold value
       	      o_src_imm_buffer_2   <= o_src_imm_buffer;    -- Hold value
@@ -246,8 +247,8 @@ end if;
 
    
 
-
-	end if;
+end if;
+	
 end process;
 
       o_rs1_data  <= o_rs1_data_buffer_2;  -- Link buffer to real output
@@ -256,26 +257,10 @@ end process;
       o_jump      <= o_jump_buffer_2;       -- Link buffer to real output
       o_rw        <= o_rw_buffer_2;         -- Link buffer to real output
       o_wb_out    <= o_wb_out_buffer_2;     -- Link buffer to real output
-      o_arith     <= o_arith_buffer_2;      -- Link buffer to real output
+      o_arith     <=  o_arith_buffer_2;      -- Link buffer to real output
       o_sign      <= o_sign_buffer_2;       -- Link buffer to real output
       o_src_imm   <= o_src_imm_buffer_2;    -- Link buffer to real output
       o_alu_op    <= o_alu_op_buffer_2;     -- Link buffer to real output
       o_imm       <= o_imm_buffer_2;        -- Link buffer to real output
 
-
-
-
-
---      o_rs1_data  <= o_rs1_data_buffer;  -- Link buffer to real output
---      o_rs2_data  <= o_rs2_data_buffer;  -- Link buffer to real output
---      o_branch    <= o_branch_buffer;     -- Link buffer to real output
---      o_jump      <= o_jump_buffer;       -- Link buffer to real output
---      o_rw        <= o_rw_buffer;         -- Link buffer to real output
---      o_wb_out    <= o_wb_out_buffer;     -- Link buffer to real output
---      o_arith     <= o_arith_buffer;      -- Link buffer to real output
---      o_sign      <= o_sign_buffer;       -- Link buffer to real output
---      o_src_imm   <= o_src_imm_buffer;    -- Link buffer to real output
---      o_alu_op    <= o_alu_op_buffer;     -- Link buffer to real output
---      o_imm       <= o_imm_buffer;        -- Link buffer to real output
---
 end architecture beh;

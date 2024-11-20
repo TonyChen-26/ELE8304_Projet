@@ -967,6 +967,24 @@ R0
 R0
 R0
 R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
 !s11e MIXED_VERSIONS
 13
 !s112 1.1
@@ -976,10 +994,10 @@ R0
 cModel Technology
 Z1 d/export/tmp/8304_8/Labs/tutoriel_numerique/simulation
 T_opt
-!s110 1732069350
-VCf5NHXGLN3g3UhX@>`cT73
-04 18 8 work tb_riscv_predecode behavior 1
-=1-a85e456ad2c8-673d47e6-92b1b-3a182
+!s110 1732073726
+VNY12N?X4RU;XdT5G;D3]J0
+04 9 3 work decode_tb beh 1
+=1-a85e456ad2c8-673d58fe-b8e14-3c45f
 R0
 Z2 !s124 OEM100
 Z3 o-quiet -auto_acc_if_foreign -work work
@@ -999,10 +1017,10 @@ n@_opt1
 R5
 R1
 T_opt2
-!s110 1732069134
-VI3]R=0QMLFJCNK6fSNn[Z2
-04 15 3 work riscv_predecode beh 1
-=1-a85e456ad2c8-673d470e-33b7d-39e36
+!s110 1732073092
+VDLFKOTh10zHShFhMc4ef43
+04 11 3 work riscv_id_tb beh 1
+=1-a85e456ad2c8-673d5684-92995-3c357
 R0
 R2
 R3
@@ -1015,7 +1033,7 @@ Z6 w1732065226
 Z7 DPx4 ieee 11 numeric_std 0 22 F8@]:i<mFK7<TjIzKcTGi0
 Z8 DPx3 std 6 textio 0 22 LS[?81n5ZHWBI9JkBZTV<2
 Z9 DPx4 ieee 14 std_logic_1164 0 22 6<US`=mgl_dFdCEFF7J=m1
-!i122 7201
+!i122 7354
 Z10 d/export/tmp/8304_8/Labs/lab2/sources
 Z11 8/export/tmp/8304_8/Labs/lab2/sources/riscv_DMEM.vhd
 Z12 F/export/tmp/8304_8/Labs/lab2/sources/riscv_DMEM.vhd
@@ -1025,7 +1043,7 @@ Voa1Z1Ocd>NPgHFKH3QIUW2
 !s100 NI0cIPmQj_V<WT3<3C`8Z1
 Z13 OL;C;2022.1_2;75
 32
-Z14 !s110 1732069230
+Z14 !s110 1732071559
 !i10b 1
 !i113 0
 Z15 o-work work -2002 -explicit
@@ -1035,7 +1053,7 @@ R7
 R8
 R9
 Z17 DEx4 work 5 d_mem 0 22 oa1Z1Ocd>NPgHFKH3QIUW2
-!i122 7201
+!i122 7354
 l27
 L16 38
 VaYh36O0:;YUATzZS3ChHV2
@@ -1052,7 +1070,7 @@ Z18 w1732064394
 R7
 R8
 R9
-!i122 7202
+!i122 7355
 R10
 Z19 8/export/tmp/8304_8/Labs/lab2/sources/riscv_DMEM_tb.vhd
 Z20 F/export/tmp/8304_8/Labs/lab2/sources/riscv_DMEM_tb.vhd
@@ -1062,7 +1080,7 @@ VRN77ALVOoNiG77AnnF^JI1
 !s100 Bde]?QFW5>G@bod:lWj^d0
 R13
 32
-Z21 !s110 1732069231
+R14
 !i10b 1
 !i113 0
 R15
@@ -1072,14 +1090,14 @@ R7
 R8
 R9
 DEx4 work 8 d_mem_tb 0 22 RN77ALVOoNiG77AnnF^JI1
-!i122 7202
+!i122 7355
 l31
 L8 99
 V9YoIdO?21X<EY2]YV_H<[1
 !s100 j5]Y>U143^nb`icmVJEAJ2
 R13
 32
-R21
+R14
 !i10b 1
 !i113 0
 R15
@@ -1091,8 +1109,8 @@ R8
 R9
 !i122 5163
 R10
-Z22 8/export/tmp/8304_8/Labs/lab2/sources/riscv_decoder.vhd
-Z23 F/export/tmp/8304_8/Labs/lab2/sources/riscv_decoder.vhd
+Z21 8/export/tmp/8304_8/Labs/lab2/sources/riscv_decoder.vhd
+Z22 F/export/tmp/8304_8/Labs/lab2/sources/riscv_decoder.vhd
 l0
 L5 1
 VnShddDLJBA15QRRUSmjf21
@@ -1112,7 +1130,7 @@ R9
 DEx4 work 6 decode 0 22 nShddDLJBA15QRRUSmjf21
 !i122 5182
 l38
-Z24 L24 110
+Z23 L24 110
 VIDRjm0zm:N`99lA2lF]DY3
 !s100 OELchFD3H[82@hClTJ?[a3
 R13
@@ -1123,14 +1141,14 @@ R13
 R15
 R16
 Edecode_tb
-Z25 w1731975982
+Z24 w1731975982
 R7
 R8
 R9
-!i122 7197
+!i122 7350
 R10
-Z26 8/export/tmp/8304_8/Labs/lab2/sources/riscv_decoder_tb.vhd
-Z27 F/export/tmp/8304_8/Labs/lab2/sources/riscv_decoder_tb.vhd
+Z25 8/export/tmp/8304_8/Labs/lab2/sources/riscv_decoder_tb.vhd
+Z26 F/export/tmp/8304_8/Labs/lab2/sources/riscv_decoder_tb.vhd
 l0
 L5 1
 V`QdLcG4YB_2_YBNT7YiJO0
@@ -1147,7 +1165,7 @@ R7
 R8
 R9
 DEx4 work 9 decode_tb 0 22 `QdLcG4YB_2_YBNT7YiJO0
-!i122 7197
+!i122 7350
 l46
 L8 119
 VC6l`I=UdgUUoj7j8S=2oM3
@@ -1160,54 +1178,54 @@ R14
 R15
 R16
 Edpm
-Z28 w1727893631
-Z29 DPx4 ieee 16 std_logic_textio 0 22 C8j>g0lzF^EAA]5<S6PY32
+Z27 w1727893631
+Z28 DPx4 ieee 16 std_logic_textio 0 22 C8j>g0lzF^EAA]5<S6PY32
 R7
 R8
 R9
-!i122 7176
+!i122 7329
 R10
-Z30 8/export/tmp/8304_8/Labs/lab2/sources/dpm.vhd
-Z31 F/export/tmp/8304_8/Labs/lab2/sources/dpm.vhd
+Z29 8/export/tmp/8304_8/Labs/lab2/sources/dpm.vhd
+Z30 F/export/tmp/8304_8/Labs/lab2/sources/dpm.vhd
 l0
 L21 1
 V;FoTQ]jRglQMmez@DFLd@1
 !s100 VAA8RfCKQP<Mo1fgD9ML31
 R13
 33
-Z32 !s110 1732069229
+Z31 !s110 1732071557
 !i10b 1
 !i113 0
-Z33 o-work work -2008 -explicit
+Z32 o-work work -2008 -explicit
 R16
 Abeh
-R29
+R28
 R7
 R8
 R9
 DEx4 work 3 dpm 0 22 ;FoTQ]jRglQMmez@DFLd@1
-!i122 7176
+!i122 7329
 l115
 L46 104
 VFdCViL5Wk3[9fchMM]a3S2
 !s100 i@ljVT6^g7Fn<6Sck7CnX2
 R13
 33
-R32
+R31
 !i10b 1
 !i113 0
-R33
+R32
 R16
 Eexecute
 w1731906527
-Z34 DPx4 ieee 9 math_real 0 22 :8NNHF3SFI6^on5?4X[S`1
+Z33 DPx4 ieee 9 math_real 0 22 :8NNHF3SFI6^on5?4X[S`1
 R7
-Z35 DPx4 work 9 riscv_pkg 0 22 6MHe91Q3aYJlf=F39czgK3
-Z36 DPx4 ieee 18 std_logic_unsigned 0 22 o4hn5gYc0WVo72BSL@Ta50
-Z37 DPx4 ieee 15 std_logic_arith 0 22 B[jVX6I8iRX2o6WYW0BB>3
+Z34 DPx4 work 9 riscv_pkg 0 22 6MHe91Q3aYJlf=F39czgK3
+Z35 DPx4 ieee 18 std_logic_unsigned 0 22 o4hn5gYc0WVo72BSL@Ta50
+Z36 DPx4 ieee 15 std_logic_arith 0 22 B[jVX6I8iRX2o6WYW0BB>3
 R8
 R9
-!i122 7196
+!i122 7349
 R10
 8/export/tmp/8304_8/Labs/lab2/sources/riscv_ex.vhd
 F/export/tmp/8304_8/Labs/lab2/sources/riscv_ex.vhd
@@ -1223,46 +1241,46 @@ R14
 R15
 R16
 Efetch
-Z38 w1729892618
-R34
+Z37 w1729892618
+R33
 R7
+R34
 R35
 R36
-R37
 R8
 R9
-!i122 7189
+!i122 7342
 R10
-Z39 8/export/tmp/8304_8/Labs/lab2/sources/riscv_fetch.vhd
-Z40 F/export/tmp/8304_8/Labs/lab2/sources/riscv_fetch.vhd
+Z38 8/export/tmp/8304_8/Labs/lab2/sources/riscv_fetch.vhd
+Z39 F/export/tmp/8304_8/Labs/lab2/sources/riscv_fetch.vhd
 l0
 L10 1
 VA2:a>_]81LVgda=;kSaJ30
 !s100 dHKhb;Ch85UoM3GkSHab@2
 R13
 32
-R14
+Z40 !s110 1732071558
 !i10b 1
 !i113 0
 R15
 R16
 Abehavioral
-R34
+R33
 R7
+R34
 R35
 R36
-R37
 R8
 R9
 DEx4 work 5 fetch 0 22 A2:a>_]81LVgda=;kSaJ30
-!i122 7189
+!i122 7342
 l43
 L24 40
 Vi@iPZLgdD==IE:K2UAB;`0
 !s100 OU62`0fNIZADnfJOjHE@i2
 R13
 32
-R14
+R40
 !i10b 1
 !i113 0
 R15
@@ -1271,7 +1289,7 @@ Efetch_tb
 Z41 w1729892697
 R8
 R9
-!i122 7190
+!i122 7343
 R10
 Z42 8/export/tmp/8304_8/Labs/lab2/sources/riscv_fetch_tb.vhd
 Z43 F/export/tmp/8304_8/Labs/lab2/sources/riscv_fetch_tb.vhd
@@ -1281,7 +1299,7 @@ VKOV4=J1b]_dCaU=Q_ozc51
 !s100 a;K7YIiLFBkQUfAn<Q3_Z3
 R13
 32
-R14
+R40
 !i10b 1
 !i113 0
 R15
@@ -1290,14 +1308,14 @@ Abehavioral
 R8
 R9
 DEx4 work 8 fetch_tb 0 22 KOV4=J1b]_dCaU=Q_ozc51
-!i122 7190
+!i122 7343
 l32
 L7 88
 VDoK>WJgjjAM8R_RB`IW^b0
 !s100 PaHV3e7loi<]cePz:26Zf1
 R13
 32
-R14
+R40
 !i10b 1
 !i113 0
 R15
@@ -1307,7 +1325,7 @@ Z44 w1732062809
 R7
 R8
 R9
-!i122 7195
+!i122 7348
 R10
 Z45 8/export/tmp/8304_8/Labs/lab2/sources/riscv_me.vhd
 Z46 F/export/tmp/8304_8/Labs/lab2/sources/riscv_me.vhd
@@ -1328,7 +1346,7 @@ R7
 R8
 R9
 DEx4 work 6 memory 0 22 S1QH6cNXDz>gnAzA42h1o2
-!i122 7195
+!i122 7348
 l37
 L23 43
 V71gdGgnFYIciX:mk2OgIg3
@@ -1345,7 +1363,7 @@ Z47 w1729713162
 R7
 R8
 R9
-!i122 7177
+!i122 7330
 R10
 Z48 8/export/tmp/8304_8/Labs/lab2/sources/riscv_adder.vhd
 Z49 F/export/tmp/8304_8/Labs/lab2/sources/riscv_adder.vhd
@@ -1355,36 +1373,36 @@ V826BJH;UhRF<ElgeVV3G62
 !s100 aG=M1Pz3e<<NoCio;Cmb70
 R13
 33
-R32
+R31
 !i10b 1
 !i113 0
-R33
+R32
 R16
 Abeh
 R7
 R8
 R9
 DEx4 work 11 riscv_adder 0 22 826BJH;UhRF<ElgeVV3G62
-!i122 7177
+!i122 7330
 l84
 L28 220
 V?6CfA9zNQ[N@78Nbz@e4^2
 !s100 <Te]Z^bDanUHUWMGXfUSi1
 R13
 33
-R32
+R31
 !i10b 1
 !i113 0
-R33
+R32
 R16
 Eriscv_alu
-R28
+R27
+R33
 R34
-R35
 R7
 R8
 R9
-!i122 7178
+!i122 7331
 R10
 Z51 8/export/tmp/8304_8/Labs/lab2/sources/riscv_alu.vhd
 Z52 F/export/tmp/8304_8/Labs/lab2/sources/riscv_alu.vhd
@@ -1394,38 +1412,38 @@ Vk54[YGKMWiVQ?3Le:LEmi1
 !s100 hNRdTE>lXd46;bXUODVS@0
 R13
 33
-R32
+R40
 !i10b 1
 !i113 0
-R33
+R32
 R16
 Abeh
+R33
 R34
-R35
 R7
 R8
 R9
 Z54 DEx4 work 9 riscv_alu 0 22 k54[YGKMWiVQ?3Le:LEmi1
-!i122 7178
+!i122 7331
 l35
 L29 58
 VG5R?hPGRESdWYeJ395;cA2
 !s100 ;>7jHiBBM63K3XQeRQf^R0
 R13
 33
-R32
+R40
 !i10b 1
 !i113 0
-R33
+R32
 R16
 Eriscv_core
 w1731967052
+R33
 R34
-R35
 R7
 R8
 R9
-!i122 7188
+!i122 7341
 R10
 8/export/tmp/8304_8/Labs/lab2/sources/riscv_core.vhd
 F/export/tmp/8304_8/Labs/lab2/sources/riscv_core.vhd
@@ -1435,18 +1453,18 @@ VPT84gOL0PfA?0<mbQ;m4X3
 !s100 TbJzaz;E=cNzMOY35VK]S2
 R13
 32
-R14
+R40
 !i10b 1
 !i113 0
 R15
 R16
 Eriscv_core_tb
-R28
+R27
 DPx3 std 3 env 0 22 QPZJVBPkV?55nUWhDzFik0
 R7
 R8
 R9
-!i122 7179
+!i122 7332
 R10
 8/export/tmp/8304_8/Labs/lab2/sources/riscv_core_tb.vhd
 F/export/tmp/8304_8/Labs/lab2/sources/riscv_core_tb.vhd
@@ -1456,27 +1474,27 @@ VRHKM?VcVLLjRU]Nf`B66L3
 !s100 h^QnXNCdZkDVnhCTFA4Sm3
 R13
 33
-R32
+R40
 !i10b 1
 !i113 0
-R33
+R32
 R16
 Eriscv_decode
-Z55 w1732044042
+Z55 w1732073672
 R7
 R8
 R9
-!i122 7194
+!i122 7362
 R10
+R21
 R22
-R23
 l0
 L5 1
 VVC2lPU?=09T=18dFmKWBk3
 !s100 ZE4;cojRmH03;6[;jAh?<1
 R13
 32
-R14
+Z56 !s110 1732073676
 !i10b 1
 !i113 0
 R15
@@ -1486,44 +1504,40 @@ R7
 R8
 R9
 DEx4 work 12 riscv_decode 0 22 VC2lPU?=09T=18dFmKWBk3
-!i122 7194
+!i122 7362
 l38
-R24
-V5JKdF]TNSafBEKVk;7R]S2
-!s100 ::m<D]WbPzbCIjYoP0l4L2
+R23
+Vg2Vf9A_SV<F=FX4hL@cW43
+!s100 Q^oQ51ZaH]8@[WAPN;QdD3
 R13
 32
-R14
+R56
 !i10b 1
 !i113 0
 R15
 R16
 Eriscv_halfadder
-Z56 w1727971766
+Z57 w1727971766
 R7
 R8
 R9
-!i122 7183
+!i122 7336
 R10
-Z57 8/export/tmp/8304_8/Labs/lab2/sources/riscv_halfadder.vhd
-Z58 F/export/tmp/8304_8/Labs/lab2/sources/riscv_halfadder.vhd
+Z58 8/export/tmp/8304_8/Labs/lab2/sources/riscv_halfadder.vhd
+Z59 F/export/tmp/8304_8/Labs/lab2/sources/riscv_halfadder.vhd
 l0
 R50
 VBh51j97k9LafXPkZ>4VZ52
 !s100 :S^B:g?M3_31658aRa7Fg1
 R13
 33
-R32
+R40
 !i10b 1
 !i113 0
-R33
+R32
 R16
 Abeh
 R7
 R8
 R9
-DEx4 work 15 riscv_halfadder 0 22 Bh51j97k9LafXPkZ>4VZ52
-!i122 7183
-l28
-L26 6
-V9J=PL1>LkT@8_OhHT7=2
+DEx4 work 15 riscv_halfadder 0 22 Bh51j97k9LafX

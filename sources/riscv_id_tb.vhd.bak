@@ -89,19 +89,25 @@ begin
   -- Stimulus Process with Assertions
   process
   begin
-    -- Reset the system
+    --Reset the system
     tb_rstn <= '1';
     wait for 20 ns;
     tb_rstn <= '0';
 
---    -- Test Case 1: No operation (NOP)
---    tb_i_instr <= x"00000000";  -- Example NOP instruction
---    wait for PERIOD;
---
---    assert tb_o_branch = '0' report "Branch flag incorrect for NOP" severity error;
---    assert tb_o_jump = '0' report "Jump flag incorrect for NOP" severity error;
---    assert tb_o_rw = '0' report "RW signal incorrect for NOP" severity error;
---    assert tb_o_wb_out = '0' report "WB out signal incorrect for NOP" severity error;
+    -- Test Case 1: No operation (NOP)
+    tb_i_instr <= x"00000000";  -- Example NOP instruction
+    wait for PERIOD;
+
+    assert tb_o_branch = '0' report "Branch flag incorrect for NOP" severity error;
+    assert tb_o_jump = '0' report "Jump flag incorrect for NOP" severity error;
+    assert tb_o_rw = '0' report "RW signal incorrect for NOP" severity error;
+    assert tb_o_wb_out = '0' report "WB out signal incorrect for NOP" severity error;
+    assert tb_o_rs1_data = "00000000000000000000000000000000" report "rs1_data incorrect for NOP" severity error;
+    assert tb_o_rs2_data = "00000000000000000000000000000000" report "rs2_data incorrect for NOP" severity error; 
+    assert tb_sign = '0' report "sign incorrect for NOP" severity error;
+    assert tb_o_alu_op = "0000" report "ALU OP incorrect for NOP" severity error;
+    assert tb_o_imm = "00000000000000000000000000000000" report "IMM incorrect for NOP" severity error;
+
 
     -- Test Case 2: Example Branch Instruction
     tb_i_instr <= "00000000000000000000000001100011";  -- Example BEQ instruction (adjust based on your ISA)
@@ -109,13 +115,14 @@ begin
 
     assert tb_o_branch = '1' report "Branch flag incorrect for BEQ" severity error;
     assert tb_o_rw = '0' report "RW signal incorrect for BEQ" severity error;
+    
 
     -- Test Case 3: Example Arithmetic Instruction
     tb_i_instr <= x"00000033";  -- Example ADD instruction
     wait for PERIOD;
 
     assert tb_o_arith = '1' report "Arithmetic flag incorrect for ADD" severity error;
-    assert tb_o_src_imm = '0' report "Src Imm flag incorrect for ADD" severity error;
+    assert tb_o_src_imm = '0'  report "Src Imm flag incorrect for ADD" severity error;
 
     -- Test Case 4: Example Load Instruction
     tb_i_instr <= x"00002003";  -- Example LW instruction

@@ -49,7 +49,7 @@ begin
   process(i_opcode, i_funct3, i_funct7, i_instr)
   begin
 
-o_branch  <= o_branch_buffer ;
+--o_branch  <= o_branch_buffer ;
 	
 	o_branch_buffer <= '0';
         o_jump_buffer <= '0';
@@ -106,8 +106,8 @@ o_branch  <= o_branch_buffer ;
         end case;
 
       when "0110011" =>  -- R-type ALU (e.g., ADD, SUB, AND)
-        o_arith <= '1';
-        o_wb <= '1';
+        o_arith_buffer <= '1';
+        o_wb_buffer <= '1';
 
         -- ALU operation based on funct3 and funct7
         case i_funct3 is

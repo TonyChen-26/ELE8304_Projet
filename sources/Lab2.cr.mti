@@ -130,6 +130,15 @@ QuestaSim-64 vcom 2022.1_2 Compiler 2022.04 Apr  2 2022
 -- Compiling architecture beh of tb_riscv_rf
 -- Loading entity riscv_rf
 
+} {} {}} /export/tmp/8304_8/Labs/lab2/sources/riscv_decoder.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /export/tmp/8304_8/Labs/lab2/sources/riscv_decoder.vhd
+QuestaSim-64 vcom 2022.1_2 Compiler 2022.04 Apr  2 2022
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity riscv_decode
+-- Compiling architecture beh of riscv_decode
+
 } {} {}} /export/tmp/8304_8/Labs/lab2/sources/riscv_wb_tb.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /export/tmp/8304_8/Labs/lab2/sources/riscv_wb_tb.vhd
 QuestaSim-64 vcom 2022.1_2 Compiler 2022.04 Apr  2 2022
 -- Loading package STANDARD
@@ -167,16 +176,7 @@ QuestaSim-64 vcom 2022.1_2 Compiler 2022.04 Apr  2 2022
 -- Loading entity riscv_core
 ** Note: /export/tmp/8304_8/Labs/lab2/sources/riscv_core_tb.vhd(108): VHDL Compiler exiting
 
-} {10.0 22.0} {}} /export/tmp/8304_8/Labs/lab2/sources/riscv_decoder.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /export/tmp/8304_8/Labs/lab2/sources/riscv_decoder.vhd
-QuestaSim-64 vcom 2022.1_2 Compiler 2022.04 Apr  2 2022
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package NUMERIC_STD
--- Compiling entity riscv_decode
--- Compiling architecture beh of riscv_decode
-
-} {} {}} /export/tmp/8304_8/Labs/lab2/sources/riscv_me_tb.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /export/tmp/8304_8/Labs/lab2/sources/riscv_me_tb.vhd
+} {10.0 22.0} {}} /export/tmp/8304_8/Labs/lab2/sources/riscv_me_tb.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /export/tmp/8304_8/Labs/lab2/sources/riscv_me_tb.vhd
 QuestaSim-64 vcom 2022.1_2 Compiler 2022.04 Apr  2 2022
 -- Loading package STANDARD
 -- Loading package TEXTIO
