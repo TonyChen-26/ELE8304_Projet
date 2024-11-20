@@ -218,7 +218,7 @@ if rising_edge(i_clk) then
       o_imm_buffer_2       <= (others => '0');
 
 --    -- Flush condition to erase only the data signals
---    elsif (i_flush = '1') then
+    elsif (i_flush = '1') then
 --      -- Erase only the data signals, not control signals
 --     o_branch_buffer <= '0';
 --      o_jump_buffer <= '0';
@@ -230,10 +230,19 @@ if rising_edge(i_clk) then
 --      o_alu_op_buffer <= (others => '0');
 --      o_imm_buffer <= (others => '0');
 --
+      o_branch_buffer_2    <= '0';
+      o_jump_buffer_2      <= '0';
+      o_rw_buffer_2        <= '0';
+      o_wb_out_buffer_2    <= '0';
+      o_arith_buffer_2     <= '0';
+      o_sign_buffer_2      <= '0';
+      o_src_imm_buffer_2   <= '0';
+      o_alu_op_buffer_2    <= (others => '0');
+      o_imm_buffer_2       <= (others => '0');
 	else
 
-	      o_rs1_data_buffer_2  <= o_rs1_data_buffer;  -- Hold value
-      	      o_rs2_data_buffer_2  <= o_rs2_data_buffer;  -- Hold value
+	      o_rs1_data_buffer_2  <= o_data_ra_buffer;  -- Hold value
+      	      o_rs2_data_buffer_2  <= o_data_rb_buffer;  -- Hold value
       	      o_branch_buffer_2    <= o_branch_buffer;     -- Hold value
       	      o_jump_buffer_2      <= o_jump_buffer;       -- Hold value
       	      o_rw_buffer_2        <= o_rw_buffer;         -- Hold value

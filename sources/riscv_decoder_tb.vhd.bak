@@ -45,7 +45,7 @@ architecture beh of decode_tb is
 
 begin
   -- Instantiate the decode module
-  uut: decode
+  uut: riscv_decode
     port map (
       i_opcode  => i_opcode,
       i_funct3  => i_funct3,

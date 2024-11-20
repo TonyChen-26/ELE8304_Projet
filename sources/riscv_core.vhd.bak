@@ -1,3 +1,7 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
 library work;
 use work.riscv_pkg.all;
 
@@ -22,7 +26,203 @@ end entity riscv_core;
 
 architecture beh of riscv_core is
 
+  -- Signals for inter-stage connections
+    signal pc, next_pc            : std_logic_vector(XLEN-1 downto 0);
+    signal instruction            : std_logic_vector(31 downto 0);
+    signal rs1_data, rs2_data     : std_logic_vector(31 downto 0);
+    signal alu_result             : std_logic_vector(8 downto 0);
+    signal branch, jump           : std_logic;
+    signal imm                    : std_logic_vector(31 downto 0);
+    signal alu_op                 : std_logic_vector(3 downto 0);
+    signal store_data, load_data  : std_logic_vector(31 downto 0);
+    signal wb_data                : std_logic_vector(31 downto 0);
+    signal wb_addr                : std_logic_vector(4 downto 0);
+    signal wb_enable              : std_logic;
+    signal rw, src_imm, sign, arith : std_logic;
+    signal pc_target, pc_transfer : std_logic_vector(XLEN-1 downto 0);
+    signal flush                  : std_logic;
 
+
+
+    component FETCH is
+    Port (
+        clk           : in std_logic;
+        i_flush       : in std_logic;
+        i_mem         : in std_logic_vector(31 downto 0);
+        i_stall       : in std_logic;
+        i_transfert   : in std_logic;
+        i_target      : in std_logic_vector(XLEN-1 downto 0);
+        o_pc          : out std_logic_vector(XLEN-1 downto 0);
+        o_instruction : out std_logic_vector(31 downto 0)
+    );
+	end component FETCH;
+
+component riscv_id is
+    Port (
+        i_clk       : in std_logic;
+        i_rstn      : in std_logic;
+        i_instr     : in std_logic_vector(31 downto 0);
+        i_wb        : in std_logic;
+        i_rd_addr   : in std_logic_vector(4 downto 0);
+        i_rd_data   : in std_logic_vector(31 downto 0);
+        i_flush     : in std_logic;
+        
+        o_rs1_data  : out std_logic_vector(31 downto 0);
+        o_rs2_data  : out std_logic_vector(31 downto 0);
+        o_branch    : out std_logic;
+        o_jump      : out std_logic;
+        o_rw        : out std_logic;
+        o_wb_out    : out std_logic;
+        o_arith     : out std_logic;
+        o_sign      : out std_logic;
+        o_src_imm   : out std_logic;
+        o_alu_op    : out std_logic_vector(3 downto 0);
+        o_imm       : out std_logic_vector(31 downto 0)
+    );
+end component riscv_id;
+
+
+component execute is
+    Port (
+        i_alu_op      : in std_logic_vector(3 downto 0);
+        i_rs1_data    : in std_logic_vector(31 downto 0);
+        i_rs2_data    : in std_logic_vector(31 downto 0);
+        i_imm         : in std_logic_vector(31 downto 0);
+        i_pc          : in std_logic_vector(31 downto 0);
+        i_src_imm     : in std_logic;
+        i_branch      : in std_logic;
+        i_jump        : in std_logic;
+
+        o_pc_transfer : out std_logic_vector(31 downto 0);
+        o_alu_result  : out std_logic_vector(8 downto 0);
+        o_store_data  : out std_logic_vector(31 downto 0);
+        o_pc_target   : out std_logic_vector(31 downto 0)
+    );
+end component execute;
+
+component memory is
+    Port (
+        i_clk        : in std_logic;
+        i_store_data : in std_logic_vector(31 downto 0);
+        i_rw         : in std_logic;
+        i_we         : in std_logic;
+        i_alu_result : in std_logic_vector(8 downto 0);
+        i_wb         : in std_logic;
+        i_rd_addr    : in std_logic_vector(4 downto 0);
+        
+	o_load_data  : out std_logic_vector(31 downto 0);
+        o_alu_result : out std_logic_vector(8 downto 0);
+        o_wb         : out std_logic;
+        o_rd_addr    : out std_logic_vector(4 downto 0)
+    );
+end component memory;
+
+component write_back is
+    Port (
+        i_rw         : in std_logic;
+        i_wb         : in std_logic;
+        i_load_data  : in std_logic_vector(31 downto 0);
+        i_alu_result : in std_logic_vector(8 downto 0);
+        i_rd_addr    : in std_logic_vector(4 downto 0);
+        o_rd_data    : out std_logic_vector(31 downto 0);
+        o_wb         : out std_logic;
+        o_rd_addr    : out std_logic_vector(4 downto 0)
+    );
+end component write_back;
+
+
+begin 
+
+
+    -- FETCH stage instantiation
+    fetch_inst : entity work.FETCH
+        port map (
+            clk           => i_clk,
+            i_flush       => flush,
+            i_mem         => i_imem_read,
+            i_stall       => '0', -- No stalling logic yet
+            i_transfert   => jump,
+            i_target      => pc_target,
+            o_pc          => pc,
+            o_instruction => instruction
+        );
+
+    -- Decode (riscv_id) stage instantiation
+    decode_inst : entity work.riscv_id
+        port map (
+            i_clk       => i_clk,
+            i_rstn      => i_rstn,
+            i_instr     => instruction,
+            i_wb        => wb_enable,
+            i_rd_addr   => wb_addr,
+            i_rd_data   => wb_data,
+            i_flush     => flush,
+            o_rs1_data  => rs1_data,
+            o_rs2_data  => rs2_data,
+            o_branch    => branch,
+            o_jump      => jump,
+            o_rw        => rw,
+            o_wb_out    => wb_enable,
+            o_arith     => arith,
+            o_sign      => sign,
+            o_src_imm   => src_imm,
+            o_alu_op    => alu_op,
+            o_imm       => imm
+        );
+
+    -- EXECUTE stage instantiation
+    execute_inst : entity work.execute
+        port map (
+            i_alu_op      => alu_op,
+            i_rs1_data    => rs1_data,
+            i_rs2_data    => rs2_data,
+            i_imm         => imm,
+            i_pc          => pc,
+            i_src_imm     => src_imm,
+            i_branch      => branch,
+            i_jump        => jump,
+            o_pc_transfer => pc_transfer,
+            o_alu_result  => alu_result,
+            o_store_data  => store_data,
+            o_pc_target   => pc_target
+        );
+
+    -- MEMORY stage instantiation
+    memory_inst : entity work.memory
+        port map (
+            i_clk           => i_clk,
+            i_store_data    => store_data,
+            i_rw            => rw,
+            i_we            => wb_enable,
+            i_alu_result    => alu_result,
+            i_wb            => wb_enable,
+            i_rd_addr       => wb_addr,
+            o_load_data     => load_data,
+            o_alu_result    => alu_result,
+            o_wb            => wb_enable,
+            o_rd_addr       => wb_addr
+        );
+
+    -- WRITE-BACK stage instantiation
+    write_back_inst : entity work.write_back
+        port map (
+            i_rw         => rw,
+            i_wb         => wb_enable,
+            i_load_data  => load_data,
+            i_alu_result => alu_result,
+            i_rd_addr    => wb_addr,
+            o_rd_data    => wb_data,
+            o_wb         => wb_enable,
+            o_rd_addr    => wb_addr
+        );
+
+    -- Assign memory signals to output ports
+    o_imem_en     <= '1';  -- Always enable instruction memory
+    o_imem_addr   <= pc;   -- Instruction memory address
+    o_dmem_en     <= '1';  -- Always enable data memory
+    o_dmem_we     <= rw;   -- Read/Write signal for data memory
+    o_dmem_addr   <= alu_result; -- Data memory address
+    o_dmem_write  <= store_data;
 
 
 

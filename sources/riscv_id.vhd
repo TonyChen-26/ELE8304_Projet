@@ -29,7 +29,7 @@ entity riscv_id is
     o_arith     : out std_logic;
     o_sign      : out std_logic;
     o_src_imm   : out std_logic;
-    o_alu_op    : out std_logic_vector(3 downto 0);
+    o_alu_op    : out std_logic_vector(2 downto 0);
     o_imm       : out std_logic_vector(31 downto 0)
   );
 end entity riscv_id;
@@ -77,7 +77,7 @@ architecture beh of riscv_id is
     		o_arith   : out std_logic;
     		o_sign    : out std_logic;
    		 o_src_imm : out std_logic;
-    		o_alu_op  : out std_logic_vector(3 downto 0);
+    		o_alu_op  : out std_logic_vector(2 downto 0);
     		o_imm     : out std_logic_vector(31 downto 0)
  	);
 	end component riscv_decode;
@@ -114,13 +114,13 @@ architecture beh of riscv_id is
   signal  o_arith_buffer   :  std_logic;
   signal  o_sign_buffer    :  std_logic;
   signal  o_src_imm_buffer :  std_logic;
-  signal  o_alu_op_buffer  :  std_logic_vector(3 downto 0);
+  signal  o_alu_op_buffer  :  std_logic_vector(2 downto 0);
   signal  o_imm_buffer     :  std_logic_vector(31 downto 0);
 
   signal o_rs1_data_buffer  : std_logic_vector(31 downto 0);  -- 32-bit buffer for rs1 data
   signal o_rs2_data_buffer  : std_logic_vector(31 downto 0);  -- 32-bit buffer for rs2 data
   signal o_imm_buffer_2       : std_logic_vector(31 downto 0);  -- 32-bit buffer for immediate data
-  signal o_alu_op_buffer_2    : std_logic_vector(3 downto 0);   -- 4-bit buffer for ALU operation code
+  signal o_alu_op_buffer_2    : std_logic_vector(2 downto 0);   -- 4-bit buffer for ALU operation code
   
 	signal o_wb_out_buffer   :  std_logic;
 
@@ -218,7 +218,7 @@ if rising_edge(i_clk) then
       o_imm_buffer_2       <= (others => '0');
 
 --    -- Flush condition to erase only the data signals
---    elsif (i_flush = '1') then
+    elsif (i_flush = '1') then
 --      -- Erase only the data signals, not control signals
 --     o_branch_buffer <= '0';
 --      o_jump_buffer <= '0';
@@ -230,6 +230,15 @@ if rising_edge(i_clk) then
 --      o_alu_op_buffer <= (others => '0');
 --      o_imm_buffer <= (others => '0');
 --
+      o_branch_buffer_2    <= '0';
+      o_jump_buffer_2      <= '0';
+      o_rw_buffer_2        <= '0';
+      o_wb_out_buffer_2    <= '0';
+      o_arith_buffer_2     <= '0';
+      o_sign_buffer_2      <= '0';
+      o_src_imm_buffer_2   <= '0';
+      o_alu_op_buffer_2    <= (others => '0');
+      o_imm_buffer_2       <= (others => '0');
 	else
 
 	      o_rs1_data_buffer_2  <= o_data_ra_buffer;  -- Hold value

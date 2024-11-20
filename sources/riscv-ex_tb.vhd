@@ -1,0 +1,147 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_ARITH.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
+
+entity tb_execute is
+-- Testbench doesn't have any ports
+end tb_execute;
+
+architecture Behavioral of tb_execute is
+
+    -- Component Declaration
+    component execute is
+        Port (
+		i_clk : in std_logic;
+            -- Inputs
+            i_alu_op      : in  STD_LOGIC_VECTOR(2 downto 0);
+            i_rs1_data    : in  STD_LOGIC_VECTOR(31 downto 0);
+            i_rs2_data    : in  STD_LOGIC_VECTOR(31 downto 0);
+            i_imm         : in  STD_LOGIC_VECTOR(31 downto 0);
+            i_pc          : in  STD_LOGIC_VECTOR(31 downto 0);
+            i_src_imm     : in  STD_LOGIC;
+            i_branch      : in  STD_LOGIC;
+            i_jump        : in  STD_LOGIC;
+
+
+            -- Outputs
+            o_pc_transfer : out STD_LOGIC_VECTOR(31 downto 0);
+            o_alu_result  : out STD_LOGIC_VECTOR(31 downto 0);
+            o_store_data  : out STD_LOGIC_VECTOR(31 downto 0);
+            o_pc_target   : out STD_LOGIC_VECTOR(31 downto 0)
+        );
+    end component;
+
+    -- Testbench Signals
+    signal tb_alu_op      : STD_LOGIC_VECTOR(2 downto 0) := (others => '0');
+    signal tb_rs1_data    : STD_LOGIC_VECTOR(31 downto 0) := (others => '0');
+    signal tb_rs2_data    : STD_LOGIC_VECTOR(31 downto 0) := (others => '0');
+    signal tb_imm         : STD_LOGIC_VECTOR(31 downto 0) := (others => '0');
+    signal tb_pc          : STD_LOGIC_VECTOR(31 downto 0) := (others => '0');
+    signal tb_src_imm     : STD_LOGIC := '0';
+    signal tb_branch      : STD_LOGIC := '0';
+    signal tb_jump        : STD_LOGIC := '0';
+
+    signal tb_pc_transfer : STD_LOGIC_VECTOR(31 downto 0);
+    signal tb_alu_result  : STD_LOGIC_VECTOR(31 downto 0);
+    signal tb_store_data  : STD_LOGIC_VECTOR(31 downto 0);
+    signal tb_pc_target   : STD_LOGIC_VECTOR(31 downto 0);
+    signal i_clk       : std_logic := '0';
+   constant clk_period : time := 10 ns;
+begin
+    -- Instantiate the `execute` Module
+    DUT : execute
+        port map (
+		i_clk => i_clk,
+            i_alu_op      => tb_alu_op,
+            i_rs1_data    => tb_rs1_data,
+            i_rs2_data    => tb_rs2_data,
+            i_imm         => tb_imm,
+            i_pc          => tb_pc,
+            i_src_imm     => tb_src_imm,
+            i_branch      => tb_branch,
+            i_jump        => tb_jump,
+            
+            o_pc_transfer => tb_pc_transfer,
+            o_alu_result  => tb_alu_result,
+            o_store_data  => tb_store_data,
+            o_pc_target   => tb_pc_target
+        );
+
+    -- Test Process
+
+    clk_process : process
+    begin
+        while true loop
+            i_clk <= '0';
+            wait for clk_period / 2;
+            i_clk <= '1';
+            wait for clk_period / 2;
+        end loop;
+    end process;
+
+
+    process
+    begin
+        -- Test Case 1: Simple Addition (ALU)
+        tb_alu_op <= "010"; -- ALU Add Operation
+        tb_rs1_data <= "00000000000000000000000000000111"; -- rs1 = 3
+        tb_rs2_data <= "00000000000000000000000000000010"; -- rs2 = 2
+        tb_imm <= X"00000008"; -- Immediate = 8
+        tb_src_imm <= '0'; -- Use rs2_data
+        tb_branch <= '0';
+        tb_jump <= '0';
+        wait for 20 ns;
+
+        assert tb_alu_result = "000000000000000000000000000000101" -- rs1 + rs2 = 16 + 4 = 20
+        report "Test Case 1 failed: Incorrect ALU addition result" severity error;
+
+        assert tb_pc_transfer = tb_alu_result -- No branch/jump, so pc_transfer = alu_result
+        report "Test Case 1 failed: Incorrect PC transfer" severity error;
+
+        -- Test Case 2: Use Immediate as Operand
+        tb_src_imm <= '1'; -- Use immediate instead of rs2_data
+        wait for 20 ns;
+
+        assert tb_alu_result = X"00000018" -- rs1 + imm = 16 + 8 = 24
+        report "Test Case 2 failed: Incorrect ALU result with immediate" severity error;
+
+        -- Test Case 3: Branch with PC Target
+        tb_branch <= '1'; -- Branch condition
+        tb_jump <= '0';
+        tb_rs1_data <= X"00000010"; -- rs1 = 16
+        tb_imm <= X"00000004"; -- Offset = 4
+        wait for 20 ns;
+
+        assert tb_pc_transfer = X"00000014" -- rs1 + imm = 16 + 4 = 20
+        report "Test Case 3 failed: Incorrect PC transfer for branch" severity error;
+
+        assert tb_pc_target = X"00000014" -- Target PC for branch
+        report "Test Case 3 failed: Incorrect PC target for branch" severity error;
+
+        -- Test Case 4: Jump Operation
+        tb_branch <= '0';
+        tb_jump <= '1'; -- Jump condition
+        tb_rs1_data <= X"00000020"; -- rs1 = 32
+        tb_imm <= X"00000010"; -- Offset = 16
+        wait for 20 ns;
+
+        assert tb_pc_transfer = X"00000030" -- rs1 + imm = 32 + 16 = 48
+        report "Test Case 4 failed: Incorrect PC transfer for jump" severity error;
+
+        -- Test Case 5: ALU Subtraction
+        tb_alu_op <= "001"; -- ALU Subtraction
+        tb_rs2_data <= X"00000003"; -- rs2 = 3
+        tb_src_imm <= '0'; -- Use rs2_data
+        wait for 20 ns;
+
+        assert tb_alu_result = X"0000000D" -- rs1 - rs2 = 16 - 3 = 13
+        report "Test Case 5 failed: Incorrect ALU subtraction result" severity error;
+
+        -- Finish Simulation
+        report "All tests passed successfully!" severity note;
+        wait;
+    end process;
+
+end Behavioral;
+

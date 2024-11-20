@@ -90,10 +90,10 @@ begin
     		--o_rd_buffer <= i_instr(11 downto 7);
 
             when others =>
-		rs1_addr_buffer <= (others => '0');	
-		funct3_buffer <= (others => '0');
-		o_funct7_buffer <= (others => '0');
-		rs2_addr_buffer <= (others => '0');
+		rs1_addr_buffer <= (others => '1');	
+		funct3_buffer <= (others => '1');
+		o_funct7_buffer <= (others => '1');
+		rs2_addr_buffer <= (others => '1');
 		--o_rd_buffer <= (others => '0');
                -- imm <= (others => '0');
         end case;

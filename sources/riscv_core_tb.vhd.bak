@@ -40,12 +40,12 @@ signal	clk		: std_logic := '0';
 signal	rstn		: std_logic := '0';
 
 signal imem_en : std_logic;
-signal imem_addr : std_logic_vector(31 downto 0);
+signal imem_addr : std_logic_vector(DEPTH-1 downto 0);
 signal imem_read : std_logic_vector(31 downto 0);
 
 signal dmem_en : std_logic;
 signal dmem_we : std_logic;
-signal dmem_addr : std_logic_vector(31 downto 0);
+signal dmem_addr : std_logic_vector(DEPTH-1 downto 0);
 signal dmem_read : std_logic_vector(31 downto 0);
 signal dmem_write : std_logic_vector(31 downto 0);
 

@@ -22,7 +22,7 @@ architecture beh of decode_tb is
       o_arith   : out std_logic;
       o_sign    : out std_logic;
       o_src_imm : out std_logic;
-      o_alu_op  : out std_logic_vector(3 downto 0);
+      o_alu_op  : out std_logic_vector(2 downto 0);
       o_imm     : out std_logic_vector(31 downto 0)
     );
   end component;
@@ -40,7 +40,7 @@ architecture beh of decode_tb is
   signal o_arith   : std_logic;
   signal o_sign    : std_logic;
   signal o_src_imm : std_logic;
-  signal o_alu_op  : std_logic_vector(3 downto 0);
+  signal o_alu_op  : std_logic_vector(2 downto 0);
   signal o_imm     : std_logic_vector(31 downto 0);
 
 begin
