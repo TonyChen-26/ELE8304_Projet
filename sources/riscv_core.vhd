@@ -33,7 +33,7 @@ architecture beh of riscv_core is
     signal alu_result             : std_logic_vector(31 downto 0);
     signal branch, jump           : std_logic;
     signal imm                    : std_logic_vector(31 downto 0);
-    signal alu_op                 : std_logic_vector(3 downto 0);
+    signal alu_op                 : std_logic_vector(2 downto 0);
     signal store_data, load_data  : std_logic_vector(31 downto 0);
     signal wb_data                : std_logic_vector(31 downto 0);
     signal wb_addr                : std_logic_vector(4 downto 0);
@@ -76,7 +76,7 @@ component riscv_id is
         o_arith     : out std_logic;
         o_sign      : out std_logic;
         o_src_imm   : out std_logic;
-        o_alu_op    : out std_logic_vector(3 downto 0);
+        o_alu_op    : out std_logic_vector(2 downto 0);
         o_imm       : out std_logic_vector(31 downto 0)
     );
 end component riscv_id;
@@ -84,7 +84,7 @@ end component riscv_id;
 
 component execute is
     Port (
-        i_alu_op      : in std_logic_vector(3 downto 0);
+        i_alu_op      : in std_logic_vector(2 downto 0);
         i_rs1_data    : in std_logic_vector(31 downto 0);
         i_rs2_data    : in std_logic_vector(31 downto 0);
         i_imm         : in std_logic_vector(31 downto 0);
@@ -173,6 +173,7 @@ begin
     -- EXECUTE stage instantiation
     execute_inst : entity work.execute
         port map (
+	    i_clk         => i_clk,
             i_alu_op      => alu_op,
             i_rs1_data    => rs1_data,
             i_rs2_data    => rs2_data,
@@ -181,6 +182,8 @@ begin
             i_src_imm     => src_imm,
             i_branch      => branch,
             i_jump        => jump,
+	    i_arith       => arith,
+	    i_sign        => sign,
             o_pc_transfer => pc_transfer,
             o_alu_result  => alu_result,
             o_store_data  => store_data,

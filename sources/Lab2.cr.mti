@@ -1,26 +1,4 @@
-/export/tmp/8304_8/Labs/lab2/sources/riscv_core.vhd {0 {vcom -work work -2008 -explicit -vopt -stats=none /export/tmp/8304_8/Labs/lab2/sources/riscv_core.vhd
-QuestaSim-64 vcom 2022.1_2 Compiler 2022.04 Apr  2 2022
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package NUMERIC_STD
--- Loading package MATH_REAL
--- Loading package riscv_pkg
--- Compiling entity riscv_core
--- Compiling architecture beh of riscv_core
--- Loading package std_logic_arith
--- Loading package STD_LOGIC_UNSIGNED
--- Loading entity FETCH
--- Loading entity riscv_id
--- Loading entity execute
--- Loading entity memory
--- Loading entity write_back
-** Error (suppressible): /export/tmp/8304_8/Labs/lab2/sources/riscv_core.vhd(169): (vcom-1272) Length of formal "o_alu_op" is 3; length of actual is 4.
-** Error: /export/tmp/8304_8/Labs/lab2/sources/riscv_core.vhd(188): (vcom-1035) Formal port "i_clk" has OPEN or no actual associated with it.
-** Error (suppressible): /export/tmp/8304_8/Labs/lab2/sources/riscv_core.vhd(176): (vcom-1272) Length of formal "i_alu_op" is 3; length of actual is 4.
-** Note: /export/tmp/8304_8/Labs/lab2/sources/riscv_core.vhd(230): VHDL Compiler exiting
-
-} {19.0 20.0} {}} /export/tmp/8304_8/Labs/lab2/sources/riscv_wb.vhd {1 {vcom -work work -2008 -explicit -vopt -stats=none /export/tmp/8304_8/Labs/lab2/sources/riscv_wb.vhd
+/export/tmp/8304_8/Labs/lab2/sources/riscv_wb.vhd {1 {vcom -work work -2008 -explicit -vopt -stats=none /export/tmp/8304_8/Labs/lab2/sources/riscv_wb.vhd
 QuestaSim-64 vcom 2022.1_2 Compiler 2022.04 Apr  2 2022
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -146,6 +124,15 @@ QuestaSim-64 vcom 2022.1_2 Compiler 2022.04 Apr  2 2022
 ** Error (suppressible): /export/tmp/8304_8/Labs/lab2/sources/riscv_core_tb.vhd(86): (vcom-1272) Length of expected is 9; length of actual is 32.
 ** Note: /export/tmp/8304_8/Labs/lab2/sources/riscv_core_tb.vhd(110): VHDL Compiler exiting
 
+} {} {}} /export/tmp/8304_8/Labs/lab2/sources/riscv_decoder.vhd {1 {vcom -work work -2008 -explicit -vopt -stats=none /export/tmp/8304_8/Labs/lab2/sources/riscv_decoder.vhd
+QuestaSim-64 vcom 2022.1_2 Compiler 2022.04 Apr  2 2022
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity riscv_decode
+-- Compiling architecture beh of riscv_decode
+
 } {} {}} /export/tmp/8304_8/Labs/lab2/sources/riscv_wb_tb.vhd {1 {vcom -work work -2008 -explicit -vopt -stats=none /export/tmp/8304_8/Labs/lab2/sources/riscv_wb_tb.vhd
 QuestaSim-64 vcom 2022.1_2 Compiler 2022.04 Apr  2 2022
 -- Loading package STANDARD
@@ -171,6 +158,9 @@ QuestaSim-64 vcom 2022.1_2 Compiler 2022.04 Apr  2 2022
 -- Loading package std_logic_1164
 -- Loading package std_logic_arith
 -- Loading package STD_LOGIC_UNSIGNED
+-- Loading package NUMERIC_STD
+-- Loading package MATH_REAL
+-- Loading package riscv_pkg
 -- Compiling entity tb_execute
 -- Compiling architecture Behavioral of tb_execute
 

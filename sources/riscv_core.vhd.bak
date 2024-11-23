@@ -10,11 +10,11 @@ entity riscv_core is
     i_rstn : in std_logic;
     i_clk : in std_logic;
     o_imem_en : out std_logic;
-    o_imem_addr : out std_logic_vector(8 downto 0);
+    o_imem_addr : out std_logic_vector(31 downto 0);
     i_imem_read : in std_logic_vector(31 downto 0);
     o_dmem_en : out std_logic;
     o_dmem_we : out std_logic;
-    o_dmem_addr : out std_logic_vector(8 downto 0);
+    o_dmem_addr : out std_logic_vector(31 downto 0);
     i_dmem_read : in std_logic_vector(31 downto 0);
     o_dmem_write : out std_logic_vector(31 downto 0);
     -- DFT
@@ -30,7 +30,7 @@ architecture beh of riscv_core is
     signal pc, next_pc            : std_logic_vector(XLEN-1 downto 0);
     signal instruction            : std_logic_vector(31 downto 0);
     signal rs1_data, rs2_data     : std_logic_vector(31 downto 0);
-    signal alu_result             : std_logic_vector(8 downto 0);
+    signal alu_result             : std_logic_vector(31 downto 0);
     signal branch, jump           : std_logic;
     signal imm                    : std_logic_vector(31 downto 0);
     signal alu_op                 : std_logic_vector(3 downto 0);
@@ -76,7 +76,7 @@ component riscv_id is
         o_arith     : out std_logic;
         o_sign      : out std_logic;
         o_src_imm   : out std_logic;
-        o_alu_op    : out std_logic_vector(3 downto 0);
+        o_alu_op    : out std_logic_vector(2 downto 0);
         o_imm       : out std_logic_vector(31 downto 0)
     );
 end component riscv_id;
@@ -94,7 +94,7 @@ component execute is
         i_jump        : in std_logic;
 
         o_pc_transfer : out std_logic_vector(31 downto 0);
-        o_alu_result  : out std_logic_vector(8 downto 0);
+        o_alu_result  : out std_logic_vector(31 downto 0);
         o_store_data  : out std_logic_vector(31 downto 0);
         o_pc_target   : out std_logic_vector(31 downto 0)
     );
@@ -106,12 +106,12 @@ component memory is
         i_store_data : in std_logic_vector(31 downto 0);
         i_rw         : in std_logic;
         i_we         : in std_logic;
-        i_alu_result : in std_logic_vector(8 downto 0);
+        i_alu_result : in std_logic_vector(31 downto 0);
         i_wb         : in std_logic;
         i_rd_addr    : in std_logic_vector(4 downto 0);
         
 	o_load_data  : out std_logic_vector(31 downto 0);
-        o_alu_result : out std_logic_vector(8 downto 0);
+        o_alu_result : out std_logic_vector(31 downto 0);
         o_wb         : out std_logic;
         o_rd_addr    : out std_logic_vector(4 downto 0)
     );
@@ -122,7 +122,7 @@ component write_back is
         i_rw         : in std_logic;
         i_wb         : in std_logic;
         i_load_data  : in std_logic_vector(31 downto 0);
-        i_alu_result : in std_logic_vector(8 downto 0);
+        i_alu_result : in std_logic_vector(31 downto 0);
         i_rd_addr    : in std_logic_vector(4 downto 0);
         o_rd_data    : out std_logic_vector(31 downto 0);
         o_wb         : out std_logic;
@@ -173,6 +173,7 @@ begin
     -- EXECUTE stage instantiation
     execute_inst : entity work.execute
         port map (
+	    i_clk         => i_clk,
             i_alu_op      => alu_op,
             i_rs1_data    => rs1_data,
             i_rs2_data    => rs2_data,
@@ -181,6 +182,8 @@ begin
             i_src_imm     => src_imm,
             i_branch      => branch,
             i_jump        => jump,
+	    i_arith       => arith,
+	    i_sign        => sign,
             o_pc_transfer => pc_transfer,
             o_alu_result  => alu_result,
             o_store_data  => store_data,

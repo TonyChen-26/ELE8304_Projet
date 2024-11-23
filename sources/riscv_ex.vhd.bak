@@ -1,7 +1,8 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-use IEEE.STD_LOGIC_ARITH.ALL;
-use IEEE.STD_LOGIC_UNSIGNED.ALL;
+use IEEE.STD_LOGIC_ARITH.ALL;  -- If you're working with arithmetic operations (older library, not always necessary)
+use IEEE.STD_LOGIC_UNSIGNED.ALL;  -- If needed for compatibility with resizing
+use IEEE.NUMERIC_STD.ALL;        -- Required for `resize` function with numeric vectors
 
 library work;
 use work.riscv_pkg.all;
@@ -10,6 +11,7 @@ entity execute is
     Port (
         -- Inputs
 	i_clk 	      : in std_logic;
+	i_alu_op      : in  std_logic_vector(2 downto 0); 
         i_rs1_data    : in  STD_LOGIC_VECTOR(31 downto 0);
         i_rs2_data    : in  STD_LOGIC_VECTOR(31 downto 0);
         i_imm         : in  STD_LOGIC_VECTOR(31 downto 0);
@@ -17,7 +19,8 @@ entity execute is
         i_src_imm     : in  STD_LOGIC;
         i_branch      : in  STD_LOGIC;
         i_jump        : in  STD_LOGIC;
-	i_alu_op      : in  std_logic_vector(2 downto 0);
+	i_arith       : in std_logic;	
+	i_sign        : in std_logic;
 
 
 
@@ -31,7 +34,6 @@ entity execute is
 end execute;
 
 architecture Behavioral of execute is
-
 
 component riscv_adder is
   generic (
@@ -59,21 +61,27 @@ component riscv_alu is
 end component riscv_alu;
 
 
+
     -- Intermediate signals
     signal alu_in2      : STD_LOGIC_VECTOR(31 downto 0);
     signal alu_out      : STD_LOGIC_VECTOR(31 downto 0);
     signal adder_out    : STD_LOGIC_VECTOR(32 downto 0);  -- Result of the adder
-    signal pc_target    : STD_LOGIC_VECTOR(31 downto 0);
+    signal branch_target : std_logic_vector(31 downto 0);
+    signal jump_target   : std_logic_vector(31 downto 0);
+    signal pc_increment  : std_logic_vector(31 downto 0);
+
+    -- Internal signal for branch condition
+    signal branch_taken  : std_logic;
     
 begin
     -- **Sélection entre rs2_data et imm pour l'ALU (src_imm)**
     alu_in2 <= i_imm when i_src_imm = '1' else i_rs2_data;
-
+    
     -- ALU instance
     ALU_INST : riscv_alu
         port map (
-            i_arith  => '1', -- Assuming arithmetic operation
-            i_sign   => '1', -- Assuming signed operation
+            i_arith  => i_arith, 
+            i_sign   => i_sign, -- Assuming signed operation
             i_opcode => i_alu_op,
             i_shamt  => i_imm(4 downto 0), -- Extract shift amount
             i_src1   => i_rs1_data,
@@ -89,20 +97,48 @@ begin
         port map (
             i_a    => i_pc,
             i_b    => i_imm,
-            i_sign => '1',     -- Assuming signed addition
-            i_sub  => '0',     -- No subtraction
+            i_sign => OperaSign,     -- Assuming signed addition
+            i_sub  => Soustr,     -- No subtraction
             o_sum  => adder_out
         );
 
-process(i_clk)
-begin
-if rising_edge(i_clk) then
+
+
+    -- Calculate branch/jump targets
+ 
+    branch_target <= (i_pc) + (i_imm);  -- Branch address = PC + immediate
+    jump_target   <= (i_rs1_data) + (i_imm);  -- JALR target = rs1 + immediate 
+
+
+    -- Branch decision logicsim:/tb_execute/tb_pc_transfer
+
+    process(i_clk)
+    begin
+        if rising_edge(i_clk) then
+            -- Determine if a branch should be taken
+            if i_branch = '1' then
+                -- Simple example: assuming BEQ branch condition (rs1 == rs2)
+                if i_rs1_data = i_rs2_data then
+                    branch_taken <= '1';
+                else
+                    branch_taken <= '0';
+                end if;
+            else
+                branch_taken <= '0';
+            end if;
+        end if;
+    end process;
+
+    -- Determine PC transfer based on branch or jump
+    o_pc_transfer <= branch_target when branch_taken = '1' else
+                     jump_target when i_jump = '1' else
+                     (i_pc) + 4;  -- Default to PC + 4 for sequential execution
+
+    
+
     o_alu_result <= alu_out;
     o_store_data <= i_rs2_data;
-end if;
-end process;
-    o_pc_target  <= adder_out(31 downto 0); -- Discard the carry bit
-    o_pc_transfer <= adder_out(31 downto 0) when (i_jump = '1' or i_branch = '1') else alu_out;
-o_pc_transfer <= alu_out when (i_jump = '1' or i_branch = '1')else (i_pc + 4);
+    o_pc_target  <= branch_target;  -- Could be useful for branch prediction updates
+
 
 end Behavioral;
