@@ -1,7 +1,7 @@
 #######################################################
 #                                                     
 #  Innovus Command Logging File                     
-#  Created on Tue Nov 26 23:04:47 2024                
+#  Created on Wed Nov 27 14:41:43 2024                
 #                                                     
 #######################################################
 
@@ -17,16 +17,3 @@ set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
 suppressMessage ENCEXT-2799
 getVersion
 win
-set init_oa_ref_lib {gsclib045_tech gsclib045 gpdk045 giolib045}
-set init_verilog /export/tmp/8304_8/Labs/lab2/implementation/syn/base_netlist/riscv_core.syn.v
-set init_design_settop 1
-set init_top_cell riscv_core
-set init_gnd_net VSS
-set init_pwr_net VDD
-set init_mmmc_file /export/tmp/8304_8/Labs/lab2/constraints/mmmc.tcl
-init_design
-set init_oa_ref_lib {gsclib045_tech gsclib045 gpdk045 giolib045}
-init_design
-init_design
-set init_mmmc_file /export/tmp/8304_8/Labs/lab2/constraints/mmmc.tcl
-init_design

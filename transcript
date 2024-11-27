@@ -330,3 +330,49 @@ run 1ms
 quit -sim
 # End time: 14:13:02 on Nov 27,2024, Elapsed time: 0:00:30
 # Errors: 0, Warnings: 5
+# Compile of riscv_DMEM.vhd was successful.
+vsim -64 work.d_mem_tb
+# vsim -64 work.d_mem_tb 
+# Start time: 15:02:02 on Nov 27,2024
+# ** Note: (vsim-3812) Design is being optimized...
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.d_mem_tb(tb)#1
+add wave -position insertpoint sim:/d_mem_tb/*
+run 1ms
+# ** Note: All test cases passed!
+#    Time: 100 ns  Iteration: 0  Instance: /d_mem_tb
+add wave -position insertpoint sim:/d_mem_tb/dut/mem
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-8009) Loading existing optimized design _opt3
+run 1ms
+# ** Note: All test cases passed!
+#    Time: 100 ns  Iteration: 0  Instance: /d_mem_tb
+vsim -64 work.tb_memory
+# End time: 15:07:21 on Nov 27,2024, Elapsed time: 0:05:19
+# Errors: 0, Warnings: 1
+# vsim -64 work.tb_memory 
+# Start time: 15:07:21 on Nov 27,2024
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Error (suppressible): /export/tmp/8304_8/Labs/lab2/sources/riscv_me_tb.vhd(50): (vopt-1130) Port "i_rstn" of entity "memory" is not in the component being instantiated.
+# ** Error (suppressible): /export/tmp/8304_8/Labs/lab2/sources/riscv_me_tb.vhd(50): (vopt-1130) Port "i_dmem_read" of entity "memory" is not in the component being instantiated.
+# Optimization failed
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=2, Warnings=0.
+# Error loading design
+# End time: 15:07:21 on Nov 27,2024, Elapsed time: 0:00:00
+# Errors: 2, Warnings: 1
+# Load canceled
+vsim -64 work.tb_memory
+# vsim -64 work.tb_memory 
+# Start time: 15:07:46 on Nov 27,2024
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Error (suppressible): /export/tmp/8304_8/Labs/lab2/sources/riscv_me_tb.vhd(50): (vopt-1130) Port "i_rstn" of entity "memory" is not in the component being instantiated.
+# ** Error (suppressible): /export/tmp/8304_8/Labs/lab2/sources/riscv_me_tb.vhd(50): (vopt-1130) Port "i_dmem_read" of entity "memory" is not in the component being instantiated.
+# Optimization failed
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=2, Warnings=0.
+# Error loading design
+# End time: 15:07:46 on Nov 27,2024, Elapsed time: 0:00:00
+# Errors: 2, Warnings: 1

@@ -10,23 +10,32 @@ architecture Behavioral of tb_memory is
   -- Component Declaration
   component memory
     port (
-      i_clk           : in std_logic;
-      i_store_data    : in std_logic_vector(31 downto 0);
-      i_rw            : in std_logic;
-      i_we            : in std_logic;
-      i_alu_result    : in std_logic_vector(31 downto 0);
-      i_wb            : in std_logic;
-      i_rd_addr       : in std_logic_vector(4 downto 0);
-
-      o_load_data     : out std_logic_vector(31 downto 0);
-      o_alu_result    : out std_logic_vector(31 downto 0);
-      o_wb            : out std_logic;
-      o_rd_addr       : out std_logic_vector(4 downto 0)
+	i_clk           : in std_logic;
+        i_rstn          : in std_logic;  -- Added reset signal
+        i_store_data    : in std_logic_vector(31 downto 0);
+        i_rw            : in std_logic;
+        i_we            : in std_logic;
+        i_alu_result    : in std_logic_vector(31 downto 0);
+        i_wb            : in std_logic;
+        i_rd_addr       : in std_logic_vector(4 downto 0);
+        i_dmem_read     : in std_logic_vector(31 downto 0);  -- New input for data read from memory
+        
+        -- Outputs
+        o_rw            : out std_logic;
+        o_dmem_en       : out std_logic;
+        o_dmem_we       : out std_logic;
+        o_dmem_addr     : out std_logic_vector(8 downto 0);
+        o_dmem_write    : out std_logic_vector(31 downto 0);
+        o_load_data     : out std_logic_vector(31 downto 0);
+        o_alu_result    : out std_logic_vector(31 downto 0);
+        o_wb            : out std_logic;
+        o_rd_addr       : out std_logic_vector(4 downto 0)
     );
   end component;
 
   -- Clock signal
   signal clk           : std_logic := '0';
+  signal rst	       : std_logic;
 
   -- Input signals
   signal store_data    : std_logic_vector(31 downto 0) := (others => '0');
@@ -50,6 +59,7 @@ begin
   uut: memory
     port map (
       i_clk        => clk,
+      i_rstn       => rst,
       i_store_data => store_data,
       i_rw         => rw,
       i_we         => we,
@@ -76,7 +86,7 @@ begin
   stimulus : process
   begin
     -- Test Case 1: Write to Memory
-    rw <= '0';                       -- Write mode
+    rw <= '1';                       -- Write mode
     we <= '1';                   -- Enable write
     wb <= '1';  
     alu_result <= x"00000004";         -- Address in memory

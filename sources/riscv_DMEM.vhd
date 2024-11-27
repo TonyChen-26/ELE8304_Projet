@@ -14,6 +14,7 @@ entity d_mem is
 end entity d_mem;
 
 architecture rtl of d_mem is
+
     -- Memory array (simple simulation of a data memory, 256 32-bit locations)
     type mem_array is array (0 to 255) of std_logic_vector(31 downto 0);
     signal mem : mem_array := (others => (others => '0'));

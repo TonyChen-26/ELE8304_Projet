@@ -36,7 +36,7 @@ addr_index <= to_integer(unsigned(i_alu_result(7 downto 0)));
             if i_we = '1' and i_rw = '1' then
                 -- Write operation: store data at the address specified by i_alu_result
                 mem(addr_index) <= i_store_data;
-		load_data_buf <= (others => '0'); 
+		--load_data_buf <= (others => '0'); 
 
             end if;
 

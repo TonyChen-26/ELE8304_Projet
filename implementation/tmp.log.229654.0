@@ -1,0 +1,21 @@
+
+INFO (EXTIQUANTUS-101) : 
+  Integrated Quantus - 64-bit Parasitic Extractor - Version 21.1.1-s939
+-------------------------------------------------------------------------
+               Copyright 2022 Cadence Design Systems, Inc.
+
+
+INFO (EXTIQUANTUS-103) : Starting at 2024-Nov-27 14:45:00 (2024-Nov-27 19:45:00 GMT).
+
+INFO (EXTIQUANTUS-104) : Starting extraction session...
+
+INFO (EXTIQUANTUS-159) : Loading technology data from file:
+  /CMC/kits/GPDK45/gsclib045_all_v4.4/gsclib045/qrc/qx/gpdk045.tch
+
+INFO (EXTIQUANTUS-289) : Loading RCgen extraction models from file:
+  /CMC/kits/GPDK45/gsclib045_all_v4.4/gsclib045/qrc/qx/gpdk045.tch
+
+INFO (EXTIQUANTUS-345) : Checking Command/Tech/License Files. 
+
+INFO (EXTIQUANTUS-383) : Summary of license(s) checkout :
+	No license checkout.

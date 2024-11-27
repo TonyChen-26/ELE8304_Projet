@@ -148,14 +148,17 @@ QuestaSim-64 vcom 2022.1_2 Compiler 2022.04 Apr  2 2022
 -- Loading package riscv_pkg
 -- Loading entity riscv_core
 
-} {} {}} /export/tmp/8304_8/Labs/lab2/sources/riscv_me_tb.vhd {1 {vcom -work work -2008 -explicit -vopt -stats=none /export/tmp/8304_8/Labs/lab2/sources/riscv_me_tb.vhd
+} {} {}} /export/tmp/8304_8/Labs/lab2/sources/riscv_pc_tb.vhd {1 {vcom -work work -2008 -explicit -vopt -stats=none /export/tmp/8304_8/Labs/lab2/sources/riscv_pc_tb.vhd
 QuestaSim-64 vcom 2022.1_2 Compiler 2022.04 Apr  2 2022
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
 -- Loading package NUMERIC_STD
--- Compiling entity tb_memory
--- Compiling architecture Behavioral of tb_memory
+-- Loading package MATH_REAL
+-- Loading package riscv_pkg
+-- Compiling entity tb_riscv_pc
+-- Compiling architecture beh of tb_riscv_pc
+-- Loading entity riscv_pc
 
 } {} {}} /export/tmp/8304_8/Labs/lab2/sources/riscv_rf.vhd {1 {vcom -work work -2008 -explicit -vopt -stats=none /export/tmp/8304_8/Labs/lab2/sources/riscv_rf.vhd
 QuestaSim-64 vcom 2022.1_2 Compiler 2022.04 Apr  2 2022
