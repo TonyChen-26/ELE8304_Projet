@@ -1,0 +1,100 @@
+
+Cadence Innovus(TM) Implementation System.
+Copyright 2021 Cadence Design Systems, Inc. All rights reserved worldwide.
+
+Version:	v21.17-s075_1, built Wed Mar 15 11:17:40 PDT 2023
+Options:	-overwrite -no_logv 
+Date:		Tue Nov 26 23:04:31 2024
+Host:		vlsi410 (x86_64 w/Linux 4.18.0-553.27.1.el8_10.x86_64) (8cores*8cpus*Intel(R) Core(TM) i7-9700F CPU @ 3.00GHz 12288KB)
+OS:		AlmaLinux 8.10 (Cerulean Leopard)
+
+License:
+		[23:04:31.067435] Configured Lic search path (21.01-s002): 6055@cadpass.grm.polymtl.ca:7055@cadpass.grm.polymtl.ca:6055@cmclicence.ge.polymtl.ca
+
+		invs	Innovus Implementation System	21.1	checkout succeeded
+		8 CPU jobs allowed with the current license(s). Use setMultiCpuUsage to set your required CPU count.
+Change the soft stacksize limit to 0.2%RAM (64 mbytes). Set global soft_stack_size_limit to change the value.
+
+**INFO:  MMMC transition support version v31-84 
+
+<CMD> set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+<CMD> suppressMessage ENCEXT-2799
+<CMD> getVersion
+[INFO] Loading PVS 21.12 fill procedures
+<CMD> win
+<CMD> set init_oa_ref_lib {gsclib045_tech gsclib045 gpdk045 giolib045}
+<CMD> set init_verilog /export/tmp/8304_8/Labs/lab2/implementation/syn/base_netlist/riscv_core.syn.v
+<CMD> set init_design_settop 1
+<CMD> set init_top_cell riscv_core
+<CMD> set init_gnd_net VSS
+<CMD> set init_pwr_net VDD
+<CMD> set init_mmmc_file /export/tmp/8304_8/Labs/lab2/constraints/mmmc.tcl
+<CMD> init_design
+#% Begin Load MMMC data ... (date=11/26 23:06:31, mem=1013.4M)
+#% End Load MMMC data ... (date=11/26 23:06:31, total cpu=0:00:00.0, real=0:00:00.0, peak res=1014.7M, current mem=1014.7M)
+rc
+**WARN: (IMPOAX-791):	Error reading library definition file - No default library definition file found.
+Reading tech data from OA library 'gsclib045_tech' ...
+**WARN: (IMPOAX-791):	Error reading library definition file - No default library definition file found.
+**ERROR: (IMPOAX-503):	Cannot open OpenAccess library 'gsclib045_tech'. Make sure the library exists on disk and its entry is present correctly in the library definition file.
+Type 'man IMPOAX-503' for more detail.
+**ERROR: (IMPSYT-16006):	Fail to read LEF information from OA reference libraries. Check the OA database provided and your inputs.
+
+<CMD> set init_oa_ref_lib {gsclib045_tech gsclib045 gpdk045 giolib045}
+<CMD> init_design
+#% Begin Load MMMC data ... (date=11/26 23:07:25, mem=1014.6M)
+Extraction setup Started 
+Extraction setup Started 
+Extraction setup Started 
+The existing analysis_view 'fast_av' has been replaced with new attributes.
+The existing analysis_view 'slow_av' has been replaced with new attributes.
+INFO: New setup and hold views overwrite old settings during design initialization
+#% End Load MMMC data ... (date=11/26 23:07:25, total cpu=0:00:00.0, real=0:00:00.0, peak res=1017.2M, current mem=1017.2M)
+rc
+**WARN: (IMPOAX-791):	Error reading library definition file - No default library definition file found.
+Reading tech data from OA library 'gsclib045_tech' ...
+**WARN: (IMPOAX-791):	Error reading library definition file - No default library definition file found.
+**ERROR: (IMPOAX-503):	Cannot open OpenAccess library 'gsclib045_tech'. Make sure the library exists on disk and its entry is present correctly in the library definition file.
+Type 'man IMPOAX-503' for more detail.
+**ERROR: (IMPSYT-16006):	Fail to read LEF information from OA reference libraries. Check the OA database provided and your inputs.
+
+<CMD> init_design
+#% Begin Load MMMC data ... (date=11/26 23:09:06, mem=1017.3M)
+Extraction setup Started 
+Extraction setup Started 
+Extraction setup Started 
+The existing analysis_view 'fast_av' has been replaced with new attributes.
+The existing analysis_view 'slow_av' has been replaced with new attributes.
+INFO: New setup and hold views overwrite old settings during design initialization
+#% End Load MMMC data ... (date=11/26 23:09:06, total cpu=0:00:00.0, real=0:00:00.0, peak res=1017.3M, current mem=1017.3M)
+rc
+**WARN: (IMPOAX-791):	Error reading library definition file - No default library definition file found.
+Reading tech data from OA library 'gsclib045_tech' ...
+**WARN: (IMPOAX-791):	Error reading library definition file - No default library definition file found.
+**ERROR: (IMPOAX-503):	Cannot open OpenAccess library 'gsclib045_tech'. Make sure the library exists on disk and its entry is present correctly in the library definition file.
+Type 'man IMPOAX-503' for more detail.
+**ERROR: (IMPSYT-16006):	Fail to read LEF information from OA reference libraries. Check the OA database provided and your inputs.
+
+<CMD> set init_mmmc_file /export/tmp/8304_8/Labs/lab2/constraints/mmmc.tcl
+<CMD> init_design
+#% Begin Load MMMC data ... (date=11/26 23:10:38, mem=1017.3M)
+Extraction setup Started 
+Extraction setup Started 
+Extraction setup Started 
+The existing analysis_view 'fast_av' has been replaced with new attributes.
+The existing analysis_view 'slow_av' has been replaced with new attributes.
+INFO: New setup and hold views overwrite old settings during design initialization
+#% End Load MMMC data ... (date=11/26 23:10:38, total cpu=0:00:00.0, real=0:00:00.0, peak res=1017.3M, current mem=1017.3M)
+rc
+**WARN: (IMPOAX-791):	Error reading library definition file - No default library definition file found.
+Reading tech data from OA library 'gsclib045_tech' ...
+**WARN: (IMPOAX-791):	Error reading library definition file - No default library definition file found.
+**ERROR: (IMPOAX-503):	Cannot open OpenAccess library 'gsclib045_tech'. Make sure the library exists on disk and its entry is present correctly in the library definition file.
+Type 'man IMPOAX-503' for more detail.
+**ERROR: (IMPSYT-16006):	Fail to read LEF information from OA reference libraries. Check the OA database provided and your inputs.
+
+
+*** Memory Usage v#1 (Current mem = 1076.105M, initial mem = 486.879M) ***
+*** Message Summary: 8 warning(s), 8 error(s)
+
+--- Ending "Innovus" (totcpu=0:00:35.7, real=0:08:56, mem=1076.1M) ---

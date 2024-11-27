@@ -2,6 +2,9 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
+library work;
+use work.riscv_pkg.all;
+
 entity riscv_id_tb is
 end entity;
 
@@ -26,7 +29,8 @@ architecture testbench of riscv_id_tb is
     signal o_src_imm   : std_logic;
     signal o_alu_op    : std_logic_vector(2 downto 0);
     signal o_imm       : std_logic_vector(31 downto 0);
-
+    signal i_pc     : std_logic_vector(XLEN-1 downto 0);
+    signal o_pc     : std_logic_vector(XLEN-1 downto 0);
     -- Clock period definition
     constant clk_period : time := 10 ns;
 
@@ -39,6 +43,7 @@ architecture testbench of riscv_id_tb is
       i_rd_addr   : in  std_logic_vector(4 downto 0);
       i_rd_data   : in  std_logic_vector(31 downto 0);
       i_flush     : in  std_logic;
+      i_pc        : in std_logic_vector(XLEN-1 downto 0);
 
       o_rs1_data  : out std_logic_vector(31 downto 0);
       o_rs2_data  : out std_logic_vector(31 downto 0);
@@ -50,6 +55,8 @@ architecture testbench of riscv_id_tb is
       o_sign      : out std_logic;
       o_src_imm   : out std_logic;
       o_alu_op    : out std_logic_vector(2 downto 0);
+      o_pc        : out std_logic_vector(XLEN-1 downto 0);
+
       o_imm       : out std_logic_vector(31 downto 0)
     );
   end component;
@@ -66,6 +73,7 @@ begin
             i_rd_addr   => i_rd_addr,
             i_rd_data   => i_rd_data,
             i_flush     => i_flush,
+	    i_pc        => i_pc,
             o_rs1_data  => o_rs1_data,
             o_rs2_data  => o_rs2_data,
             o_branch    => o_branch,
@@ -76,7 +84,8 @@ begin
             o_sign      => o_sign,
             o_src_imm   => o_src_imm,
             o_alu_op    => o_alu_op,
-            o_imm       => o_imm
+            o_imm       => o_imm,
+	    o_pc        => o_pc
         );
 
     -- Clock generation

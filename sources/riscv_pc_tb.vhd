@@ -49,14 +49,14 @@ begin
   process
   begin
     -- Test case 1: Reset counter
-    tb_rstn <= '0';  -- Assert reset
+    tb_rstn <= '1';  -- Assert reset
     wait for clk_period;
 
-
+    tb_rstn <= '0';  -- Deassert reset
     -- Check if the PC = RESET_VECTOR 
     assert tb_pc = std_logic_vector(to_unsigned(16#00000000#, XLEN))
     report "PC reset failed" severity error;
-    tb_rstn <= '1';  -- Deassert reset
+    
     wait for clk_period;
     -- Test case 2: Normal operation - PC increments by ADDR_INCR
 

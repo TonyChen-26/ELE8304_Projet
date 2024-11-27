@@ -1,0 +1,1000 @@
+
+ 	 Check Design Report (c)
+	 ------------------- 
+No subdesign's name is greater than 1.5k in length.
+
+ Feedthrough Module(s)
+ -------------------------
+No feed through module in 'riscv_core'
+
+  Unresolved References & Empty Modules
+  ------------------------------------- 
+No unresolved references in design 'riscv_core'
+
+No empty modules in design 'riscv_core'
+
+ Unloaded Pin(s), Port(s)
+ -------------------------
+No unloaded sequential element in 'riscv_core'
+
+design 'riscv_core' has the following unloaded port(s)
+port:riscv_core/i_dmem_read[31]
+port:riscv_core/i_dmem_read[30]
+port:riscv_core/i_dmem_read[29]
+port:riscv_core/i_dmem_read[28]
+port:riscv_core/i_dmem_read[27]
+port:riscv_core/i_dmem_read[26]
+port:riscv_core/i_dmem_read[25]
+port:riscv_core/i_dmem_read[24]
+port:riscv_core/i_dmem_read[23]
+port:riscv_core/i_dmem_read[22]
+port:riscv_core/i_dmem_read[21]
+port:riscv_core/i_dmem_read[20]
+port:riscv_core/i_dmem_read[19]
+port:riscv_core/i_dmem_read[18]
+port:riscv_core/i_dmem_read[17]
+port:riscv_core/i_dmem_read[16]
+port:riscv_core/i_dmem_read[15]
+port:riscv_core/i_dmem_read[14]
+port:riscv_core/i_dmem_read[13]
+port:riscv_core/i_dmem_read[12]
+port:riscv_core/i_dmem_read[11]
+port:riscv_core/i_dmem_read[10]
+port:riscv_core/i_dmem_read[9]
+port:riscv_core/i_dmem_read[8]
+port:riscv_core/i_dmem_read[7]
+port:riscv_core/i_dmem_read[6]
+port:riscv_core/i_dmem_read[5]
+port:riscv_core/i_dmem_read[4]
+port:riscv_core/i_dmem_read[3]
+port:riscv_core/i_dmem_read[2]
+port:riscv_core/i_dmem_read[1]
+port:riscv_core/i_dmem_read[0]
+port:riscv_core/i_test_mode
+port:riscv_core/i_tdi
+Total number of unloaded ports in design 'riscv_core' : 34
+
+ Unloaded Combinational Pin(s)
+ -------------------------------
+No unloaded combinational element in 'riscv_core'
+
+ Assigns
+ ------- 
+Encountered an assign statement at port 'port:riscv_core/o_imem_en' in design riscv_core
+Encountered an assign statement at port 'port:riscv_core/o_dmem_write[31]' in design riscv_core
+Encountered an assign statement at port 'port:riscv_core/o_dmem_write[30]' in design riscv_core
+Encountered an assign statement at port 'port:riscv_core/o_dmem_write[29]' in design riscv_core
+Encountered an assign statement at port 'port:riscv_core/o_dmem_write[28]' in design riscv_core
+Encountered an assign statement at port 'port:riscv_core/o_dmem_write[27]' in design riscv_core
+Encountered an assign statement at port 'port:riscv_core/o_dmem_write[26]' in design riscv_core
+Encountered an assign statement at port 'port:riscv_core/o_dmem_write[25]' in design riscv_core
+Encountered an assign statement at port 'port:riscv_core/o_dmem_write[24]' in design riscv_core
+Encountered an assign statement at port 'port:riscv_core/o_dmem_write[23]' in design riscv_core
+Encountered an assign statement at port 'port:riscv_core/o_dmem_write[22]' in design riscv_core
+Encountered an assign statement at port 'port:riscv_core/o_dmem_write[21]' in design riscv_core
+Encountered an assign statement at port 'port:riscv_core/o_dmem_write[20]' in design riscv_core
+Encountered an assign statement at port 'port:riscv_core/o_dmem_write[19]' in design riscv_core
+Encountered an assign statement at port 'port:riscv_core/o_dmem_write[18]' in design riscv_core
+Encountered an assign statement at port 'port:riscv_core/o_dmem_write[17]' in design riscv_core
+Encountered an assign statement at port 'port:riscv_core/o_dmem_write[16]' in design riscv_core
+Encountered an assign statement at port 'port:riscv_core/o_dmem_write[15]' in design riscv_core
+Encountered an assign statement at port 'port:riscv_core/o_dmem_write[14]' in design riscv_core
+Encountered an assign statement at port 'port:riscv_core/o_dmem_write[13]' in design riscv_core
+Encountered an assign statement at port 'port:riscv_core/o_dmem_write[12]' in design riscv_core
+Encountered an assign statement at port 'port:riscv_core/o_dmem_write[11]' in design riscv_core
+Encountered an assign statement at port 'port:riscv_core/o_dmem_write[10]' in design riscv_core
+Encountered an assign statement at port 'port:riscv_core/o_dmem_write[9]' in design riscv_core
+Encountered an assign statement at port 'port:riscv_core/o_dmem_write[8]' in design riscv_core
+Encountered an assign statement at port 'port:riscv_core/o_dmem_write[7]' in design riscv_core
+Encountered an assign statement at port 'port:riscv_core/o_dmem_write[6]' in design riscv_core
+Encountered an assign statement at port 'port:riscv_core/o_dmem_write[5]' in design riscv_core
+Encountered an assign statement at port 'port:riscv_core/o_dmem_write[4]' in design riscv_core
+Encountered an assign statement at port 'port:riscv_core/o_dmem_write[3]' in design riscv_core
+Encountered an assign statement at port 'port:riscv_core/o_dmem_write[2]' in design riscv_core
+Encountered an assign statement at port 'port:riscv_core/o_dmem_write[1]' in design riscv_core
+Encountered an assign statement at port 'port:riscv_core/o_dmem_write[0]' in design riscv_core
+Encountered an assign statement at port 'port:riscv_core/o_tdo' in design riscv_core
+Total number of assign statements in design 'riscv_core' : 34
+
+ Undriven Port(s)/Pin(s)
+ ------------------------
+No undriven combinational pin in 'riscv_core'
+
+No undriven sequential pin in 'riscv_core'
+
+No undriven hierarchical pin in 'riscv_core'
+
+No undriven port in 'riscv_core'
+
+ Multidriven Port(s)/Pin(s)
+--------------------------
+
+No multidriven combinational pin in 'riscv_core'
+
+No multidriven sequential pin in 'riscv_core'
+
+No multidriven hierarchical pin in 'riscv_core'
+
+No multidriven ports in 'riscv_core'
+
+No multidriven unloaded nets in 'riscv_core'
+
+  Constant Pin(s)
+  ----------------
+No constant combinational pin(s) in design 'riscv_core'
+
+design 'riscv_core' has the following constant input sequential pin(s)
+pin:riscv_core/u_memory_o_dmem_en_reg/D
+Total number of constant sequential pins in design 'riscv_core' : 1
+
+No constant hierarchical pin(s) in design 'riscv_core'
+
+design 'riscv_core' has the following constant port(s)
+port:riscv_core/o_imem_en
+port:riscv_core/o_dmem_write[31]
+port:riscv_core/o_dmem_write[30]
+port:riscv_core/o_dmem_write[29]
+port:riscv_core/o_dmem_write[28]
+port:riscv_core/o_dmem_write[27]
+port:riscv_core/o_dmem_write[26]
+port:riscv_core/o_dmem_write[25]
+port:riscv_core/o_dmem_write[24]
+port:riscv_core/o_dmem_write[23]
+port:riscv_core/o_dmem_write[22]
+port:riscv_core/o_dmem_write[21]
+port:riscv_core/o_dmem_write[20]
+port:riscv_core/o_dmem_write[19]
+port:riscv_core/o_dmem_write[18]
+port:riscv_core/o_dmem_write[17]
+port:riscv_core/o_dmem_write[16]
+port:riscv_core/o_dmem_write[15]
+port:riscv_core/o_dmem_write[14]
+port:riscv_core/o_dmem_write[13]
+port:riscv_core/o_dmem_write[12]
+port:riscv_core/o_dmem_write[11]
+port:riscv_core/o_dmem_write[10]
+port:riscv_core/o_dmem_write[9]
+port:riscv_core/o_dmem_write[8]
+port:riscv_core/o_dmem_write[7]
+port:riscv_core/o_dmem_write[6]
+port:riscv_core/o_dmem_write[5]
+port:riscv_core/o_dmem_write[4]
+port:riscv_core/o_dmem_write[3]
+port:riscv_core/o_dmem_write[2]
+port:riscv_core/o_dmem_write[1]
+port:riscv_core/o_dmem_write[0]
+port:riscv_core/o_tdo
+Total number of constant port(s) in design 'riscv_core' : 34
+
+  Preserved instances(s)
+  ----------------
+No preserved combinational instance(s) in design 'riscv_core'
+No preserved sequential instance(s) in design 'riscv_core'
+No preserved hierarchical instance(s) in design 'riscv_core'
+
+  Physical only instances(s)
+  ----------------
+No physical only instance(s) in design 'riscv_core'
+
+  Logical only instance(s) and linked libcells
+    -----------------------------------------
+design 'riscv_core' has following logical only instance(s)
+inst:riscv_core/u_execute_buffer_alu_result_reg[10]
+inst:riscv_core/u_execute_buffer_alu_result_reg[9]
+inst:riscv_core/u_execute_buffer_alu_result_reg[8]
+inst:riscv_core/g6008__2398
+inst:riscv_core/g6009__5107
+inst:riscv_core/g6015__6260
+inst:riscv_core/u_execute_buffer_alu_result_reg[7]
+inst:riscv_core/g6028__4319
+inst:riscv_core/u_execute_buffer_alu_result_reg[6]
+inst:riscv_core/g6006__8428
+inst:riscv_core/g6020__5526
+inst:riscv_core/u_execute_buffer_alu_result_reg[5]
+inst:riscv_core/u_execute_buffer_alu_result_reg[4]
+inst:riscv_core/g6032__6783
+inst:riscv_core/u_execute_buffer_alu_result_reg[3]
+inst:riscv_core/u_execute_buffer_alu_result_reg[2]
+inst:riscv_core/g6012__3680
+inst:riscv_core/g6029__1617
+inst:riscv_core/g6003__2802
+inst:riscv_core/g6036__1705
+inst:riscv_core/g6037__5122
+inst:riscv_core/g6004__8246
+inst:riscv_core/g6026__7098
+inst:riscv_core/g6017__6131
+inst:riscv_core/g6010__1881
+inst:riscv_core/g6011__5115
+inst:riscv_core/g6005__7482
+inst:riscv_core/g6007__4733
+inst:riscv_core/g6042__6161
+inst:riscv_core/g6043__9315
+inst:riscv_core/g6025__9945
+inst:riscv_core/g6013__2883
+inst:riscv_core/g6045__2346
+inst:riscv_core/g6048__1666
+inst:riscv_core/g6023__7410
+inst:riscv_core/g6022__6417
+inst:riscv_core/g6021__5477
+inst:riscv_core/g6024__2398
+inst:riscv_core/g6014__5107
+inst:riscv_core/g6030__6260
+inst:riscv_core/g6027__4319
+inst:riscv_core/g6018__8428
+inst:riscv_core/g6019__5526
+inst:riscv_core/g6052__6783
+inst:riscv_core/g6050__3680
+inst:riscv_core/g6034__1617
+inst:riscv_core/g6053__2802
+inst:riscv_core/g6055__1705
+inst:riscv_core/g6035__5122
+inst:riscv_core/u_fetch_u_add_pc_reg[10]
+inst:riscv_core/g6038
+inst:riscv_core/g6060__8246
+inst:riscv_core/u_fetch_u_add_pc_reg[3]
+inst:riscv_core/g6061__7098
+inst:riscv_core/g6041__6131
+inst:riscv_core/u_fetch_u_add_pc_reg[6]
+inst:riscv_core/u_fetch_u_add_pc_reg[2]
+inst:riscv_core/u_fetch_u_add_pc_reg[9]
+inst:riscv_core/g6063__1881
+inst:riscv_core/g6064__5115
+inst:riscv_core/g6031__7482
+inst:riscv_core/u_fetch_u_add_pc_reg[4]
+inst:riscv_core/u_fetch_u_add_pc_reg[7]
+inst:riscv_core/g6047__4733
+inst:riscv_core/u_fetch_u_add_pc_reg[5]
+inst:riscv_core/u_fetch_u_add_pc_reg[8]
+inst:riscv_core/g6068__6161
+inst:riscv_core/g6071__9315
+inst:riscv_core/g6072__9945
+inst:riscv_core/g6067__2883
+inst:riscv_core/g6069__2346
+inst:riscv_core/u_decode_o_alu_op_buffer_2_reg[0]
+inst:riscv_core/g6081__1666
+inst:riscv_core/g6039__7410
+inst:riscv_core/g6040__6417
+inst:riscv_core/g6070__5477
+inst:riscv_core/g6074__2398
+inst:riscv_core/g6075__5107
+inst:riscv_core/u_execute_buffer_pc_target_reg[3]
+inst:riscv_core/g6051__6260
+inst:riscv_core/u_execute_buffer_pc_target_reg[2]
+inst:riscv_core/u_execute_buffer_pc_target_reg[6]
+inst:riscv_core/u_execute_buffer_pc_target_reg[10]
+inst:riscv_core/u_decode_o_imm_buffer_2_reg[1]
+inst:riscv_core/g6044__4319
+inst:riscv_core/g6054__8428
+inst:riscv_core/u_decode_o_imm_buffer_2_reg[0]
+inst:riscv_core/u_decode_o_imm_buffer_2_reg[3]
+inst:riscv_core/u_execute_buffer_pc_target_reg[8]
+inst:riscv_core/u_execute_buffer_pc_target_reg[4]
+inst:riscv_core/u_execute_buffer_pc_target_reg[5]
+inst:riscv_core/u_execute_buffer_pc_target_reg[7]
+inst:riscv_core/u_execute_buffer_pc_target_reg[9]
+inst:riscv_core/u_decode_o_imm_buffer_2_reg[10]
+inst:riscv_core/u_decode_o_imm_buffer_2_reg[2]
+inst:riscv_core/u_decode_o_imm_buffer_2_reg[6]
+inst:riscv_core/u_decode_o_imm_buffer_2_reg[8]
+inst:riscv_core/u_decode_o_imm_buffer_2_reg[7]
+inst:riscv_core/u_decode_o_imm_buffer_2_reg[9]
+inst:riscv_core/g6101__5526
+inst:riscv_core/u_decode_o_imm_buffer_2_reg[5]
+inst:riscv_core/u_decode_o_imm_buffer_2_reg[4]
+inst:riscv_core/g6056__6783
+inst:riscv_core/g6073__3680
+inst:riscv_core/g6099__1617
+inst:riscv_core/g6100__2802
+inst:riscv_core/u_memory_o_dmem_we_reg
+inst:riscv_core/g6093__1705
+inst:riscv_core/g6102__5122
+inst:riscv_core/g6103__8246
+inst:riscv_core/u_decode_o_alu_op_buffer_2_reg[1]
+inst:riscv_core/g6111__6131
+inst:riscv_core/g6119__1881
+inst:riscv_core/g6115__5115
+inst:riscv_core/g6113__7482
+inst:riscv_core/u_execute_buffer_we_reg
+inst:riscv_core/g6104__4733
+inst:riscv_core/g6108__6161
+inst:riscv_core/g6107__9315
+inst:riscv_core/g6106__9945
+inst:riscv_core/g6109__2883
+inst:riscv_core/g6112__2346
+inst:riscv_core/g6076__1666
+inst:riscv_core/g6116__7410
+inst:riscv_core/u_decode_o_src_imm_buffer_2_reg
+inst:riscv_core/u_decode_o_arith_buffer_2_reg
+inst:riscv_core/g6136
+inst:riscv_core/u_execute_buffer_pc_transfer_reg
+inst:riscv_core/g6122__6417
+inst:riscv_core/g6121__5477
+inst:riscv_core/g6120__2398
+inst:riscv_core/g6123__5107
+inst:riscv_core/g6124__6260
+inst:riscv_core/g6126
+inst:riscv_core/g6125__4319
+inst:riscv_core/u_execute_branch_taken_reg
+inst:riscv_core/g6131
+inst:riscv_core/u_decode_o_rw_buffer_2_reg
+inst:riscv_core/g6133__8428
+inst:riscv_core/g6129__5526
+inst:riscv_core/g6135__6783
+inst:riscv_core/g6141
+inst:riscv_core/g6143
+inst:riscv_core/u_decode_o_branch_buffer_2_reg
+inst:riscv_core/g6145__3680
+inst:riscv_core/g6105__1617
+inst:riscv_core/g6132__2802
+inst:riscv_core/g6134__1705
+inst:riscv_core/g6142
+inst:riscv_core/g6148
+inst:riscv_core/g6144__5122
+inst:riscv_core/g6154
+inst:riscv_core/g6147__8246
+inst:riscv_core/g6151__7098
+inst:riscv_core/g6152__6131
+inst:riscv_core/g6146__1881
+inst:riscv_core/g6155__5115
+inst:riscv_core/g6156__7482
+inst:riscv_core/g6158__4733
+inst:riscv_core/u_decode_o_jump_buffer_2_reg
+inst:riscv_core/g6159
+inst:riscv_core/g6160__6161
+inst:riscv_core/g6153
+inst:riscv_core/g6163__9315
+inst:riscv_core/g6161__9945
+inst:riscv_core/g6137__2883
+inst:riscv_core/g6157__2346
+inst:riscv_core/g6165__1666
+inst:riscv_core/g6166__7410
+inst:riscv_core/g6162__6417
+inst:riscv_core/g6167__5477
+inst:riscv_core/g6164__2398
+inst:riscv_core/g6168__5107
+inst:riscv_core/g6170__6260
+inst:riscv_core/g6171__4319
+inst:riscv_core/g6172
+inst:riscv_core/g6174
+inst:riscv_core/g6173
+inst:riscv_core/g6191
+inst:riscv_core/g6192
+inst:riscv_core/g6193
+inst:riscv_core/g6169__8428
+inst:riscv_core/u_memory_o_dmem_en_reg
+inst:riscv_core/u_fetch_InstructionBuffer_reg[16]
+inst:riscv_core/u_fetch_InstructionBuffer_reg[18]
+inst:riscv_core/u_fetch_InstructionBuffer_reg[17]
+inst:riscv_core/u_fetch_InstructionBuffer_reg[19]
+inst:riscv_core/u_fetch_InstructionBuffer_reg[1]
+inst:riscv_core/u_fetch_InstructionBuffer_reg[22]
+inst:riscv_core/u_fetch_InstructionBuffer_reg[6]
+inst:riscv_core/u_fetch_InstructionBuffer_reg[9]
+inst:riscv_core/u_fetch_InstructionBuffer_reg[7]
+inst:riscv_core/u_fetch_InstructionBuffer_reg[10]
+inst:riscv_core/u_fetch_InstructionBuffer_reg[28]
+inst:riscv_core/u_fetch_InstructionBuffer_reg[29]
+inst:riscv_core/u_fetch_InstructionBuffer_reg[30]
+inst:riscv_core/u_fetch_InstructionBuffer_reg[14]
+inst:riscv_core/u_fetch_InstructionBuffer_reg[2]
+inst:riscv_core/u_fetch_InstructionBuffer_reg[15]
+inst:riscv_core/u_fetch_InstructionBuffer_reg[0]
+inst:riscv_core/u_fetch_InstructionBuffer_reg[31]
+inst:riscv_core/u_fetch_InstructionBuffer_reg[23]
+inst:riscv_core/u_fetch_InstructionBuffer_reg[8]
+inst:riscv_core/u_fetch_InstructionBuffer_reg[3]
+inst:riscv_core/u_fetch_InstructionBuffer_reg[11]
+inst:riscv_core/u_fetch_InstructionBuffer_reg[24]
+inst:riscv_core/u_fetch_InstructionBuffer_reg[21]
+inst:riscv_core/u_fetch_InstructionBuffer_reg[13]
+inst:riscv_core/u_fetch_InstructionBuffer_reg[27]
+inst:riscv_core/u_fetch_InstructionBuffer_reg[20]
+inst:riscv_core/u_fetch_InstructionBuffer_reg[26]
+inst:riscv_core/u_fetch_InstructionBuffer_reg[25]
+inst:riscv_core/u_fetch_InstructionBuffer_reg[12]
+inst:riscv_core/u_fetch_InstructionBuffer_reg[5]
+inst:riscv_core/u_fetch_InstructionBuffer_reg[4]
+inst:riscv_core/u_memory_o_dmem_addr_reg[4]
+inst:riscv_core/u_memory_o_dmem_addr_reg[8]
+inst:riscv_core/u_memory_o_dmem_addr_reg[6]
+inst:riscv_core/u_memory_o_dmem_addr_reg[3]
+inst:riscv_core/u_memory_o_dmem_addr_reg[5]
+inst:riscv_core/u_memory_o_dmem_addr_reg[7]
+inst:riscv_core/u_memory_o_dmem_addr_reg[2]
+inst:riscv_core/u_memory_o_dmem_addr_reg[0]
+inst:riscv_core/u_memory_o_dmem_addr_reg[1]
+inst:riscv_core/g6220__5526
+inst:riscv_core/drc_bufs6323
+inst:riscv_core/drc_bufs6328
+inst:riscv_core/drc_bufs6333
+inst:riscv_core/drc_bufs6338
+inst:riscv_core/drc_bufs6343
+inst:riscv_core/drc_bufs6348
+inst:riscv_core/drc_bufs6353
+inst:riscv_core/drc_bufs6358
+inst:riscv_core/drc_bufs6363
+inst:riscv_core/drc_bufs6368
+inst:riscv_core/drc_bufs6373
+inst:riscv_core/drc_bufs
+inst:riscv_core/drc_bufs6378
+inst:riscv_core/drc_bufs6381
+inst:riscv_core/drc_bufs6384
+inst:riscv_core/drc_bufs6387
+inst:riscv_core/drc_bufs6390
+inst:riscv_core/drc_bufs6393
+inst:riscv_core/drc_bufs6402
+inst:riscv_core/drc_bufs6405
+inst:riscv_core/g2
+Total number of logical only instances in design 'riscv_core' : 246
+
+design 'riscv_core' has the following logical only libcells linked to above instance(s)
+lib_cell:default_emulate_libset_max/slow_vdd1v0/SDFFRHQX1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/OAI2BB1X1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/AOI22X1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/NOR2X1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/NOR2BX1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/OR2X2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/AND2X2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/INVX1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/AND3X2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/MX2X1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/MXI2XL
+lib_cell:default_emulate_libset_max/slow_vdd1v0/SDFFQX1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/CLKXOR2X1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/DFFRHQX1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/DFFRX1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/ADDHX1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/OAI32X1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/OAI221X1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/OR4X1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/OAI211X1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/AOI222X1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/OA21X1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/OA22X1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/INVX2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/SDFFRHQX2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/NAND3X1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/OR2X1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/NOR3BX1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/NAND2X2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/AO22X1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/NAND2X1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/AND2X1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/NAND2BX1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/NOR4X2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/NOR3X1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/NAND3BX2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/SDFFRXL
+lib_cell:default_emulate_libset_max/slow_vdd1v0/NAND2BXL
+lib_cell:default_emulate_libset_max/slow_vdd1v0/CLKBUFX20
+
+Libcells with no corresponding LEF
+----------------------------------
+lib_cell:default_emulate_libset_max/slow_vdd1v0/ACHCONX2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/ADDFHX1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/ADDFHX2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/ADDFHX4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/ADDFHXL
+lib_cell:default_emulate_libset_max/slow_vdd1v0/ADDFX1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/ADDFX2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/ADDFX4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/ADDFXL
+lib_cell:default_emulate_libset_max/slow_vdd1v0/ADDHX1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/ADDHX2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/ADDHX4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/ADDHXL
+lib_cell:default_emulate_libset_max/slow_vdd1v0/AND2X1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/AND2X2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/AND2X4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/AND2X6
+lib_cell:default_emulate_libset_max/slow_vdd1v0/AND2X8
+lib_cell:default_emulate_libset_max/slow_vdd1v0/AND2XL
+lib_cell:default_emulate_libset_max/slow_vdd1v0/AND3X1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/AND3X2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/AND3X4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/AND3X6
+lib_cell:default_emulate_libset_max/slow_vdd1v0/AND3X8
+lib_cell:default_emulate_libset_max/slow_vdd1v0/AND3XL
+lib_cell:default_emulate_libset_max/slow_vdd1v0/AND4X1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/AND4X2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/AND4X4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/AND4X6
+lib_cell:default_emulate_libset_max/slow_vdd1v0/AND4X8
+lib_cell:default_emulate_libset_max/slow_vdd1v0/AND4XL
+lib_cell:default_emulate_libset_max/slow_vdd1v0/ANTENNA
+lib_cell:default_emulate_libset_max/slow_vdd1v0/AO21X1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/AO21X2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/AO21X4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/AO21XL
+lib_cell:default_emulate_libset_max/slow_vdd1v0/AO22X1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/AO22X2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/AO22X4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/AO22XL
+lib_cell:default_emulate_libset_max/slow_vdd1v0/AOI211X1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/AOI211X2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/AOI211X4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/AOI211XL
+lib_cell:default_emulate_libset_max/slow_vdd1v0/AOI21X1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/AOI21X2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/AOI21X4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/AOI21XL
+lib_cell:default_emulate_libset_max/slow_vdd1v0/AOI221X1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/AOI221X2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/AOI221X4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/AOI221XL
+lib_cell:default_emulate_libset_max/slow_vdd1v0/AOI222X1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/AOI222X2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/AOI222X4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/AOI222XL
+lib_cell:default_emulate_libset_max/slow_vdd1v0/AOI22X1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/AOI22X2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/AOI22X4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/AOI22XL
+lib_cell:default_emulate_libset_max/slow_vdd1v0/AOI2BB1X1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/AOI2BB1X2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/AOI2BB1X4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/AOI2BB1XL
+lib_cell:default_emulate_libset_max/slow_vdd1v0/AOI2BB2X1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/AOI2BB2X2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/AOI2BB2X4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/AOI2BB2XL
+lib_cell:default_emulate_libset_max/slow_vdd1v0/AOI31X1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/AOI31X2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/AOI31X4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/AOI31XL
+lib_cell:default_emulate_libset_max/slow_vdd1v0/AOI32X1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/AOI32X2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/AOI32X4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/AOI32XL
+lib_cell:default_emulate_libset_max/slow_vdd1v0/AOI33X1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/AOI33X2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/AOI33X4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/AOI33XL
+lib_cell:default_emulate_libset_max/slow_vdd1v0/BMXIX2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/BMXIX4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/BUFX12
+lib_cell:default_emulate_libset_max/slow_vdd1v0/BUFX16
+lib_cell:default_emulate_libset_max/slow_vdd1v0/BUFX2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/BUFX20
+lib_cell:default_emulate_libset_max/slow_vdd1v0/BUFX3
+lib_cell:default_emulate_libset_max/slow_vdd1v0/BUFX4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/BUFX6
+lib_cell:default_emulate_libset_max/slow_vdd1v0/BUFX8
+lib_cell:default_emulate_libset_max/slow_vdd1v0/CLKAND2X12
+lib_cell:default_emulate_libset_max/slow_vdd1v0/CLKAND2X2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/CLKAND2X3
+lib_cell:default_emulate_libset_max/slow_vdd1v0/CLKAND2X4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/CLKAND2X6
+lib_cell:default_emulate_libset_max/slow_vdd1v0/CLKAND2X8
+lib_cell:default_emulate_libset_max/slow_vdd1v0/CLKBUFX12
+lib_cell:default_emulate_libset_max/slow_vdd1v0/CLKBUFX16
+lib_cell:default_emulate_libset_max/slow_vdd1v0/CLKBUFX2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/CLKBUFX20
+lib_cell:default_emulate_libset_max/slow_vdd1v0/CLKBUFX3
+lib_cell:default_emulate_libset_max/slow_vdd1v0/CLKBUFX4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/CLKBUFX6
+lib_cell:default_emulate_libset_max/slow_vdd1v0/CLKBUFX8
+lib_cell:default_emulate_libset_max/slow_vdd1v0/CLKINVX1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/CLKINVX12
+lib_cell:default_emulate_libset_max/slow_vdd1v0/CLKINVX16
+lib_cell:default_emulate_libset_max/slow_vdd1v0/CLKINVX2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/CLKINVX20
+lib_cell:default_emulate_libset_max/slow_vdd1v0/CLKINVX3
+lib_cell:default_emulate_libset_max/slow_vdd1v0/CLKINVX4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/CLKINVX6
+lib_cell:default_emulate_libset_max/slow_vdd1v0/CLKINVX8
+lib_cell:default_emulate_libset_max/slow_vdd1v0/CLKMX2X12
+lib_cell:default_emulate_libset_max/slow_vdd1v0/CLKMX2X2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/CLKMX2X3
+lib_cell:default_emulate_libset_max/slow_vdd1v0/CLKMX2X4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/CLKMX2X6
+lib_cell:default_emulate_libset_max/slow_vdd1v0/CLKMX2X8
+lib_cell:default_emulate_libset_max/slow_vdd1v0/CLKXOR2X1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/CLKXOR2X2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/CLKXOR2X4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/CLKXOR2X8
+lib_cell:default_emulate_libset_max/slow_vdd1v0/DFFHQX1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/DFFHQX2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/DFFHQX4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/DFFHQX8
+lib_cell:default_emulate_libset_max/slow_vdd1v0/DFFNSRX1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/DFFNSRX2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/DFFNSRX4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/DFFNSRXL
+lib_cell:default_emulate_libset_max/slow_vdd1v0/DFFQX1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/DFFQX2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/DFFQX4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/DFFQXL
+lib_cell:default_emulate_libset_max/slow_vdd1v0/DFFRHQX1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/DFFRHQX2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/DFFRHQX4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/DFFRHQX8
+lib_cell:default_emulate_libset_max/slow_vdd1v0/DFFRX1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/DFFRX2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/DFFRX4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/DFFRXL
+lib_cell:default_emulate_libset_max/slow_vdd1v0/DFFSHQX1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/DFFSHQX2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/DFFSHQX4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/DFFSHQX8
+lib_cell:default_emulate_libset_max/slow_vdd1v0/DFFSRHQX1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/DFFSRHQX2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/DFFSRHQX4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/DFFSRHQX8
+lib_cell:default_emulate_libset_max/slow_vdd1v0/DFFSRX1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/DFFSRX2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/DFFSRX4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/DFFSRXL
+lib_cell:default_emulate_libset_max/slow_vdd1v0/DFFSX1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/DFFSX2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/DFFSX4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/DFFSXL
+lib_cell:default_emulate_libset_max/slow_vdd1v0/DFFTRX1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/DFFTRX2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/DFFTRX4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/DFFTRXL
+lib_cell:default_emulate_libset_max/slow_vdd1v0/DFFX1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/DFFX2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/DFFX4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/DFFXL
+lib_cell:default_emulate_libset_max/slow_vdd1v0/DLY1X1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/DLY1X4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/DLY2X1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/DLY2X4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/DLY3X1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/DLY3X4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/DLY4X1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/DLY4X4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/EDFFHQX1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/EDFFHQX2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/EDFFHQX4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/EDFFHQX8
+lib_cell:default_emulate_libset_max/slow_vdd1v0/EDFFTRX1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/EDFFTRX2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/EDFFTRX4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/EDFFTRXL
+lib_cell:default_emulate_libset_max/slow_vdd1v0/EDFFX1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/EDFFX2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/EDFFX4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/EDFFXL
+lib_cell:default_emulate_libset_max/slow_vdd1v0/HOLDX1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/INVX1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/INVX12
+lib_cell:default_emulate_libset_max/slow_vdd1v0/INVX16
+lib_cell:default_emulate_libset_max/slow_vdd1v0/INVX2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/INVX20
+lib_cell:default_emulate_libset_max/slow_vdd1v0/INVX3
+lib_cell:default_emulate_libset_max/slow_vdd1v0/INVX4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/INVX6
+lib_cell:default_emulate_libset_max/slow_vdd1v0/INVX8
+lib_cell:default_emulate_libset_max/slow_vdd1v0/INVXL
+lib_cell:default_emulate_libset_max/slow_vdd1v0/MDFFHQX1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/MDFFHQX2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/MDFFHQX4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/MDFFHQX8
+lib_cell:default_emulate_libset_max/slow_vdd1v0/MX2X1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/MX2X2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/MX2X4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/MX2X6
+lib_cell:default_emulate_libset_max/slow_vdd1v0/MX2X8
+lib_cell:default_emulate_libset_max/slow_vdd1v0/MX2XL
+lib_cell:default_emulate_libset_max/slow_vdd1v0/MX3X1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/MX3X2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/MX3X4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/MX3XL
+lib_cell:default_emulate_libset_max/slow_vdd1v0/MX4X1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/MX4X2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/MX4X4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/MX4XL
+lib_cell:default_emulate_libset_max/slow_vdd1v0/MXI2X1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/MXI2X2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/MXI2X4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/MXI2X6
+lib_cell:default_emulate_libset_max/slow_vdd1v0/MXI2X8
+lib_cell:default_emulate_libset_max/slow_vdd1v0/MXI2XL
+lib_cell:default_emulate_libset_max/slow_vdd1v0/MXI3X1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/MXI3X2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/MXI3X4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/MXI3XL
+lib_cell:default_emulate_libset_max/slow_vdd1v0/MXI4X1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/MXI4X2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/MXI4X4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/MXI4XL
+lib_cell:default_emulate_libset_max/slow_vdd1v0/NAND2BX1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/NAND2BX2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/NAND2BX4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/NAND2BXL
+lib_cell:default_emulate_libset_max/slow_vdd1v0/NAND2X1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/NAND2X2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/NAND2X4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/NAND2X6
+lib_cell:default_emulate_libset_max/slow_vdd1v0/NAND2X8
+lib_cell:default_emulate_libset_max/slow_vdd1v0/NAND2XL
+lib_cell:default_emulate_libset_max/slow_vdd1v0/NAND3BX1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/NAND3BX2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/NAND3BX4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/NAND3BXL
+lib_cell:default_emulate_libset_max/slow_vdd1v0/NAND3X1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/NAND3X2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/NAND3X4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/NAND3X6
+lib_cell:default_emulate_libset_max/slow_vdd1v0/NAND3X8
+lib_cell:default_emulate_libset_max/slow_vdd1v0/NAND3XL
+lib_cell:default_emulate_libset_max/slow_vdd1v0/NAND4BBX1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/NAND4BBX2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/NAND4BBX4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/NAND4BBXL
+lib_cell:default_emulate_libset_max/slow_vdd1v0/NAND4BX1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/NAND4BX2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/NAND4BX4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/NAND4BXL
+lib_cell:default_emulate_libset_max/slow_vdd1v0/NAND4X1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/NAND4X2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/NAND4X4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/NAND4X6
+lib_cell:default_emulate_libset_max/slow_vdd1v0/NAND4X8
+lib_cell:default_emulate_libset_max/slow_vdd1v0/NAND4XL
+lib_cell:default_emulate_libset_max/slow_vdd1v0/NOR2BX1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/NOR2BX2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/NOR2BX4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/NOR2BXL
+lib_cell:default_emulate_libset_max/slow_vdd1v0/NOR2X1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/NOR2X2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/NOR2X4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/NOR2X6
+lib_cell:default_emulate_libset_max/slow_vdd1v0/NOR2X8
+lib_cell:default_emulate_libset_max/slow_vdd1v0/NOR2XL
+lib_cell:default_emulate_libset_max/slow_vdd1v0/NOR3BX1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/NOR3BX2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/NOR3BX4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/NOR3BXL
+lib_cell:default_emulate_libset_max/slow_vdd1v0/NOR3X1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/NOR3X2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/NOR3X4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/NOR3X6
+lib_cell:default_emulate_libset_max/slow_vdd1v0/NOR3X8
+lib_cell:default_emulate_libset_max/slow_vdd1v0/NOR3XL
+lib_cell:default_emulate_libset_max/slow_vdd1v0/NOR4BBX1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/NOR4BBX2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/NOR4BBX4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/NOR4BBXL
+lib_cell:default_emulate_libset_max/slow_vdd1v0/NOR4BX1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/NOR4BX2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/NOR4BX4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/NOR4BXL
+lib_cell:default_emulate_libset_max/slow_vdd1v0/NOR4X1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/NOR4X2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/NOR4X4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/NOR4X6
+lib_cell:default_emulate_libset_max/slow_vdd1v0/NOR4X8
+lib_cell:default_emulate_libset_max/slow_vdd1v0/NOR4XL
+lib_cell:default_emulate_libset_max/slow_vdd1v0/OA21X1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/OA21X2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/OA21X4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/OA21XL
+lib_cell:default_emulate_libset_max/slow_vdd1v0/OA22X1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/OA22X2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/OA22X4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/OA22XL
+lib_cell:default_emulate_libset_max/slow_vdd1v0/OAI211X1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/OAI211X2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/OAI211X4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/OAI211XL
+lib_cell:default_emulate_libset_max/slow_vdd1v0/OAI21X1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/OAI21X2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/OAI21X4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/OAI21XL
+lib_cell:default_emulate_libset_max/slow_vdd1v0/OAI221X1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/OAI221X2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/OAI221X4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/OAI221XL
+lib_cell:default_emulate_libset_max/slow_vdd1v0/OAI222X1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/OAI222X2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/OAI222X4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/OAI222XL
+lib_cell:default_emulate_libset_max/slow_vdd1v0/OAI22X1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/OAI22X2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/OAI22X4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/OAI22XL
+lib_cell:default_emulate_libset_max/slow_vdd1v0/OAI2BB1X1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/OAI2BB1X2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/OAI2BB1X4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/OAI2BB1XL
+lib_cell:default_emulate_libset_max/slow_vdd1v0/OAI2BB2X1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/OAI2BB2X2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/OAI2BB2X4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/OAI2BB2XL
+lib_cell:default_emulate_libset_max/slow_vdd1v0/OAI31X1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/OAI31X2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/OAI31X4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/OAI31XL
+lib_cell:default_emulate_libset_max/slow_vdd1v0/OAI32X1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/OAI32X2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/OAI32X4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/OAI32XL
+lib_cell:default_emulate_libset_max/slow_vdd1v0/OAI33X1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/OAI33X2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/OAI33X4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/OAI33XL
+lib_cell:default_emulate_libset_max/slow_vdd1v0/OR2X1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/OR2X2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/OR2X4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/OR2X6
+lib_cell:default_emulate_libset_max/slow_vdd1v0/OR2X8
+lib_cell:default_emulate_libset_max/slow_vdd1v0/OR2XL
+lib_cell:default_emulate_libset_max/slow_vdd1v0/OR3X1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/OR3X2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/OR3X4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/OR3X6
+lib_cell:default_emulate_libset_max/slow_vdd1v0/OR3X8
+lib_cell:default_emulate_libset_max/slow_vdd1v0/OR3XL
+lib_cell:default_emulate_libset_max/slow_vdd1v0/OR4X1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/OR4X2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/OR4X4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/OR4X6
+lib_cell:default_emulate_libset_max/slow_vdd1v0/OR4X8
+lib_cell:default_emulate_libset_max/slow_vdd1v0/OR4XL
+lib_cell:default_emulate_libset_max/slow_vdd1v0/SDFFHQX1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/SDFFHQX2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/SDFFHQX4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/SDFFHQX8
+lib_cell:default_emulate_libset_max/slow_vdd1v0/SDFFNSRX1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/SDFFNSRX2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/SDFFNSRX4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/SDFFNSRXL
+lib_cell:default_emulate_libset_max/slow_vdd1v0/SDFFQX1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/SDFFQX2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/SDFFQX4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/SDFFQXL
+lib_cell:default_emulate_libset_max/slow_vdd1v0/SDFFRHQX1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/SDFFRHQX2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/SDFFRHQX4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/SDFFRHQX8
+lib_cell:default_emulate_libset_max/slow_vdd1v0/SDFFRX1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/SDFFRX2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/SDFFRX4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/SDFFRXL
+lib_cell:default_emulate_libset_max/slow_vdd1v0/SDFFSHQX1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/SDFFSHQX2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/SDFFSHQX4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/SDFFSHQX8
+lib_cell:default_emulate_libset_max/slow_vdd1v0/SDFFSRHQX1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/SDFFSRHQX2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/SDFFSRHQX4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/SDFFSRHQX8
+lib_cell:default_emulate_libset_max/slow_vdd1v0/SDFFSRX1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/SDFFSRX2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/SDFFSRX4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/SDFFSRXL
+lib_cell:default_emulate_libset_max/slow_vdd1v0/SDFFSX1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/SDFFSX2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/SDFFSX4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/SDFFSXL
+lib_cell:default_emulate_libset_max/slow_vdd1v0/SDFFTRX1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/SDFFTRX2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/SDFFTRX4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/SDFFTRXL
+lib_cell:default_emulate_libset_max/slow_vdd1v0/SDFFX1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/SDFFX2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/SDFFX4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/SDFFXL
+lib_cell:default_emulate_libset_max/slow_vdd1v0/SEDFFHQX1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/SEDFFHQX2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/SEDFFHQX4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/SEDFFHQX8
+lib_cell:default_emulate_libset_max/slow_vdd1v0/SEDFFTRX1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/SEDFFTRX2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/SEDFFTRX4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/SEDFFTRXL
+lib_cell:default_emulate_libset_max/slow_vdd1v0/SEDFFX1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/SEDFFX2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/SEDFFX4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/SEDFFXL
+lib_cell:default_emulate_libset_max/slow_vdd1v0/SMDFFHQX1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/SMDFFHQX2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/SMDFFHQX4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/SMDFFHQX8
+lib_cell:default_emulate_libset_max/slow_vdd1v0/TBUFX1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/TBUFX12
+lib_cell:default_emulate_libset_max/slow_vdd1v0/TBUFX16
+lib_cell:default_emulate_libset_max/slow_vdd1v0/TBUFX2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/TBUFX20
+lib_cell:default_emulate_libset_max/slow_vdd1v0/TBUFX3
+lib_cell:default_emulate_libset_max/slow_vdd1v0/TBUFX4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/TBUFX6
+lib_cell:default_emulate_libset_max/slow_vdd1v0/TBUFX8
+lib_cell:default_emulate_libset_max/slow_vdd1v0/TBUFXL
+lib_cell:default_emulate_libset_max/slow_vdd1v0/TIEHI
+lib_cell:default_emulate_libset_max/slow_vdd1v0/TIELO
+lib_cell:default_emulate_libset_max/slow_vdd1v0/TLATNCAX12
+lib_cell:default_emulate_libset_max/slow_vdd1v0/TLATNCAX16
+lib_cell:default_emulate_libset_max/slow_vdd1v0/TLATNCAX2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/TLATNCAX20
+lib_cell:default_emulate_libset_max/slow_vdd1v0/TLATNCAX3
+lib_cell:default_emulate_libset_max/slow_vdd1v0/TLATNCAX4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/TLATNCAX6
+lib_cell:default_emulate_libset_max/slow_vdd1v0/TLATNCAX8
+lib_cell:default_emulate_libset_max/slow_vdd1v0/TLATNSRX1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/TLATNSRX2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/TLATNSRX4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/TLATNSRXL
+lib_cell:default_emulate_libset_max/slow_vdd1v0/TLATNTSCAX12
+lib_cell:default_emulate_libset_max/slow_vdd1v0/TLATNTSCAX16
+lib_cell:default_emulate_libset_max/slow_vdd1v0/TLATNTSCAX2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/TLATNTSCAX20
+lib_cell:default_emulate_libset_max/slow_vdd1v0/TLATNTSCAX3
+lib_cell:default_emulate_libset_max/slow_vdd1v0/TLATNTSCAX4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/TLATNTSCAX6
+lib_cell:default_emulate_libset_max/slow_vdd1v0/TLATNTSCAX8
+lib_cell:default_emulate_libset_max/slow_vdd1v0/TLATNX1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/TLATNX2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/TLATNX4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/TLATNXL
+lib_cell:default_emulate_libset_max/slow_vdd1v0/TLATSRX1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/TLATSRX2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/TLATSRX4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/TLATSRXL
+lib_cell:default_emulate_libset_max/slow_vdd1v0/TLATX1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/TLATX2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/TLATX4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/TLATXL
+lib_cell:default_emulate_libset_max/slow_vdd1v0/XNOR2X1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/XNOR2X2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/XNOR2X4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/XNOR2XL
+lib_cell:default_emulate_libset_max/slow_vdd1v0/XNOR3X1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/XNOR3XL
+lib_cell:default_emulate_libset_max/slow_vdd1v0/XOR2X1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/XOR2X2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/XOR2X4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/XOR2XL
+lib_cell:default_emulate_libset_max/slow_vdd1v0/XOR3X1
+lib_cell:default_emulate_libset_max/slow_vdd1v0/XOR3XL
+lib_cell:default_emulate_libset_max/slow_vdd1v0/DECAP10
+lib_cell:default_emulate_libset_max/slow_vdd1v0/DECAP2
+lib_cell:default_emulate_libset_max/slow_vdd1v0/DECAP3
+lib_cell:default_emulate_libset_max/slow_vdd1v0/DECAP4
+lib_cell:default_emulate_libset_max/slow_vdd1v0/DECAP5
+lib_cell:default_emulate_libset_max/slow_vdd1v0/DECAP6
+lib_cell:default_emulate_libset_max/slow_vdd1v0/DECAP7
+lib_cell:default_emulate_libset_max/slow_vdd1v0/DECAP8
+lib_cell:default_emulate_libset_max/slow_vdd1v0/DECAP9
+
+Total number of cell(s) with only library (.lib) info : 489
+
+LEF cells with no corresponding libcell
+---------------------------------------
+
+No physical (LEF) cells found.
+
+ Summary
+ ------- 
+
+              Name                       Total
+----------------------------------------------
+Unresolved References                        0
+Empty Modules                                0
+Unloaded Port(s)                            34
+Unloaded Sequential Pin(s)                   0
+Unloaded Combinational Pin(s)                0
+Assigns                                     34
+Undriven Port(s)                             0
+Undriven Leaf Pin(s)                         0
+Undriven hierarchical pin(s)                 0
+Multidriven Port(s)                          0
+Multidriven Leaf Pin(s)                      0
+Multidriven hierarchical Pin(s)              0
+Multidriven unloaded net(s)                  0
+Constant Port(s)                            34
+Constant Leaf Pin(s)                         1
+Constant hierarchical Pin(s)                 0
+Preserved leaf instance(s)                   0
+Preserved hierarchical instance(s)           0
+Feedthrough Modules(s)                       0
+Libcells with no LEF cell                  489
+Physical (LEF) cells with no libcell         0
+Subdesigns with long module name             0
+Physical only instance(s)                    0
+Logical only instance(s)                   246
+
+  Done Checking the design.

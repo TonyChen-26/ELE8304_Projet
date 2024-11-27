@@ -1,0 +1,34 @@
+Total 0 violations (muxed_scan)
+ 
+Async. set/reset Rule Violations
+================================
+Reporting 0 async set/reset violations
+
+Clock Rule Violations
+=====================
+Reporting 0 clock violations
+
+Abstract Segment Test Mode Violations
+=====================================
+Reporting 0 abstract segment violations
+
+Shift Register Segment Violations
+=================================
+Reporting 0 shift register segment violations
+
+Tristate net contention Violations
+==================================
+Reporting 0 tristate net contention violations
+
+Potential Race Condition Violations
+==================================
+Reporting 0 potential race condition violations
+
+X-source Violations
+==================
+Reporting 0 x-source violations
+
+X-source Violations By Instance
+===============================
+Reporting 0 instances generating observable x-sources
+ 

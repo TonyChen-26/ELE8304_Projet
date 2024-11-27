@@ -1,0 +1,32 @@
+Detected 0 DFT rule violation(s)
+	Summary of check_dft_rules
+	**************************
+	Number of usable scan cells: 48
+Clock Rule Violations:
+---------------------
+	  Internally driven clock net: 0
+	      Tied constant clock net: 0
+	           Undriven clock net: 0
+	Conflicting async & clock net: 0
+	              Misc. clock net: 0
+
+Async. set/reset Rule Violations:
+--------------------------------
+	Internally driven async net: 0
+	      Tied active async net: 0
+	         Undriven async net: 0
+	            Misc. async net: 0
+
+Shift Register Segment Violations:
+----------------------------------
+	Shift register segment violation: 0
+
+   Total number of DFT violations: 0
+
+Total number of Test Clock Domains: 1
+  DFT Test Clock Domain: dom_1
+	Test Clock 'clk_scan' (Positive edge) has  91 registers
+Number of user specified non-Scan registers:   0
+    Number of registers that fail DFT rules:   0
+    Number of registers that pass DFT rules:  91
+Percentage of total registers that are scannable: 100%

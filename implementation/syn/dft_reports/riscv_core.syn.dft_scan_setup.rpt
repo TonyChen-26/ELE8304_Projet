@@ -1,0 +1,401 @@
+
+Design Name
+===========
+    riscv_core
+
+Scan Style
+==========
+    muxed_scan
+Design has a valid DFT rule check status
+
+Global Constraints
+==================
+    Minimum number of scan chains: 1
+    Maximum length of scan chains: 10
+    Lock-up element type: preferred_level_sensitive
+    Mix clock edges in scan chain: true
+    Prefix for unnamed scan objects: DFT_
+
+Test signal objects
+===================
+    shift_enable: 
+          object name: i_scan_en 
+          pin name: i_scan_en 
+          hookup_pin: i_scan_en 
+          hookup_polarity: non_inverted 
+          function: shift_enable 
+          active: high 
+          ideal: false 
+          user defined: true
+
+    test_mode: 
+          object name: i_test_mode 
+          pin name: i_test_mode 
+          hookup_pin: i_test_mode 
+          hookup_polarity: non_inverted 
+          function: test_mode 
+          active: high 
+          ideal: false 
+          user defined: true
+
+    test_mode: 
+          object name: i_rstn 
+          pin name: i_rstn 
+          hookup_pin: i_rstn 
+          hookup_polarity: non_inverted 
+          function: async_set_reset 
+          active: high 
+          ideal: false 
+          user defined: false
+
+
+Test clock objects
+==================
+    test_clock:
+          object name: clk_scan 
+          test_clock_domain: dom_1 
+          user defined: true 
+          source: i_clk  
+          root source: i_clk  
+          root source polarity: non_inverting
+          hookup_pin: i_clk 
+          period: 20000.0
+
+
+DFT controllable objects
+========================
+
+DFT don't scan objects
+======================
+
+DFT abstract don't scan objects
+===============================
+
+DFT scan segment constraints
+============================
+    Segment:
+          object name: DFT_AutoSegment_1 
+          scan-in: u_decode_o_branch_buffer_2_reg/SI 
+          scan-out: u_execute_branch_taken_reg/Q 
+          shift-enable: internal 
+          connected_shift_enable: false 
+          length: 2 
+          type: shift_register 
+
+    Segment:
+          object name: DFT_AutoSegment_2 
+          scan-in: u_decode_o_imm_buffer_2_reg[10]/SI 
+          scan-out: u_execute_buffer_pc_target_reg[10]/Q 
+          shift-enable: internal 
+          connected_shift_enable: false 
+          length: 2 
+          type: shift_register 
+
+    Segment:
+          object name: DFT_AutoSegment_3 
+          scan-in: u_decode_o_imm_buffer_2_reg[2]/SI 
+          scan-out: u_execute_buffer_pc_target_reg[2]/Q 
+          shift-enable: internal 
+          connected_shift_enable: false 
+          length: 2 
+          type: shift_register 
+
+    Segment:
+          object name: DFT_AutoSegment_4 
+          scan-in: u_decode_o_imm_buffer_2_reg[3]/SI 
+          scan-out: u_execute_buffer_pc_target_reg[3]/Q 
+          shift-enable: internal 
+          connected_shift_enable: false 
+          length: 2 
+          type: shift_register 
+
+    Segment:
+          object name: DFT_AutoSegment_5 
+          scan-in: u_decode_o_imm_buffer_2_reg[4]/SI 
+          scan-out: u_execute_buffer_pc_target_reg[4]/Q 
+          shift-enable: internal 
+          connected_shift_enable: false 
+          length: 2 
+          type: shift_register 
+
+    Segment:
+          object name: DFT_AutoSegment_6 
+          scan-in: u_decode_o_imm_buffer_2_reg[5]/SI 
+          scan-out: u_execute_buffer_pc_target_reg[5]/Q 
+          shift-enable: internal 
+          connected_shift_enable: false 
+          length: 2 
+          type: shift_register 
+
+    Segment:
+          object name: DFT_AutoSegment_7 
+          scan-in: u_decode_o_imm_buffer_2_reg[6]/SI 
+          scan-out: u_execute_buffer_pc_target_reg[6]/Q 
+          shift-enable: internal 
+          connected_shift_enable: false 
+          length: 2 
+          type: shift_register 
+
+    Segment:
+          object name: DFT_AutoSegment_8 
+          scan-in: u_decode_o_imm_buffer_2_reg[7]/SI 
+          scan-out: u_execute_buffer_pc_target_reg[7]/Q 
+          shift-enable: internal 
+          connected_shift_enable: false 
+          length: 2 
+          type: shift_register 
+
+    Segment:
+          object name: DFT_AutoSegment_9 
+          scan-in: u_decode_o_imm_buffer_2_reg[8]/SI 
+          scan-out: u_execute_buffer_pc_target_reg[8]/Q 
+          shift-enable: internal 
+          connected_shift_enable: false 
+          length: 2 
+          type: shift_register 
+
+    Segment:
+          object name: DFT_AutoSegment_10 
+          scan-in: u_decode_o_imm_buffer_2_reg[9]/SI 
+          scan-out: u_execute_buffer_pc_target_reg[9]/Q 
+          shift-enable: internal 
+          connected_shift_enable: false 
+          length: 2 
+          type: shift_register 
+
+    Segment:
+          object name: DFT_AutoSegment_11 
+          scan-in: u_decode_o_rw_buffer_2_reg/SI 
+          scan-out: u_memory_o_dmem_we_reg/Q 
+          shift-enable: internal 
+          connected_shift_enable: false 
+          length: 3 
+          type: shift_register 
+
+    Segment:
+          object name: DFT_AutoSegment_12 
+          scan-in: u_execute_buffer_alu_result_reg[2]/SI 
+          scan-out: u_memory_o_dmem_addr_reg[0]/Q 
+          shift-enable: internal 
+          connected_shift_enable: false 
+          length: 2 
+          type: shift_register 
+
+    Segment:
+          object name: DFT_AutoSegment_13 
+          scan-in: u_execute_buffer_alu_result_reg[3]/SI 
+          scan-out: u_memory_o_dmem_addr_reg[1]/Q 
+          shift-enable: internal 
+          connected_shift_enable: false 
+          length: 2 
+          type: shift_register 
+
+    Segment:
+          object name: DFT_AutoSegment_14 
+          scan-in: u_execute_buffer_alu_result_reg[4]/SI 
+          scan-out: u_memory_o_dmem_addr_reg[2]/Q 
+          shift-enable: internal 
+          connected_shift_enable: false 
+          length: 2 
+          type: shift_register 
+
+    Segment:
+          object name: DFT_AutoSegment_15 
+          scan-in: u_execute_buffer_alu_result_reg[5]/SI 
+          scan-out: u_memory_o_dmem_addr_reg[3]/Q 
+          shift-enable: internal 
+          connected_shift_enable: false 
+          length: 2 
+          type: shift_register 
+
+    Segment:
+          object name: DFT_AutoSegment_16 
+          scan-in: u_execute_buffer_alu_result_reg[6]/SI 
+          scan-out: u_memory_o_dmem_addr_reg[4]/Q 
+          shift-enable: internal 
+          connected_shift_enable: false 
+          length: 2 
+          type: shift_register 
+
+    Segment:
+          object name: DFT_AutoSegment_17 
+          scan-in: u_execute_buffer_alu_result_reg[7]/SI 
+          scan-out: u_memory_o_dmem_addr_reg[5]/Q 
+          shift-enable: internal 
+          connected_shift_enable: false 
+          length: 2 
+          type: shift_register 
+
+    Segment:
+          object name: DFT_AutoSegment_18 
+          scan-in: u_execute_buffer_alu_result_reg[8]/SI 
+          scan-out: u_memory_o_dmem_addr_reg[6]/Q 
+          shift-enable: internal 
+          connected_shift_enable: false 
+          length: 2 
+          type: shift_register 
+
+    Segment:
+          object name: DFT_AutoSegment_19 
+          scan-in: u_execute_buffer_alu_result_reg[9]/SI 
+          scan-out: u_memory_o_dmem_addr_reg[7]/Q 
+          shift-enable: internal 
+          connected_shift_enable: false 
+          length: 2 
+          type: shift_register 
+
+    Segment:
+          object name: DFT_AutoSegment_20 
+          scan-in: u_execute_buffer_alu_result_reg[10]/SI 
+          scan-out: u_memory_o_dmem_addr_reg[8]/Q 
+          shift-enable: internal 
+          connected_shift_enable: false 
+          length: 2 
+          type: shift_register 
+
+
+DFT scan chain constraints
+==========================
+
+DFT actual scan chains
+======================
+    Actual Chain:
+          object name: AutoChain_1 
+          scan-in: DFT_sdi_1 
+          scan-in hookup_pin: DFT_sdi_1 
+          scan-out: DFT_sdo_1 
+          scan-out hookup_pin: DFT_sdo_1 
+          shared out: false
+          shift_enable: i_scan_en 
+          length: 10
+          segment objects: DFT_AutoSegment_11 DFT_AutoSegment_20 DFT_AutoSegment_19 DFT_AutoSegment_18  
+          analyzed: false
+          test_clock domain: dom_1
+          test_clock edge: rise
+
+    Actual Chain:
+          object name: AutoChain_2 
+          scan-in: DFT_sdi_2 
+          scan-in hookup_pin: DFT_sdi_2 
+          scan-out: DFT_sdo_2 
+          scan-out hookup_pin: DFT_sdo_2 
+          shared out: false
+          shift_enable: i_scan_en 
+          length: 9
+          segment objects: DFT_AutoSegment_17 DFT_AutoSegment_16 DFT_AutoSegment_15 DFT_AutoSegment_14  
+          analyzed: false
+          test_clock domain: dom_1
+          test_clock edge: rise
+
+    Actual Chain:
+          object name: AutoChain_3 
+          scan-in: DFT_sdi_3 
+          scan-in hookup_pin: DFT_sdi_3 
+          scan-out: DFT_sdo_3 
+          scan-out hookup_pin: DFT_sdo_3 
+          shared out: false
+          shift_enable: i_scan_en 
+          length: 9
+          segment objects: DFT_AutoSegment_13 DFT_AutoSegment_12 DFT_AutoSegment_2 DFT_AutoSegment_10  
+          analyzed: false
+          test_clock domain: dom_1
+          test_clock edge: rise
+
+    Actual Chain:
+          object name: AutoChain_4 
+          scan-in: DFT_sdi_4 
+          scan-in hookup_pin: DFT_sdi_4 
+          scan-out: DFT_sdo_4 
+          scan-out hookup_pin: DFT_sdo_4 
+          shared out: false
+          shift_enable: i_scan_en 
+          length: 9
+          segment objects: DFT_AutoSegment_9 DFT_AutoSegment_8 DFT_AutoSegment_7 DFT_AutoSegment_6  
+          analyzed: false
+          test_clock domain: dom_1
+          test_clock edge: rise
+
+    Actual Chain:
+          object name: AutoChain_5 
+          scan-in: DFT_sdi_5 
+          scan-in hookup_pin: DFT_sdi_5 
+          scan-out: DFT_sdo_5 
+          scan-out hookup_pin: DFT_sdo_5 
+          shared out: false
+          shift_enable: i_scan_en 
+          length: 9
+          segment objects: DFT_AutoSegment_5 DFT_AutoSegment_4 DFT_AutoSegment_3 DFT_AutoSegment_1  
+          analyzed: false
+          test_clock domain: dom_1
+          test_clock edge: rise
+
+    Actual Chain:
+          object name: AutoChain_6 
+          scan-in: DFT_sdi_6 
+          scan-in hookup_pin: DFT_sdi_6 
+          scan-out: DFT_sdo_6 
+          scan-out hookup_pin: DFT_sdo_6 
+          shared out: false
+          shift_enable: i_scan_en 
+          length: 9
+          segment objects: none
+          analyzed: false
+          test_clock domain: dom_1
+          test_clock edge: rise
+
+    Actual Chain:
+          object name: AutoChain_7 
+          scan-in: DFT_sdi_7 
+          scan-in hookup_pin: DFT_sdi_7 
+          scan-out: DFT_sdo_7 
+          scan-out hookup_pin: DFT_sdo_7 
+          shared out: false
+          shift_enable: i_scan_en 
+          length: 9
+          segment objects: none
+          analyzed: false
+          test_clock domain: dom_1
+          test_clock edge: rise
+
+    Actual Chain:
+          object name: AutoChain_8 
+          scan-in: DFT_sdi_8 
+          scan-in hookup_pin: DFT_sdi_8 
+          scan-out: DFT_sdo_8 
+          scan-out hookup_pin: DFT_sdo_8 
+          shared out: false
+          shift_enable: i_scan_en 
+          length: 9
+          segment objects: none
+          analyzed: false
+          test_clock domain: dom_1
+          test_clock edge: rise
+
+    Actual Chain:
+          object name: AutoChain_9 
+          scan-in: DFT_sdi_9 
+          scan-in hookup_pin: DFT_sdi_9 
+          scan-out: DFT_sdo_9 
+          scan-out hookup_pin: DFT_sdo_9 
+          shared out: false
+          shift_enable: i_scan_en 
+          length: 9
+          segment objects: none
+          analyzed: false
+          test_clock domain: dom_1
+          test_clock edge: rise
+
+    Actual Chain:
+          object name: AutoChain_10 
+          scan-in: DFT_sdi_10 
+          scan-in hookup_pin: DFT_sdi_10 
+          scan-out: DFT_sdo_10 
+          scan-out hookup_pin: DFT_sdo_10 
+          shared out: false
+          shift_enable: i_scan_en 
+          length: 9
+          segment objects: none
+          analyzed: false
+          test_clock domain: dom_1
+          test_clock edge: rise
+

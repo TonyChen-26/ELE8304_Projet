@@ -1,0 +1,240 @@
+VERSION 5.5 ;
+NAMESCASESENSITIVE ON ;
+DIVIDERCHAR "/" ;
+BUSBITCHARS "[]" ;
+DESIGN riscv_core ;
+
+SCANCHAINS 10 ;
+  - AutoChain_1_seg1_clk_scan_rising 
+    + PARTITION p_clk_scan_rising 
+      MAXBITS 10
+    + START PIN DFT_sdi_1
+    + FLOATING 
+        # ORDERED segment DFT_AutoSegment_11
+        # ORDERED segment DFT_AutoSegment_20
+        # ORDERED segment DFT_AutoSegment_19
+        # ORDERED segment DFT_AutoSegment_18
+       u_decode_o_alu_op_buffer_2_reg[0] ( IN SI ) ( OUT Q ) 
+    + ORDERED 
+        # ORDERED segment DFT_AutoSegment_11
+       u_decode_o_rw_buffer_2_reg ( IN SI ) ( OUT Q ) 
+       u_execute_buffer_we_reg ( IN D ) ( OUT Q ) 
+       u_memory_o_dmem_we_reg ( IN D ) ( OUT Q ) 
+    + ORDERED 
+        # ORDERED segment DFT_AutoSegment_20
+       u_execute_buffer_alu_result_reg[10] ( IN SI ) ( OUT Q ) 
+       u_memory_o_dmem_addr_reg[8] ( IN D ) ( OUT Q ) 
+    + ORDERED 
+        # ORDERED segment DFT_AutoSegment_19
+       u_execute_buffer_alu_result_reg[9] ( IN SI ) ( OUT Q ) 
+       u_memory_o_dmem_addr_reg[7] ( IN D ) ( OUT Q ) 
+    + ORDERED 
+        # ORDERED segment DFT_AutoSegment_18
+       u_execute_buffer_alu_result_reg[8] ( IN SI ) ( OUT Q ) 
+       u_memory_o_dmem_addr_reg[6] ( IN D ) ( OUT Q ) 
+    + STOP PIN DFT_sdo_1
+;
+
+  - AutoChain_2_seg1_clk_scan_rising 
+    + PARTITION p_clk_scan_rising 
+      MAXBITS 9
+    + START PIN DFT_sdi_2
+    + FLOATING 
+        # ORDERED segment DFT_AutoSegment_17
+        # ORDERED segment DFT_AutoSegment_16
+        # ORDERED segment DFT_AutoSegment_15
+        # ORDERED segment DFT_AutoSegment_14
+       u_decode_o_alu_op_buffer_2_reg[1] ( IN SI ) ( OUT Q ) 
+    + ORDERED 
+        # ORDERED segment DFT_AutoSegment_17
+       u_execute_buffer_alu_result_reg[7] ( IN SI ) ( OUT Q ) 
+       u_memory_o_dmem_addr_reg[5] ( IN D ) ( OUT Q ) 
+    + ORDERED 
+        # ORDERED segment DFT_AutoSegment_16
+       u_execute_buffer_alu_result_reg[6] ( IN SI ) ( OUT Q ) 
+       u_memory_o_dmem_addr_reg[4] ( IN D ) ( OUT Q ) 
+    + ORDERED 
+        # ORDERED segment DFT_AutoSegment_15
+       u_execute_buffer_alu_result_reg[5] ( IN SI ) ( OUT Q ) 
+       u_memory_o_dmem_addr_reg[3] ( IN D ) ( OUT Q ) 
+    + ORDERED 
+        # ORDERED segment DFT_AutoSegment_14
+       u_execute_buffer_alu_result_reg[4] ( IN SI ) ( OUT Q ) 
+       u_memory_o_dmem_addr_reg[2] ( IN D ) ( OUT Q ) 
+    + STOP PIN DFT_sdo_2
+;
+
+  - AutoChain_3_seg1_clk_scan_rising 
+    + PARTITION p_clk_scan_rising 
+      MAXBITS 9
+    + START PIN DFT_sdi_3
+    + FLOATING 
+        # ORDERED segment DFT_AutoSegment_13
+        # ORDERED segment DFT_AutoSegment_12
+        # ORDERED segment DFT_AutoSegment_2
+        # ORDERED segment DFT_AutoSegment_10
+       u_decode_o_arith_buffer_2_reg ( IN SI ) ( OUT Q ) 
+    + ORDERED 
+        # ORDERED segment DFT_AutoSegment_13
+       u_execute_buffer_alu_result_reg[3] ( IN SI ) ( OUT Q ) 
+       u_memory_o_dmem_addr_reg[1] ( IN D ) ( OUT Q ) 
+    + ORDERED 
+        # ORDERED segment DFT_AutoSegment_12
+       u_execute_buffer_alu_result_reg[2] ( IN SI ) ( OUT Q ) 
+       u_memory_o_dmem_addr_reg[0] ( IN D ) ( OUT Q ) 
+    + ORDERED 
+        # ORDERED segment DFT_AutoSegment_2
+       u_decode_o_imm_buffer_2_reg[10] ( IN SI ) ( OUT Q ) 
+       u_execute_buffer_pc_target_reg[10] ( IN D ) ( OUT Q ) 
+    + ORDERED 
+        # ORDERED segment DFT_AutoSegment_10
+       u_decode_o_imm_buffer_2_reg[9] ( IN SI ) ( OUT Q ) 
+       u_execute_buffer_pc_target_reg[9] ( IN D ) ( OUT Q ) 
+    + STOP PIN DFT_sdo_3
+;
+
+  - AutoChain_4_seg1_clk_scan_rising 
+    + PARTITION p_clk_scan_rising 
+      MAXBITS 9
+    + START PIN DFT_sdi_4
+    + FLOATING 
+        # ORDERED segment DFT_AutoSegment_9
+        # ORDERED segment DFT_AutoSegment_8
+        # ORDERED segment DFT_AutoSegment_7
+        # ORDERED segment DFT_AutoSegment_6
+       u_decode_o_imm_buffer_2_reg[0] ( IN SI ) ( OUT Q ) 
+    + ORDERED 
+        # ORDERED segment DFT_AutoSegment_9
+       u_decode_o_imm_buffer_2_reg[8] ( IN SI ) ( OUT Q ) 
+       u_execute_buffer_pc_target_reg[8] ( IN D ) ( OUT Q ) 
+    + ORDERED 
+        # ORDERED segment DFT_AutoSegment_8
+       u_decode_o_imm_buffer_2_reg[7] ( IN SI ) ( OUT Q ) 
+       u_execute_buffer_pc_target_reg[7] ( IN D ) ( OUT Q ) 
+    + ORDERED 
+        # ORDERED segment DFT_AutoSegment_7
+       u_decode_o_imm_buffer_2_reg[6] ( IN SI ) ( OUT Q ) 
+       u_execute_buffer_pc_target_reg[6] ( IN D ) ( OUT Q ) 
+    + ORDERED 
+        # ORDERED segment DFT_AutoSegment_6
+       u_decode_o_imm_buffer_2_reg[5] ( IN SI ) ( OUT Q ) 
+       u_execute_buffer_pc_target_reg[5] ( IN D ) ( OUT Q ) 
+    + STOP PIN DFT_sdo_4
+;
+
+  - AutoChain_5_seg1_clk_scan_rising 
+    + PARTITION p_clk_scan_rising 
+      MAXBITS 9
+    + START PIN DFT_sdi_5
+    + FLOATING 
+        # ORDERED segment DFT_AutoSegment_5
+        # ORDERED segment DFT_AutoSegment_4
+        # ORDERED segment DFT_AutoSegment_3
+        # ORDERED segment DFT_AutoSegment_1
+       u_decode_o_imm_buffer_2_reg[1] ( IN SI ) ( OUT Q ) 
+    + ORDERED 
+        # ORDERED segment DFT_AutoSegment_5
+       u_decode_o_imm_buffer_2_reg[4] ( IN SI ) ( OUT Q ) 
+       u_execute_buffer_pc_target_reg[4] ( IN D ) ( OUT Q ) 
+    + ORDERED 
+        # ORDERED segment DFT_AutoSegment_4
+       u_decode_o_imm_buffer_2_reg[3] ( IN SI ) ( OUT Q ) 
+       u_execute_buffer_pc_target_reg[3] ( IN D ) ( OUT Q ) 
+    + ORDERED 
+        # ORDERED segment DFT_AutoSegment_3
+       u_decode_o_imm_buffer_2_reg[2] ( IN SI ) ( OUT Q ) 
+       u_execute_buffer_pc_target_reg[2] ( IN D ) ( OUT Q ) 
+    + ORDERED 
+        # ORDERED segment DFT_AutoSegment_1
+       u_decode_o_branch_buffer_2_reg ( IN SI ) ( OUT Q ) 
+       u_execute_branch_taken_reg ( IN D ) ( OUT Q ) 
+    + STOP PIN DFT_sdo_5
+;
+
+  - AutoChain_6_seg1_clk_scan_rising 
+    + PARTITION p_clk_scan_rising 
+      MAXBITS 9
+    + START PIN DFT_sdi_6
+    + FLOATING 
+       u_decode_o_jump_buffer_2_reg ( IN SI ) ( OUT Q ) 
+       u_decode_o_src_imm_buffer_2_reg ( IN SI ) ( OUT Q ) 
+       u_execute_buffer_pc_transfer_reg ( IN SI ) ( OUT Q ) 
+       u_fetch_InstructionBuffer_reg[0] ( IN SI ) ( OUT Q ) 
+       u_fetch_InstructionBuffer_reg[1] ( IN SI ) ( OUT Q ) 
+       u_fetch_InstructionBuffer_reg[2] ( IN SI ) ( OUT Q ) 
+       u_fetch_InstructionBuffer_reg[3] ( IN SI ) ( OUT Q ) 
+       u_fetch_InstructionBuffer_reg[4] ( IN SI ) ( OUT Q ) 
+       u_fetch_InstructionBuffer_reg[5] ( IN SI ) ( OUT Q ) 
+    + STOP PIN DFT_sdo_6
+;
+
+  - AutoChain_7_seg1_clk_scan_rising 
+    + PARTITION p_clk_scan_rising 
+      MAXBITS 9
+    + START PIN DFT_sdi_7
+    + FLOATING 
+       u_fetch_InstructionBuffer_reg[6] ( IN SI ) ( OUT Q ) 
+       u_fetch_InstructionBuffer_reg[7] ( IN SI ) ( OUT Q ) 
+       u_fetch_InstructionBuffer_reg[8] ( IN SI ) ( OUT Q ) 
+       u_fetch_InstructionBuffer_reg[9] ( IN SI ) ( OUT Q ) 
+       u_fetch_InstructionBuffer_reg[10] ( IN SI ) ( OUT Q ) 
+       u_fetch_InstructionBuffer_reg[11] ( IN SI ) ( OUT Q ) 
+       u_fetch_InstructionBuffer_reg[12] ( IN SI ) ( OUT Q ) 
+       u_fetch_InstructionBuffer_reg[13] ( IN SI ) ( OUT Q ) 
+       u_fetch_InstructionBuffer_reg[14] ( IN SI ) ( OUT Q ) 
+    + STOP PIN DFT_sdo_7
+;
+
+  - AutoChain_8_seg1_clk_scan_rising 
+    + PARTITION p_clk_scan_rising 
+      MAXBITS 9
+    + START PIN DFT_sdi_8
+    + FLOATING 
+       u_fetch_InstructionBuffer_reg[15] ( IN SI ) ( OUT Q ) 
+       u_fetch_InstructionBuffer_reg[16] ( IN SI ) ( OUT Q ) 
+       u_fetch_InstructionBuffer_reg[17] ( IN SI ) ( OUT Q ) 
+       u_fetch_InstructionBuffer_reg[18] ( IN SI ) ( OUT Q ) 
+       u_fetch_InstructionBuffer_reg[19] ( IN SI ) ( OUT Q ) 
+       u_fetch_InstructionBuffer_reg[20] ( IN SI ) ( OUT Q ) 
+       u_fetch_InstructionBuffer_reg[21] ( IN SI ) ( OUT Q ) 
+       u_fetch_InstructionBuffer_reg[22] ( IN SI ) ( OUT Q ) 
+       u_fetch_InstructionBuffer_reg[23] ( IN SI ) ( OUT Q ) 
+    + STOP PIN DFT_sdo_8
+;
+
+  - AutoChain_9_seg1_clk_scan_rising 
+    + PARTITION p_clk_scan_rising 
+      MAXBITS 9
+    + START PIN DFT_sdi_9
+    + FLOATING 
+       u_fetch_InstructionBuffer_reg[24] ( IN SI ) ( OUT Q ) 
+       u_fetch_InstructionBuffer_reg[25] ( IN SI ) ( OUT Q ) 
+       u_fetch_InstructionBuffer_reg[26] ( IN SI ) ( OUT Q ) 
+       u_fetch_InstructionBuffer_reg[27] ( IN SI ) ( OUT Q ) 
+       u_fetch_InstructionBuffer_reg[28] ( IN SI ) ( OUT Q ) 
+       u_fetch_InstructionBuffer_reg[29] ( IN SI ) ( OUT Q ) 
+       u_fetch_InstructionBuffer_reg[30] ( IN SI ) ( OUT Q ) 
+       u_fetch_InstructionBuffer_reg[31] ( IN SI ) ( OUT Q ) 
+       u_fetch_u_add_pc_reg[2] ( IN SI ) ( OUT Q ) 
+    + STOP PIN DFT_sdo_9
+;
+
+  - AutoChain_10_seg1_clk_scan_rising 
+    + PARTITION p_clk_scan_rising 
+      MAXBITS 9
+    + START PIN DFT_sdi_10
+    + FLOATING 
+       u_fetch_u_add_pc_reg[3] ( IN SI ) ( OUT Q ) 
+       u_fetch_u_add_pc_reg[4] ( IN SI ) ( OUT Q ) 
+       u_fetch_u_add_pc_reg[5] ( IN SI ) ( OUT Q ) 
+       u_fetch_u_add_pc_reg[6] ( IN SI ) ( OUT Q ) 
+       u_fetch_u_add_pc_reg[7] ( IN SI ) ( OUT Q ) 
+       u_fetch_u_add_pc_reg[8] ( IN SI ) ( OUT Q ) 
+       u_fetch_u_add_pc_reg[9] ( IN SI ) ( OUT Q ) 
+       u_fetch_u_add_pc_reg[10] ( IN SI ) ( OUT Q ) 
+       u_memory_o_dmem_en_reg ( IN SI ) ( OUT Q ) 
+    + STOP PIN DFT_sdo_10
+;
+
+END SCANCHAINS 
+END DESIGN 

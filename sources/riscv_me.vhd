@@ -4,18 +4,27 @@ use ieee.numeric_std.all;
 
 entity memory is
 port (
-    i_clk           : in std_logic;
-    i_store_data    : in std_logic_vector(31 downto 0);
-    i_rw            : in std_logic;
-    i_we            : in std_logic;
-    i_alu_result    : in std_logic_vector(31 downto 0);
-    i_wb            : in std_logic;
-    i_rd_addr       : in std_logic_vector(4 downto 0);
-
-    o_load_data     : out std_logic_vector(31 downto 0);
-    o_alu_result    : out std_logic_vector(31 downto 0);
-    o_wb            : out std_logic;
-    o_rd_addr       : out std_logic_vector(4 downto 0)
+        -- Inputs
+        i_clk           : in std_logic;
+        i_rstn          : in std_logic;  -- Added reset signal
+        i_store_data    : in std_logic_vector(31 downto 0);
+        i_rw            : in std_logic;
+        i_we            : in std_logic;
+        i_alu_result    : in std_logic_vector(31 downto 0);
+        i_wb            : in std_logic;
+        i_rd_addr       : in std_logic_vector(4 downto 0);
+        i_dmem_read     : in std_logic_vector(31 downto 0);  -- New input for data read from memory
+        
+        -- Outputs
+        o_rw            : out std_logic;
+        o_dmem_en       : out std_logic;
+        o_dmem_we       : out std_logic;
+        o_dmem_addr     : out std_logic_vector(8 downto 0);
+        o_dmem_write    : out std_logic_vector(31 downto 0);
+        o_load_data     : out std_logic_vector(31 downto 0);
+        o_alu_result    : out std_logic_vector(31 downto 0);
+        o_wb            : out std_logic;
+        o_rd_addr       : out std_logic_vector(4 downto 0)
   );
 end entity memory;
 
@@ -49,7 +58,23 @@ begin
   -- Registre ME/WB pour retenir les valeurs précédentes
   process(i_clk)
   begin
-    if rising_edge(i_clk) then
+        if i_rstn = '0' then
+            o_dmem_en    <= '0';
+            o_dmem_we    <= '0';
+            o_dmem_addr  <= (others => '0');
+            o_dmem_write <= (others => '0');
+            reg_alu_result <= (others => '0');
+            reg_wb <= '0';
+            reg_rd_addr <= (others => '0');
+    elsif rising_edge(i_clk) then
+            o_dmem_en <= '1';  -- Enable data memory access
+            o_dmem_we <= i_we;  -- Write enable signal passed through
+            o_dmem_addr <= i_alu_result(10 downto 2);  -- Extract address bits (word-addressable)
+
+            if i_we = '1' then
+                o_dmem_write <= i_store_data;
+            end if;
+
       reg_alu_result <= i_alu_result; -- Stockage du résultat ALU
       reg_wb <= i_wb;                 -- Stockage de WB
       reg_rd_addr <= i_rd_addr;       -- Stockage de l'adresse registre
@@ -61,5 +86,7 @@ begin
   o_alu_result <= reg_alu_result; -- Valeur précédente de ALU Result
   o_wb <= reg_wb;                 -- Valeur précédente de WB
   o_rd_addr <= reg_rd_addr;       -- Valeur précédente de l'adresse registre
-
+  o_rw <= i_rw;  -- Forward read/write control signal
 end architecture Behavioral;
+
+

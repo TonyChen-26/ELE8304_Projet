@@ -1,144 +1,319 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-use IEEE.STD_LOGIC_ARITH.ALL;  -- If you're working with arithmetic operations (older library, not always necessary)
-use IEEE.STD_LOGIC_UNSIGNED.ALL;  -- If needed for compatibility with resizing
-use IEEE.NUMERIC_STD.ALL;        -- Required for `resize` function with numeric vectors
+use IEEE.NUMERIC_STD.ALL;
 
 library work;
 use work.riscv_pkg.all;
 
 entity execute is
     Port (
-        -- Inputs
-	i_clk 	      : in std_logic;
-	i_alu_op      : in  std_logic_vector(2 downto 0); 
-        i_rs1_data    : in  STD_LOGIC_VECTOR(31 downto 0);
-        i_rs2_data    : in  STD_LOGIC_VECTOR(31 downto 0);
-        i_imm         : in  STD_LOGIC_VECTOR(31 downto 0);
-        i_pc          : in  STD_LOGIC_VECTOR(31 downto 0);
-        i_src_imm     : in  STD_LOGIC;
-        i_branch      : in  STD_LOGIC;
-        i_jump        : in  STD_LOGIC;
-	i_arith       : in std_logic;	
-	i_sign        : in std_logic;
-
-
-
+        i_clk        : in std_logic;
+        i_rstn       : in std_logic;
+        i_alu_op     : in std_logic_vector(2 downto 0); 
+        i_rs1_data   : in std_logic_vector(31 downto 0);
+        i_rs2_data   : in std_logic_vector(31 downto 0);
+        i_imm        : in std_logic_vector(31 downto 0);
+        i_pc         : in std_logic_vector(XLEN-1 downto 0);
+        i_src_imm    : in std_logic;
+        i_branch     : in std_logic;
+        i_jump       : in std_logic;
+        i_arith      : in std_logic;    
+        i_sign       : in std_logic;
+        i_rd_addr    : in std_logic_vector(REG_WIDTH-1 downto 0);
+        i_rw         : in std_logic;
+        i_wb         : in std_logic;
 
         -- Outputs
-        o_pc_transfer : out STD_LOGIC_VECTOR(31 downto 0);
-        o_alu_result  : out STD_LOGIC_VECTOR(31 downto 0);
-        o_store_data  : out STD_LOGIC_VECTOR(31 downto 0);
-        o_pc_target   : out STD_LOGIC_VECTOR(31 downto 0)
+        o_pc_transfer : out std_logic;  -- Changed to std_logic
+        o_alu_result  : out std_logic_vector(31 downto 0);
+        o_store_data  : out std_logic_vector(31 downto 0);
+        o_pc_target   : out std_logic_vector(XLEN-1 downto 0);
+        o_we          : out std_logic;
+        o_rd_addr     : out std_logic_vector(REG_WIDTH-1 downto 0);
+        o_rw          : out std_logic;
+        o_wb          : out std_logic
     );
 end execute;
 
 architecture Behavioral of execute is
 
-component riscv_adder is
-  generic (
-    N : positive := 32
-  );
-  port (
-    i_a    : in  std_logic_vector(N-1 downto 0);
-    i_b    : in  std_logic_vector(N-1 downto 0);
-    i_sign : in  std_logic;
-    i_sub  : in  std_logic;
-    o_sum  : out std_logic_vector(N downto 0)
- 
-  );
-end component riscv_adder;
-
-component riscv_alu is
-  port (
-    i_arith  : in  std_logic;                                -- Arith/Logic
-    i_sign   : in  std_logic;                                -- Signed/Unsigned
-    i_opcode : in  std_logic_vector(2 downto 0); -- ALU opcodes
-    i_shamt  : in  std_logic_vector(SHAMT_WIDTH-1 downto 0); -- Shift Amount
-    i_src1   : in  std_logic_vector(XLEN-1 downto 0);        -- Operand A
-    i_src2   : in  std_logic_vector(XLEN-1 downto 0);        -- Operand B
-    o_res    : out std_logic_vector(XLEN-1 downto 0));       -- Result
-end component riscv_alu;
-
-
-
     -- Intermediate signals
-    signal alu_in2      : STD_LOGIC_VECTOR(31 downto 0);
-    signal alu_out      : STD_LOGIC_VECTOR(31 downto 0);
-    signal adder_out    : STD_LOGIC_VECTOR(32 downto 0);  -- Result of the adder
-    signal branch_target : std_logic_vector(31 downto 0);
-    signal jump_target   : std_logic_vector(31 downto 0);
-    signal pc_increment  : std_logic_vector(31 downto 0);
+    signal alu_in2        : std_logic_vector(31 downto 0);
+    signal alu_out        : std_logic_vector(31 downto 0);
+    signal adder_out      : std_logic_vector(32 downto 0);
+    signal branch_target  : std_logic_vector(XLEN-1 downto 0);
+    signal jump_target    : std_logic_vector(XLEN-1 downto 0);
+    signal branch_taken   : std_logic;
 
-    -- Internal signal for branch condition
-    signal branch_taken  : std_logic;
-    
+    -- Buffers for outputs
+    signal buffer_pc_transfer : std_logic := '0';  -- Changed to std_logic
+    signal buffer_alu_result  : std_logic_vector(31 downto 0) := (others => '0');
+    signal buffer_store_data  : std_logic_vector(31 downto 0) := (others => '0');
+    signal buffer_pc_target   : std_logic_vector(XLEN-1 downto 0) := (others => '0');
+    signal buffer_we          : std_logic := '0';
+    signal buffer_wb          : std_logic := '0';
+
 begin
-    -- **Sélection entre rs2_data et imm pour l'ALU (src_imm)**
+    -- Select between rs2_data and imm for ALU input
     alu_in2 <= i_imm when i_src_imm = '1' else i_rs2_data;
     
     -- ALU instance
     ALU_INST : riscv_alu
         port map (
             i_arith  => i_arith, 
-            i_sign   => i_sign, -- Assuming signed operation
+            i_sign   => i_sign,
             i_opcode => i_alu_op,
-            i_shamt  => i_imm(4 downto 0), -- Extract shift amount
+            i_shamt  => i_imm(4 downto 0),
             i_src1   => i_rs1_data,
             i_src2   => alu_in2,
             o_res    => alu_out
         );
 
-    -- **Adder instance for PC target calculation**
-    ADDER_INST : riscv_adder
-        generic map (
-            N => 32
-        )
-        port map (
-            i_a    => i_pc,
-            i_b    => i_imm,
-            i_sign => i_sign,     -- Assuming signed addition
-            i_sub  => i_arith,     -- No subtraction
-            o_sum  => adder_out
-        );
-
-
-
     -- Calculate branch/jump targets
- 
-    branch_target <= (i_pc) + (i_imm);  -- Branch address = PC + immediate
-    jump_target   <= (i_rs1_data) + (i_imm);  -- JALR target = rs1 + immediate 
+    branch_target <= std_logic_vector(unsigned(i_pc) + unsigned(i_imm));
+    jump_target   <= std_logic_vector(unsigned(i_rs1_data) + unsigned(i_imm));
 
-
-    -- Branch decision logicsim:/tb_execute/tb_pc_transfer
-
-    process(i_clk)
+    -- Branch decision logic
+    process(i_clk, i_rstn)
     begin
-        if rising_edge(i_clk) then
-            -- Determine if a branch should be taken
-            if i_branch = '1' then
-                -- Simple example: assuming BEQ branch condition (rs1 == rs2)
-                if i_rs1_data = i_rs2_data then
-                    branch_taken <= '1';
-                else
-                    branch_taken <= '0';
-                end if;
+        if i_rstn = '0' then
+            branch_taken <= '0';
+        elsif rising_edge(i_clk) then
+            if i_branch = '1' and i_rs1_data = i_rs2_data then
+                branch_taken <= '1';
             else
                 branch_taken <= '0';
             end if;
         end if;
     end process;
 
-    -- Determine PC transfer based on branch or jump
-    o_pc_transfer <= branch_target when branch_taken = '1' else
-                     jump_target when i_jump = '1' else
-                     (i_pc) + 4;  -- Default to PC + 4 for sequential execution
+    -- Output buffering and write logic
+    process(i_clk, i_rstn)
+    begin
+        if i_rstn = '0' then
+            buffer_pc_transfer <= '0';
+            buffer_alu_result  <= (others => '0');
+            buffer_store_data  <= (others => '0');
+            buffer_pc_target   <= (others => '0');
+            buffer_we          <= '0';
+            buffer_wb          <= '0';
+        elsif rising_edge(i_clk) then
+            if i_rw = '1' then  -- Write enable logic
+                buffer_alu_result  <= alu_out;
+                buffer_store_data  <= i_rs2_data;
+            end if;
 
-    
+            -- Determine if a PC transfer (branch/jump) should occur
+            buffer_pc_transfer <= branch_taken or i_jump;
+            buffer_pc_target   <= branch_target; -- Branch target address
+            buffer_we          <= i_rw;
+            buffer_wb          <= i_wb;
+        end if;
+    end process;
 
-    o_alu_result <= alu_out;
-    o_store_data <= i_rs2_data;
-    o_pc_target  <= branch_target;  -- Could be useful for branch prediction updates
-
+    -- Output assignments
+    o_pc_transfer <= buffer_pc_transfer; -- std_logic output
+    o_alu_result  <= buffer_alu_result;
+    o_store_data  <= buffer_store_data;
+    o_pc_target   <= buffer_pc_target;
+    o_we          <= buffer_we;
+    o_wb          <= buffer_wb;
+    o_rd_addr     <= i_rd_addr;
+    o_rw          <= i_rw;
 
 end Behavioral;
+
+
+--library IEEE;
+--use IEEE.STD_LOGIC_1164.ALL;
+--use IEEE.STD_LOGIC_ARITH.ALL;  -- If you're working with arithmetic operations (older library, not always necessary)
+--use IEEE.STD_LOGIC_UNSIGNED.ALL;  -- If needed for compatibility with resizing
+--use IEEE.NUMERIC_STD.ALL;        -- Required for `resize` function with numeric vectors
+--
+--library work;
+--use work.riscv_pkg.all;
+--
+--entity execute is
+--    Port (
+--       	i_clk 	      : in std_logic;
+--	i_rstn	      : in std_logic;
+--	i_alu_op      : in  std_logic_vector(2 downto 0); 
+--        i_rs1_data    : in  STD_LOGIC_VECTOR(31 downto 0);
+--        i_rs2_data    : in  STD_LOGIC_VECTOR(31 downto 0);
+--        i_imm         : in  STD_LOGIC_VECTOR(31 downto 0);
+--        i_pc          : in  STD_LOGIC_VECTOR(XLEN-1 downto 0);
+--        i_src_imm     : in  STD_LOGIC;
+--        i_branch      : in  STD_LOGIC;
+--        i_jump        : in  STD_LOGIC;
+--	i_arith       : in std_logic;	
+--	i_sign        : in std_logic;
+--
+--        i_rd_addr    : in std_logic_vector(REG_WIDTH-1 downto 0);
+--        i_rw         : in std_logic;
+--        i_wb         : in std_logic;
+--
+--
+--        -- Outputs
+--        o_pc_transfer : out STD_LOGIC_VECTOR(XLEN-1 downto 0);
+--        o_alu_result  : out STD_LOGIC_VECTOR(31 downto 0);
+--        o_store_data  : out STD_LOGIC_VECTOR(31 downto 0);
+--        o_pc_target   : out STD_LOGIC_VECTOR(XLEN-1 downto 0);
+--
+--	o_we          : out std_logic;
+--        o_rd_addr     : out std_logic_vector(REG_WIDTH-1 downto 0);
+--        o_rw          : out std_logic;
+--        o_wb          : out std_logic
+--    );
+--end execute;
+--
+--architecture Behavioral of execute is
+--
+--component riscv_adder is
+--  generic (
+--    N : positive := 32
+--  );
+--  port (
+--    i_a    : in  std_logic_vector(N-1 downto 0);
+--    i_b    : in  std_logic_vector(N-1 downto 0);
+--    i_sign : in  std_logic;
+--    i_sub  : in  std_logic;
+--    o_sum  : out std_logic_vector(N downto 0)
+-- 
+--  );
+--end component riscv_adder;
+--
+--component riscv_alu is
+--  port (
+--    i_arith  : in  std_logic;                                -- Arith/Logic
+--    i_sign   : in  std_logic;                                -- Signed/Unsigned
+--    i_opcode : in  std_logic_vector(2 downto 0); -- ALU opcodes
+--    i_shamt  : in  std_logic_vector(SHAMT_WIDTH-1 downto 0); -- Shift Amount
+--    i_src1   : in  std_logic_vector(XLEN-1 downto 0);        -- Operand A
+--    i_src2   : in  std_logic_vector(XLEN-1 downto 0);        -- Operand B
+--    o_res    : out std_logic_vector(XLEN-1 downto 0));       -- Result
+--end component riscv_alu;
+--
+--
+--
+--    -- Intermediate signals
+--    signal alu_in2      : STD_LOGIC_VECTOR(31 downto 0);
+--    signal alu_out      : STD_LOGIC_VECTOR(31 downto 0);
+--    signal adder_out    : STD_LOGIC_VECTOR(32 downto 0);  -- Result of the adder
+--    signal branch_target : std_logic_vector(XLEN-1 downto 0);
+--    signal jump_target   : std_logic_vector(XLEN-1 downto 0);
+--    signal pc_increment  : std_logic_vector(XLEN-1 downto 0);
+--
+--    -- Internal signal for branch condition
+--    signal branch_taken  : std_logic;
+--
+--    signal buffer_pc_transfer : std_logic_vector(XLEN-1 downto 0) := (others => '0');
+--    signal buffer_alu_result  : std_logic_vector(31 downto 0) := (others => '0');
+--    signal buffer_store_data  : std_logic_vector(31 downto 0) := (others => '0');
+--    signal buffer_pc_target   : std_logic_vector(XLEN-1 downto 0) := (others => '0');
+--    signal buffer_we          : std_logic := '0';
+--    signal buffer_wb          : std_logic := '0';
+--
+--
+--    
+--begin
+--    -- **Sélection entre rs2_data et imm pour l'ALU (src_imm)**
+--    alu_in2 <= i_imm when i_src_imm = '1' else i_rs2_data;
+--    
+--    -- ALU instance
+--    ALU_INST : riscv_alu
+--        port map (
+--            i_arith  => i_arith, 
+--            i_sign   => i_sign, -- Assuming signed operation
+--            i_opcode => i_alu_op,
+--            i_shamt  => i_imm(4 downto 0), -- Extract shift amount
+--            i_src1   => i_rs1_data,
+--            i_src2   => alu_in2,
+--            o_res    => alu_out
+--        );
+--
+--    -- **Adder instance for PC target calculation**
+--    ADDER_INST : riscv_adder
+--        generic map (
+--            N => 32
+--        )
+--        port map (
+--            i_a    => i_pc,
+--            i_b    => i_imm,
+--            i_sign => i_sign,     -- Assuming signed addition
+--            i_sub  => i_arith,     -- No subtraction
+--            o_sum  => adder_out
+--        );
+--
+--
+--
+--    -- Calculate branch/jump targets
+-- 
+--    branch_target <= (i_pc) + i_imm;  -- Branch address = PC + immediate
+--    jump_target   <= (i_rs1_data) + i_imm;  -- JALR target = rs1 + immediate 
+--
+--
+--    -- Branch decision logicsim:/tb_execute/tb_pc_transfer
+--
+--    process(i_clk)
+--    begin
+--        if rising_edge(i_clk) then
+--            -- Determine if a branch should be taken
+--            if i_branch = '1' then
+--                -- Simple example: assuming BEQ branch condition (rs1 == rs2)
+--                if i_rs1_data = i_rs2_data then
+--                    branch_taken <= '1';
+--                else
+--                    branch_taken <= '0';
+--                end if;
+--            else
+--                branch_taken <= '0';
+--            end if;
+--        end if;
+--    end process;
+--
+----    -- Determine PC transfer based on branch or jump
+----    o_pc_transfer <= branch_target when branch_taken = '1' else
+----                     jump_target when i_jump = '1' else
+----                      (i_pc) + 4;  -- Default to PC + 4 for sequential execution
+----
+----    
+----
+----    o_alu_result <= alu_out;
+----    o_store_data <= i_rs2_data;
+----    o_pc_target  <= branch_target;  -- Could be useful for branch prediction updates
+--
+--    process(i_clk, i_rstn)
+--    begin
+--        if i_rstn = '1' then
+--            buffer_pc_transfer <= (others => '0');
+--            buffer_alu_result  <= (others => '0');
+--            buffer_store_data  <= (others => '0');
+--            buffer_pc_target   <= (others => '0');
+--            buffer_we          <= '0';
+--            buffer_wb          <= '0';
+--        elsif rising_edge(i_clk) then
+--            if i_rw = '1' then  -- Write enable logic
+--
+--                buffer_alu_result  <= alu_out;
+--                buffer_store_data  <= i_rs2_data;
+--
+--            end if;
+--        end if;
+--    end process;
+--    buffer_pc_transfer <= branch_target when branch_taken = '1' else
+--                          jump_target when i_jump = '1' else
+--                          (i_pc) + 4;
+--     buffer_pc_target   <= branch_target;
+--     buffer_we          <= i_rw;
+--     buffer_wb          <= i_wb;
+--    -- Output assignments
+--    o_pc_transfer <= buffer_pc_transfer;
+--    o_alu_result  <= buffer_alu_result;
+--    o_store_data  <= buffer_store_data;
+--    o_pc_target   <= buffer_pc_target;
+--    o_we          <= buffer_we;
+--    o_wb          <= buffer_wb;
+--    o_rd_addr     <= i_rd_addr;
+--    o_rw          <= i_rw;
+--
+--end Behavioral;

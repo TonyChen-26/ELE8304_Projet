@@ -1,0 +1,24 @@
+assign pin=i_test_mode 	test_function= +TI; 	# test_mode
+assign pin=i_rstn 	test_function= +SC; 	# test_mode
+assign pin=i_scan_en 	test_function= +SE; 	# shift_enable
+assign pin=i_clk 	test_function= -ES; 	
+assign pin=DFT_sdi_1 	test_function= SI0;
+assign pin=DFT_sdo_1 	test_function= SO0;
+assign pin=DFT_sdi_2 	test_function= SI1;
+assign pin=DFT_sdo_2 	test_function= SO1;
+assign pin=DFT_sdi_3 	test_function= SI2;
+assign pin=DFT_sdo_3 	test_function= SO2;
+assign pin=DFT_sdi_4 	test_function= SI3;
+assign pin=DFT_sdo_4 	test_function= SO3;
+assign pin=DFT_sdi_5 	test_function= SI4;
+assign pin=DFT_sdo_5 	test_function= SO4;
+assign pin=DFT_sdi_6 	test_function= SI5;
+assign pin=DFT_sdo_6 	test_function= SO5;
+assign pin=DFT_sdi_7 	test_function= SI6;
+assign pin=DFT_sdo_7 	test_function= SO6;
+assign pin=DFT_sdi_8 	test_function= SI7;
+assign pin=DFT_sdo_8 	test_function= SO7;
+assign pin=DFT_sdi_9 	test_function= SI8;
+assign pin=DFT_sdo_9 	test_function= SO8;
+assign pin=DFT_sdi_10 	test_function= SI9;
+assign pin=DFT_sdo_10 	test_function= SO9;

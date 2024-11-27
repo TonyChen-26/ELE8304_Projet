@@ -38,7 +38,7 @@ begin
   -- Flop
   p_pc : process(i_clk, i_rstn)
   begin
-    if i_rstn = '0' then
+    if i_rstn = '1' then
       pc <= unsigned(RESET);
     elsif rising_edge(i_clk) then
       if i_stall = '1' then

@@ -1,0 +1,46 @@
+Cadence Genus(TM) Synthesis Solution.
+Copyright 2021 Cadence Design Systems, Inc. All rights reserved worldwide.
+Cadence and the Cadence logo are registered trademarks and Genus is a trademark
+of Cadence Design Systems, Inc. in the United States and other countries.
+
+Version: 21.10-p002_1, built Fri Aug 20 07:13:13 PDT 2021
+Options: -overwrite 
+Date:    Tue Nov 26 22:50:56 2024
+Host:    vlsi410 (x86_64 w/Linux 4.18.0-553.27.1.el8_10.x86_64) (8cores*8cpus*1physical cpu*Intel(R) Core(TM) i7-9700F CPU @ 3.00GHz 12288KB) (32781444KB)
+PID:     172846
+OS:      Red Hat Enterprise Linux Server release 8.10 (Cerulean Leopard)
+
+Checking out license: Genus_Synthesis
+
+
+***********************************************************************************************************
+***********************************************************************************************************
+
+
+
+Loading tool scripts...
+Finished loading tool scripts (8 seconds elapsed).
+
+WARNING: This version of the tool is 1194 days old.
+@genus:root: 1> set_db information_level     9
+  Setting attribute of root '/': 'information_level' = 9
+1 9
+@genus:root: 2> set_db hdl_vhdl_read_version 2008
+  Setting attribute of root '/': 'hdl_vhdl_read_version' = 2008
+1 2008
+@genus:root: 3> set_db max_cpus_per_server   4
+  Setting attribute of root '/': 'max_cpus_per_server' = 4
+1 4
+@genus:root: 4> set_db hdl_error_on_blackbox true
+  Setting attribute of root '/': 'hdl_error_on_blackbox' = true
+1 true
+@genus:root: 5> set_db hdl_error_on_latch true
+  Setting attribute of root '/': 'hdl_error_on_latch' = true
+1 true
+@genus:root: 6> set_db init_hdl_search_path [list $::env(SRC_DIR)]
+  Setting attribute of root '/': 'init_hdl_search_path' = /export/tmp/8304_8/Labs/lab2/sources
+1 /export/tmp/8304_8/Labs/lab2/sources
+@genus:root: 7> [genus]% set_db init_lib_search_path [list $::env(FE_TIM_LIB) $::env(BE_QRC_LIB) $::env(BE_LEF_LIB)]
+invalid command name "%"
+@genus:root: 8> exit
+Normal exit.

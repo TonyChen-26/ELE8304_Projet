@@ -9,15 +9,19 @@ use work.riscv_pkg.all;
 
 entity FETCH is
     Port (
-        clk     : in  STD_LOGIC;
-	i_flush : in  std_logic;
-        i_mem   : in  STD_LOGIC_VECTOR(31 downto 0); 
-	i_stall     : in  std_logic;
-	i_transfert : in  std_logic;
-    	i_target    : in  std_logic_vector(XLEN-1 downto 0);
-        o_pc  : out  STD_LOGIC_VECTOR(XLEN-1 downto 0); 
-        o_instruction : out  STD_LOGIC_VECTOR(31 downto 0)  := (others=> '0')
-	
+        -- Existing inputs
+        clk       : in  std_logic;
+        i_flush      : in  std_logic;
+        i_stall     : in  std_logic;
+        i_transfert : in  std_logic;
+        i_target    : in  std_logic_vector(XLEN-1 downto 0);
+        i_mem : in  std_logic_vector(XLEN-1 downto 0);  -- Instruction from memory
+
+        -- Outputs
+        o_instruction     : out std_logic_vector(XLEN-1 downto 0);
+        o_pc        : out std_logic_vector(XLEN-1 downto 0);
+        o_imem_addr : out std_logic_vector(8 downto 0);  -- Address to memory (9-bit address)
+        o_imem_en   : out std_logic                     -- Memory enable signal
     );
 end FETCH;
 
@@ -37,20 +41,30 @@ end component riscv_pc;
 
 
 
-signal InstructionBuffer : std_logic_vector(XLEN-1 downto 0)= (others=> '0'); 
-
+signal InstructionBuffer : std_logic_vector(XLEN-1 downto 0):= (others=> '0'); 
+signal pc_value           : std_logic_vector(XLEN-1 downto 0);
 
 begin
 
 o_instruction <= InstructionBuffer;
+o_pc        <= pc_value;
+o_imem_addr   <= pc_value(10 downto 2);       -- Convert word address (divide by 4)
+o_imem_en     <= '1';           -- Enable signal, always enabled for fetching instructions
 
-    u_add:riscv_pc port map (clk, i_flush,i_stall,i_transfert,i_target, o_pc);
+    u_add:riscv_pc port map (
+				clk,
+				 i_flush,
+				 i_stall,
+				 i_transfert,
+				i_target, 
+				o_pc);
 
-    process(clk, i_flush)
+    process(clk, i_flush, i)
     begin
         if i_flush = '1' then
         	 InstructionBuffer <=(others => '0');
-
+         	 pc_value <= (others => '0');
+		 
         elsif rising_edge(clk) then
 		if i_stall = '0' then
 			InstructionBuffer<= i_mem;  	

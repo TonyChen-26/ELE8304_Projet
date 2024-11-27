@@ -26,7 +26,7 @@ architecture Behavioral of memory is
 --signal i_store_data_buffer : std_logic_vector(31 downto 0);
 --signal i_rw_buffer : std_logic;
 --signal i_we_buffer : std_logic; 
-signal mem_load_data_buffer: std_logic_vector(31 downto 0);
+signal mem_load_data_buffer: std_logic_vector(31 downto 0):= (others => '1');
   -- Signaux internes pour connecter les composants
   signal mem_load_data : std_logic_vector(31 downto 0);
   signal reg_alu_result : std_logic_vector(31 downto 0);
@@ -49,7 +49,23 @@ begin
   -- Registre ME/WB pour retenir les valeurs précédentes
   process(i_clk)
   begin
-    if rising_edge(i_clk) then
+        if i_rstn = '0' then
+            o_dmem_en    <= '0';
+            o_dmem_we    <= '0';
+            o_dmem_addr  <= (others => '0');
+            o_dmem_write <= (others => '0');
+            reg_alu_result <= (others => '0');
+            reg_wb <= '0';
+            reg_rd_addr <= (others => '0');
+    elsif rising_edge(i_clk) then
+            o_dmem_en <= '1';  -- Enable data memory access
+            o_dmem_we <= i_we;  -- Write enable signal passed through
+            o_dmem_addr <= i_alu_result(10 downto 2);  -- Extract address bits (word-addressable)
+
+            if i_we = '1' then
+                o_dmem_write <= i_store_data;
+            end if;
+
       reg_alu_result <= i_alu_result; -- Stockage du résultat ALU
       reg_wb <= i_wb;                 -- Stockage de WB
       reg_rd_addr <= i_rd_addr;       -- Stockage de l'adresse registre
@@ -57,9 +73,11 @@ begin
   end process;
 
   -- Assignations des sorties via les buffers
-  o_load_data <= "11111111111111111111111111111111";   -- Données lues depuis la mémoire
+  o_load_data <= mem_load_data_buffer;   -- Données lues depuis la mémoire
   o_alu_result <= reg_alu_result; -- Valeur précédente de ALU Result
   o_wb <= reg_wb;                 -- Valeur précédente de WB
   o_rd_addr <= reg_rd_addr;       -- Valeur précédente de l'adresse registre
-
+  o_rw <= i_rw;  -- Forward read/write control signal
 end architecture Behavioral;
+
+

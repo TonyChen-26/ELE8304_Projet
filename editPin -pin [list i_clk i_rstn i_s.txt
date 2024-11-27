@@ -1,0 +1,33 @@
+editPin -pin [list i_clk i_rstn i_scan_en] -edge 1 -layer 4 -spreadType SIDE \
+        -offsetEnd 2 -offsetStart 2 -spreadDirection clockwise \
+        -pinWidth 0.06 -pinDepth 0.335 -fixOverlap 1
+
+editPin -pin [list o_imem_en o_dmem_en o_dmem_we] -edge 3 -layer 4 -spreadType SIDE \
+        -offsetEnd 2 -offsetStart 2 -spreadDirection counterclockwise \
+        -pinWidth 0.06 -pinDepth 0.335 -fixOverlap 1
+
+
+editPin -pin [list o_imem_addr[0] o_imem_addr[1] o_imem_addr[2] o_imem_addr[3] o_imem_addr[4] \
+                   o_imem_addr[5] o_imem_addr[6] o_imem_addr[7] o_imem_addr[8] ] \
+        -edge 0 -layer 3 -spreadType SIDE \
+        -offsetEnd 2 -offsetStart 2 -spreadDirection clockwise \
+        -pinWidth 0.06 -pinDepth 0.335 -fixOverlap 1
+
+
+editPin -pin [list o_dmem_addr[0] o_dmem_addr[1] o_dmem_addr[2] o_dmem_addr[3] o_dmem_addr[4] \
+                   o_dmem_addr[5] o_dmem_addr[6] o_dmem_addr[7] o_dmem_addr[8] ] \
+        -edge 0 -layer 3 -spreadType SIDE \
+        -offsetEnd 2 -offsetStart 2 -spreadDirection clockwise \
+        -pinWidth 0.06 -pinDepth 0.335 -fixOverlap 1
+
+
+editPin -pin [list o_dmem_write[0] o_dmem_write[1] o_dmem_write[2] o_dmem_write[3] o_dmem_write[4] \
+                   o_dmem_write[5] o_dmem_write[6] o_dmem_write[7] o_dmem_write[8] o_dmem_write[9] \
+                   o_dmem_write[10] o_dmem_write[11] o_dmem_write[12] o_dmem_write[13] o_dmem_write[14] \
+                   o_dmem_write[15] o_dmem_write[16] o_dmem_write[17] o_dmem_write[18] o_dmem_write[19] \
+                   o_dmem_write[20] o_dmem_write[21] o_dmem_write[22] o_dmem_write[23] o_dmem_write[24] \
+                   o_dmem_write[25] o_dmem_write[26] o_dmem_write[27] o_dmem_write[28] o_dmem_write[29] \
+                   o_dmem_write[30] o_dmem_write[31] ] \
+        -edge 0 -layer 3 -spreadType SIDE \
+        -offsetEnd 2 -offsetStart 2 -spreadDirection clockwise \
+        -pinWidth 0.06 -pinDepth 0.335 -fixOverlap 1

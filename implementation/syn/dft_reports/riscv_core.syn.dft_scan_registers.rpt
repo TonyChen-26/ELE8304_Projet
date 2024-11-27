@@ -1,0 +1,196 @@
+Reporting registers that pass DFT rules
+  u_decode_o_alu_op_buffer_2_reg[0] 	PASS; Test clock: i_clk/rise; Mapped for DFT; 
+  u_decode_o_alu_op_buffer_2_reg[1] 	PASS; Test clock: i_clk/rise; Mapped for DFT; 
+  u_decode_o_arith_buffer_2_reg 	PASS; Test clock: i_clk/rise; Mapped for DFT; 
+  u_decode_o_branch_buffer_2_reg 	PASS; Test clock: i_clk/rise; Mapped for DFT; Shift Register; 
+  u_decode_o_imm_buffer_2_reg[0] 	PASS; Test clock: i_clk/rise; Mapped for DFT; 
+  u_decode_o_imm_buffer_2_reg[10] 	PASS; Test clock: i_clk/rise; Mapped for DFT; Shift Register; 
+  u_decode_o_imm_buffer_2_reg[1] 	PASS; Test clock: i_clk/rise; Mapped for DFT; 
+  u_decode_o_imm_buffer_2_reg[2] 	PASS; Test clock: i_clk/rise; Mapped for DFT; Shift Register; 
+  u_decode_o_imm_buffer_2_reg[3] 	PASS; Test clock: i_clk/rise; Mapped for DFT; Shift Register; 
+  u_decode_o_imm_buffer_2_reg[4] 	PASS; Test clock: i_clk/rise; Mapped for DFT; Shift Register; 
+  u_decode_o_imm_buffer_2_reg[5] 	PASS; Test clock: i_clk/rise; Mapped for DFT; Shift Register; 
+  u_decode_o_imm_buffer_2_reg[6] 	PASS; Test clock: i_clk/rise; Mapped for DFT; Shift Register; 
+  u_decode_o_imm_buffer_2_reg[7] 	PASS; Test clock: i_clk/rise; Mapped for DFT; Shift Register; 
+  u_decode_o_imm_buffer_2_reg[8] 	PASS; Test clock: i_clk/rise; Mapped for DFT; Shift Register; 
+  u_decode_o_imm_buffer_2_reg[9] 	PASS; Test clock: i_clk/rise; Mapped for DFT; Shift Register; 
+  u_decode_o_jump_buffer_2_reg 	PASS; Test clock: i_clk/rise; Mapped for DFT; 
+  u_decode_o_rw_buffer_2_reg 	PASS; Test clock: i_clk/rise; Mapped for DFT; Shift Register; 
+  u_decode_o_src_imm_buffer_2_reg 	PASS; Test clock: i_clk/rise; Mapped for DFT; 
+  u_execute_branch_taken_reg 	PASS; Test clock: i_clk/rise; Shift Register; 
+  u_execute_buffer_alu_result_reg[10] 	PASS; Test clock: i_clk/rise; Mapped for DFT; Shift Register; 
+  u_execute_buffer_alu_result_reg[2] 	PASS; Test clock: i_clk/rise; Mapped for DFT; Shift Register; 
+  u_execute_buffer_alu_result_reg[3] 	PASS; Test clock: i_clk/rise; Mapped for DFT; Shift Register; 
+  u_execute_buffer_alu_result_reg[4] 	PASS; Test clock: i_clk/rise; Mapped for DFT; Shift Register; 
+  u_execute_buffer_alu_result_reg[5] 	PASS; Test clock: i_clk/rise; Mapped for DFT; Shift Register; 
+  u_execute_buffer_alu_result_reg[6] 	PASS; Test clock: i_clk/rise; Mapped for DFT; Shift Register; 
+  u_execute_buffer_alu_result_reg[7] 	PASS; Test clock: i_clk/rise; Mapped for DFT; Shift Register; 
+  u_execute_buffer_alu_result_reg[8] 	PASS; Test clock: i_clk/rise; Mapped for DFT; Shift Register; 
+  u_execute_buffer_alu_result_reg[9] 	PASS; Test clock: i_clk/rise; Mapped for DFT; Shift Register; 
+  u_execute_buffer_pc_target_reg[10] 	PASS; Test clock: i_clk/rise; Shift Register; 
+  u_execute_buffer_pc_target_reg[2] 	PASS; Test clock: i_clk/rise; Shift Register; 
+  u_execute_buffer_pc_target_reg[3] 	PASS; Test clock: i_clk/rise; Shift Register; 
+  u_execute_buffer_pc_target_reg[4] 	PASS; Test clock: i_clk/rise; Shift Register; 
+  u_execute_buffer_pc_target_reg[5] 	PASS; Test clock: i_clk/rise; Shift Register; 
+  u_execute_buffer_pc_target_reg[6] 	PASS; Test clock: i_clk/rise; Shift Register; 
+  u_execute_buffer_pc_target_reg[7] 	PASS; Test clock: i_clk/rise; Shift Register; 
+  u_execute_buffer_pc_target_reg[8] 	PASS; Test clock: i_clk/rise; Shift Register; 
+  u_execute_buffer_pc_target_reg[9] 	PASS; Test clock: i_clk/rise; Shift Register; 
+  u_execute_buffer_pc_transfer_reg 	PASS; Test clock: i_clk/rise; Mapped for DFT; 
+  u_execute_buffer_we_reg 	PASS; Test clock: i_clk/rise; Shift Register; 
+  u_fetch_InstructionBuffer_reg[0] 	PASS; Test clock: i_clk/rise; Mapped for DFT; 
+  u_fetch_InstructionBuffer_reg[10] 	PASS; Test clock: i_clk/rise; Mapped for DFT; 
+  u_fetch_InstructionBuffer_reg[11] 	PASS; Test clock: i_clk/rise; Mapped for DFT; 
+  u_fetch_InstructionBuffer_reg[12] 	PASS; Test clock: i_clk/rise; Mapped for DFT; 
+  u_fetch_InstructionBuffer_reg[13] 	PASS; Test clock: i_clk/rise; Mapped for DFT; 
+  u_fetch_InstructionBuffer_reg[14] 	PASS; Test clock: i_clk/rise; Mapped for DFT; 
+  u_fetch_InstructionBuffer_reg[15] 	PASS; Test clock: i_clk/rise; Mapped for DFT; 
+  u_fetch_InstructionBuffer_reg[16] 	PASS; Test clock: i_clk/rise; Mapped for DFT; 
+  u_fetch_InstructionBuffer_reg[17] 	PASS; Test clock: i_clk/rise; Mapped for DFT; 
+  u_fetch_InstructionBuffer_reg[18] 	PASS; Test clock: i_clk/rise; Mapped for DFT; 
+  u_fetch_InstructionBuffer_reg[19] 	PASS; Test clock: i_clk/rise; Mapped for DFT; 
+  u_fetch_InstructionBuffer_reg[1] 	PASS; Test clock: i_clk/rise; Mapped for DFT; 
+  u_fetch_InstructionBuffer_reg[20] 	PASS; Test clock: i_clk/rise; Mapped for DFT; 
+  u_fetch_InstructionBuffer_reg[21] 	PASS; Test clock: i_clk/rise; Mapped for DFT; 
+  u_fetch_InstructionBuffer_reg[22] 	PASS; Test clock: i_clk/rise; Mapped for DFT; 
+  u_fetch_InstructionBuffer_reg[23] 	PASS; Test clock: i_clk/rise; Mapped for DFT; 
+  u_fetch_InstructionBuffer_reg[24] 	PASS; Test clock: i_clk/rise; Mapped for DFT; 
+  u_fetch_InstructionBuffer_reg[25] 	PASS; Test clock: i_clk/rise; Mapped for DFT; 
+  u_fetch_InstructionBuffer_reg[26] 	PASS; Test clock: i_clk/rise; Mapped for DFT; 
+  u_fetch_InstructionBuffer_reg[27] 	PASS; Test clock: i_clk/rise; Mapped for DFT; 
+  u_fetch_InstructionBuffer_reg[28] 	PASS; Test clock: i_clk/rise; Mapped for DFT; 
+  u_fetch_InstructionBuffer_reg[29] 	PASS; Test clock: i_clk/rise; Mapped for DFT; 
+  u_fetch_InstructionBuffer_reg[2] 	PASS; Test clock: i_clk/rise; Mapped for DFT; 
+  u_fetch_InstructionBuffer_reg[30] 	PASS; Test clock: i_clk/rise; Mapped for DFT; 
+  u_fetch_InstructionBuffer_reg[31] 	PASS; Test clock: i_clk/rise; Mapped for DFT; 
+  u_fetch_InstructionBuffer_reg[3] 	PASS; Test clock: i_clk/rise; Mapped for DFT; 
+  u_fetch_InstructionBuffer_reg[4] 	PASS; Test clock: i_clk/rise; Mapped for DFT; 
+  u_fetch_InstructionBuffer_reg[5] 	PASS; Test clock: i_clk/rise; Mapped for DFT; 
+  u_fetch_InstructionBuffer_reg[6] 	PASS; Test clock: i_clk/rise; Mapped for DFT; 
+  u_fetch_InstructionBuffer_reg[7] 	PASS; Test clock: i_clk/rise; Mapped for DFT; 
+  u_fetch_InstructionBuffer_reg[8] 	PASS; Test clock: i_clk/rise; Mapped for DFT; 
+  u_fetch_InstructionBuffer_reg[9] 	PASS; Test clock: i_clk/rise; Mapped for DFT; 
+  u_fetch_u_add_pc_reg[10] 	PASS; Test clock: i_clk/rise; Mapped for DFT; 
+  u_fetch_u_add_pc_reg[2] 	PASS; Test clock: i_clk/rise; Mapped for DFT; 
+  u_fetch_u_add_pc_reg[3] 	PASS; Test clock: i_clk/rise; Mapped for DFT; 
+  u_fetch_u_add_pc_reg[4] 	PASS; Test clock: i_clk/rise; Mapped for DFT; 
+  u_fetch_u_add_pc_reg[5] 	PASS; Test clock: i_clk/rise; Mapped for DFT; 
+  u_fetch_u_add_pc_reg[6] 	PASS; Test clock: i_clk/rise; Mapped for DFT; 
+  u_fetch_u_add_pc_reg[7] 	PASS; Test clock: i_clk/rise; Mapped for DFT; 
+  u_fetch_u_add_pc_reg[8] 	PASS; Test clock: i_clk/rise; Mapped for DFT; 
+  u_fetch_u_add_pc_reg[9] 	PASS; Test clock: i_clk/rise; Mapped for DFT; 
+  u_memory_o_dmem_addr_reg[0] 	PASS; Test clock: i_clk/rise; Shift Register; 
+  u_memory_o_dmem_addr_reg[1] 	PASS; Test clock: i_clk/rise; Shift Register; 
+  u_memory_o_dmem_addr_reg[2] 	PASS; Test clock: i_clk/rise; Shift Register; 
+  u_memory_o_dmem_addr_reg[3] 	PASS; Test clock: i_clk/rise; Shift Register; 
+  u_memory_o_dmem_addr_reg[4] 	PASS; Test clock: i_clk/rise; Shift Register; 
+  u_memory_o_dmem_addr_reg[5] 	PASS; Test clock: i_clk/rise; Shift Register; 
+  u_memory_o_dmem_addr_reg[6] 	PASS; Test clock: i_clk/rise; Shift Register; 
+  u_memory_o_dmem_addr_reg[7] 	PASS; Test clock: i_clk/rise; Shift Register; 
+  u_memory_o_dmem_addr_reg[8] 	PASS; Test clock: i_clk/rise; Shift Register; 
+  u_memory_o_dmem_en_reg 	PASS; Test clock: i_clk/rise; Mapped for DFT; 
+  u_memory_o_dmem_we_reg 	PASS; Test clock: i_clk/rise; Shift Register; 
+Reporting registers that fail DFT rules
+Reporting registers that are preserved or marked dont-scan
+Reporting registers that are marked Abstract Segment Dont Scan
+Reporting registers that are part of shift register segments
+  Reporting 20 shift register segments
+
+  Segment 1: DFT_AutoSegment_1 (Register count: 2)
+  u_decode_o_branch_buffer_2_reg 
+  u_execute_branch_taken_reg 
+
+  Segment 2: DFT_AutoSegment_10 (Register count: 2)
+  u_decode_o_imm_buffer_2_reg[9] 
+  u_execute_buffer_pc_target_reg[9] 
+
+  Segment 3: DFT_AutoSegment_11 (Register count: 3)
+  u_decode_o_rw_buffer_2_reg 
+  u_execute_buffer_we_reg 
+  u_memory_o_dmem_we_reg 
+
+  Segment 4: DFT_AutoSegment_12 (Register count: 2)
+  u_execute_buffer_alu_result_reg[2] 
+  u_memory_o_dmem_addr_reg[0] 
+
+  Segment 5: DFT_AutoSegment_13 (Register count: 2)
+  u_execute_buffer_alu_result_reg[3] 
+  u_memory_o_dmem_addr_reg[1] 
+
+  Segment 6: DFT_AutoSegment_14 (Register count: 2)
+  u_execute_buffer_alu_result_reg[4] 
+  u_memory_o_dmem_addr_reg[2] 
+
+  Segment 7: DFT_AutoSegment_15 (Register count: 2)
+  u_execute_buffer_alu_result_reg[5] 
+  u_memory_o_dmem_addr_reg[3] 
+
+  Segment 8: DFT_AutoSegment_16 (Register count: 2)
+  u_execute_buffer_alu_result_reg[6] 
+  u_memory_o_dmem_addr_reg[4] 
+
+  Segment 9: DFT_AutoSegment_17 (Register count: 2)
+  u_execute_buffer_alu_result_reg[7] 
+  u_memory_o_dmem_addr_reg[5] 
+
+  Segment 10: DFT_AutoSegment_18 (Register count: 2)
+  u_execute_buffer_alu_result_reg[8] 
+  u_memory_o_dmem_addr_reg[6] 
+
+  Segment 11: DFT_AutoSegment_19 (Register count: 2)
+  u_execute_buffer_alu_result_reg[9] 
+  u_memory_o_dmem_addr_reg[7] 
+
+  Segment 12: DFT_AutoSegment_2 (Register count: 2)
+  u_decode_o_imm_buffer_2_reg[10] 
+  u_execute_buffer_pc_target_reg[10] 
+
+  Segment 13: DFT_AutoSegment_20 (Register count: 2)
+  u_execute_buffer_alu_result_reg[10] 
+  u_memory_o_dmem_addr_reg[8] 
+
+  Segment 14: DFT_AutoSegment_3 (Register count: 2)
+  u_decode_o_imm_buffer_2_reg[2] 
+  u_execute_buffer_pc_target_reg[2] 
+
+  Segment 15: DFT_AutoSegment_4 (Register count: 2)
+  u_decode_o_imm_buffer_2_reg[3] 
+  u_execute_buffer_pc_target_reg[3] 
+
+  Segment 16: DFT_AutoSegment_5 (Register count: 2)
+  u_decode_o_imm_buffer_2_reg[4] 
+  u_execute_buffer_pc_target_reg[4] 
+
+  Segment 17: DFT_AutoSegment_6 (Register count: 2)
+  u_decode_o_imm_buffer_2_reg[5] 
+  u_execute_buffer_pc_target_reg[5] 
+
+  Segment 18: DFT_AutoSegment_7 (Register count: 2)
+  u_decode_o_imm_buffer_2_reg[6] 
+  u_execute_buffer_pc_target_reg[6] 
+
+  Segment 19: DFT_AutoSegment_8 (Register count: 2)
+  u_decode_o_imm_buffer_2_reg[7] 
+  u_execute_buffer_pc_target_reg[7] 
+
+  Segment 20: DFT_AutoSegment_9 (Register count: 2)
+  u_decode_o_imm_buffer_2_reg[8] 
+  u_execute_buffer_pc_target_reg[8] 
+Reporting registers that are identified as lockup elements
+Reporting registers that are level-sensitive elements
+Reporting misc. non-scan registers
+Reporting registers that pass dft rule check and are not a part of scan chains
+Summary: 
+Total registers that pass DFT rules: 91
+Total registers that fail DFT rules: 0
+Total registers that are marked preserved or dont-scan: 0
+Total registers that are marked Abstract Segment dont-scan: 0
+Total registers that are part of shift register segments: 41
+Shift-Register Length 	 Number of Shift-Registers
+	2			 19
+	3			 1
+Total registers that are lockup elements: 0
+Total registers that are level-sensitive: 0
+Total registers that are misc. non-scan: 0
+Total registers that pass dft rule check and are not a part of scan chains: 0
+

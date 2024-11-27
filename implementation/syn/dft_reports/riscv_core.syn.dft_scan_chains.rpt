@@ -1,0 +1,224 @@
+Reporting 10 scan chains (muxed_scan)
+ 
+Chain 1: AutoChain_1 
+  scan_in:      DFT_sdi_1 
+  scan_out:     DFT_sdo_1   
+  shift_enable: i_scan_en (active high) 
+  clock_domain: dom_1 (edge: rise)
+  length: 10
+    START segment DFT_AutoSegment_11 (type: shift_register)
+      # @ bit 1, length: 3
+      bit 1 	u_decode_o_rw_buffer_2_reg <i_clk (rise)>
+      bit 2 	u_execute_buffer_we_reg <i_clk (rise)>
+      bit 3 	u_memory_o_dmem_we_reg <i_clk (rise)>
+    END segment DFT_AutoSegment_11
+    START segment DFT_AutoSegment_20 (type: shift_register)
+      # @ bit 4, length: 2
+      bit 4 	u_execute_buffer_alu_result_reg[10] <i_clk (rise)>
+      bit 5 	u_memory_o_dmem_addr_reg[8] <i_clk (rise)>
+    END segment DFT_AutoSegment_20
+    START segment DFT_AutoSegment_19 (type: shift_register)
+      # @ bit 6, length: 2
+      bit 6 	u_execute_buffer_alu_result_reg[9] <i_clk (rise)>
+      bit 7 	u_memory_o_dmem_addr_reg[7] <i_clk (rise)>
+    END segment DFT_AutoSegment_19
+    START segment DFT_AutoSegment_18 (type: shift_register)
+      # @ bit 8, length: 2
+      bit 8 	u_execute_buffer_alu_result_reg[8] <i_clk (rise)>
+      bit 9 	u_memory_o_dmem_addr_reg[6] <i_clk (rise)>
+    END segment DFT_AutoSegment_18
+    bit 10 	u_decode_o_alu_op_buffer_2_reg[0]  <i_clk (rise)>  
+------------------------
+Chain 2: AutoChain_10 
+  scan_in:      DFT_sdi_10 
+  scan_out:     DFT_sdo_10   
+  shift_enable: i_scan_en (active high) 
+  clock_domain: dom_1 (edge: rise)
+  length: 9
+    bit 1 	u_fetch_u_add_pc_reg[3]  <i_clk (rise)>  
+    bit 2 	u_fetch_u_add_pc_reg[4]  <i_clk (rise)>  
+    bit 3 	u_fetch_u_add_pc_reg[5]  <i_clk (rise)>  
+    bit 4 	u_fetch_u_add_pc_reg[6]  <i_clk (rise)>  
+    bit 5 	u_fetch_u_add_pc_reg[7]  <i_clk (rise)>  
+    bit 6 	u_fetch_u_add_pc_reg[8]  <i_clk (rise)>  
+    bit 7 	u_fetch_u_add_pc_reg[9]  <i_clk (rise)>  
+    bit 8 	u_fetch_u_add_pc_reg[10]  <i_clk (rise)>  
+    bit 9 	u_memory_o_dmem_en_reg  <i_clk (rise)>  
+------------------------
+Chain 3: AutoChain_2 
+  scan_in:      DFT_sdi_2 
+  scan_out:     DFT_sdo_2   
+  shift_enable: i_scan_en (active high) 
+  clock_domain: dom_1 (edge: rise)
+  length: 9
+    START segment DFT_AutoSegment_17 (type: shift_register)
+      # @ bit 1, length: 2
+      bit 1 	u_execute_buffer_alu_result_reg[7] <i_clk (rise)>
+      bit 2 	u_memory_o_dmem_addr_reg[5] <i_clk (rise)>
+    END segment DFT_AutoSegment_17
+    START segment DFT_AutoSegment_16 (type: shift_register)
+      # @ bit 3, length: 2
+      bit 3 	u_execute_buffer_alu_result_reg[6] <i_clk (rise)>
+      bit 4 	u_memory_o_dmem_addr_reg[4] <i_clk (rise)>
+    END segment DFT_AutoSegment_16
+    START segment DFT_AutoSegment_15 (type: shift_register)
+      # @ bit 5, length: 2
+      bit 5 	u_execute_buffer_alu_result_reg[5] <i_clk (rise)>
+      bit 6 	u_memory_o_dmem_addr_reg[3] <i_clk (rise)>
+    END segment DFT_AutoSegment_15
+    START segment DFT_AutoSegment_14 (type: shift_register)
+      # @ bit 7, length: 2
+      bit 7 	u_execute_buffer_alu_result_reg[4] <i_clk (rise)>
+      bit 8 	u_memory_o_dmem_addr_reg[2] <i_clk (rise)>
+    END segment DFT_AutoSegment_14
+    bit 9 	u_decode_o_alu_op_buffer_2_reg[1]  <i_clk (rise)>  
+------------------------
+Chain 4: AutoChain_3 
+  scan_in:      DFT_sdi_3 
+  scan_out:     DFT_sdo_3   
+  shift_enable: i_scan_en (active high) 
+  clock_domain: dom_1 (edge: rise)
+  length: 9
+    START segment DFT_AutoSegment_13 (type: shift_register)
+      # @ bit 1, length: 2
+      bit 1 	u_execute_buffer_alu_result_reg[3] <i_clk (rise)>
+      bit 2 	u_memory_o_dmem_addr_reg[1] <i_clk (rise)>
+    END segment DFT_AutoSegment_13
+    START segment DFT_AutoSegment_12 (type: shift_register)
+      # @ bit 3, length: 2
+      bit 3 	u_execute_buffer_alu_result_reg[2] <i_clk (rise)>
+      bit 4 	u_memory_o_dmem_addr_reg[0] <i_clk (rise)>
+    END segment DFT_AutoSegment_12
+    START segment DFT_AutoSegment_2 (type: shift_register)
+      # @ bit 5, length: 2
+      bit 5 	u_decode_o_imm_buffer_2_reg[10] <i_clk (rise)>
+      bit 6 	u_execute_buffer_pc_target_reg[10] <i_clk (rise)>
+    END segment DFT_AutoSegment_2
+    START segment DFT_AutoSegment_10 (type: shift_register)
+      # @ bit 7, length: 2
+      bit 7 	u_decode_o_imm_buffer_2_reg[9] <i_clk (rise)>
+      bit 8 	u_execute_buffer_pc_target_reg[9] <i_clk (rise)>
+    END segment DFT_AutoSegment_10
+    bit 9 	u_decode_o_arith_buffer_2_reg  <i_clk (rise)>  
+------------------------
+Chain 5: AutoChain_4 
+  scan_in:      DFT_sdi_4 
+  scan_out:     DFT_sdo_4   
+  shift_enable: i_scan_en (active high) 
+  clock_domain: dom_1 (edge: rise)
+  length: 9
+    START segment DFT_AutoSegment_9 (type: shift_register)
+      # @ bit 1, length: 2
+      bit 1 	u_decode_o_imm_buffer_2_reg[8] <i_clk (rise)>
+      bit 2 	u_execute_buffer_pc_target_reg[8] <i_clk (rise)>
+    END segment DFT_AutoSegment_9
+    START segment DFT_AutoSegment_8 (type: shift_register)
+      # @ bit 3, length: 2
+      bit 3 	u_decode_o_imm_buffer_2_reg[7] <i_clk (rise)>
+      bit 4 	u_execute_buffer_pc_target_reg[7] <i_clk (rise)>
+    END segment DFT_AutoSegment_8
+    START segment DFT_AutoSegment_7 (type: shift_register)
+      # @ bit 5, length: 2
+      bit 5 	u_decode_o_imm_buffer_2_reg[6] <i_clk (rise)>
+      bit 6 	u_execute_buffer_pc_target_reg[6] <i_clk (rise)>
+    END segment DFT_AutoSegment_7
+    START segment DFT_AutoSegment_6 (type: shift_register)
+      # @ bit 7, length: 2
+      bit 7 	u_decode_o_imm_buffer_2_reg[5] <i_clk (rise)>
+      bit 8 	u_execute_buffer_pc_target_reg[5] <i_clk (rise)>
+    END segment DFT_AutoSegment_6
+    bit 9 	u_decode_o_imm_buffer_2_reg[0]  <i_clk (rise)>  
+------------------------
+Chain 6: AutoChain_5 
+  scan_in:      DFT_sdi_5 
+  scan_out:     DFT_sdo_5   
+  shift_enable: i_scan_en (active high) 
+  clock_domain: dom_1 (edge: rise)
+  length: 9
+    START segment DFT_AutoSegment_5 (type: shift_register)
+      # @ bit 1, length: 2
+      bit 1 	u_decode_o_imm_buffer_2_reg[4] <i_clk (rise)>
+      bit 2 	u_execute_buffer_pc_target_reg[4] <i_clk (rise)>
+    END segment DFT_AutoSegment_5
+    START segment DFT_AutoSegment_4 (type: shift_register)
+      # @ bit 3, length: 2
+      bit 3 	u_decode_o_imm_buffer_2_reg[3] <i_clk (rise)>
+      bit 4 	u_execute_buffer_pc_target_reg[3] <i_clk (rise)>
+    END segment DFT_AutoSegment_4
+    START segment DFT_AutoSegment_3 (type: shift_register)
+      # @ bit 5, length: 2
+      bit 5 	u_decode_o_imm_buffer_2_reg[2] <i_clk (rise)>
+      bit 6 	u_execute_buffer_pc_target_reg[2] <i_clk (rise)>
+    END segment DFT_AutoSegment_3
+    START segment DFT_AutoSegment_1 (type: shift_register)
+      # @ bit 7, length: 2
+      bit 7 	u_decode_o_branch_buffer_2_reg <i_clk (rise)>
+      bit 8 	u_execute_branch_taken_reg <i_clk (rise)>
+    END segment DFT_AutoSegment_1
+    bit 9 	u_decode_o_imm_buffer_2_reg[1]  <i_clk (rise)>  
+------------------------
+Chain 7: AutoChain_6 
+  scan_in:      DFT_sdi_6 
+  scan_out:     DFT_sdo_6   
+  shift_enable: i_scan_en (active high) 
+  clock_domain: dom_1 (edge: rise)
+  length: 9
+    bit 1 	u_decode_o_jump_buffer_2_reg  <i_clk (rise)>  
+    bit 2 	u_decode_o_src_imm_buffer_2_reg  <i_clk (rise)>  
+    bit 3 	u_execute_buffer_pc_transfer_reg  <i_clk (rise)>  
+    bit 4 	u_fetch_InstructionBuffer_reg[0]  <i_clk (rise)>  
+    bit 5 	u_fetch_InstructionBuffer_reg[1]  <i_clk (rise)>  
+    bit 6 	u_fetch_InstructionBuffer_reg[2]  <i_clk (rise)>  
+    bit 7 	u_fetch_InstructionBuffer_reg[3]  <i_clk (rise)>  
+    bit 8 	u_fetch_InstructionBuffer_reg[4]  <i_clk (rise)>  
+    bit 9 	u_fetch_InstructionBuffer_reg[5]  <i_clk (rise)>  
+------------------------
+Chain 8: AutoChain_7 
+  scan_in:      DFT_sdi_7 
+  scan_out:     DFT_sdo_7   
+  shift_enable: i_scan_en (active high) 
+  clock_domain: dom_1 (edge: rise)
+  length: 9
+    bit 1 	u_fetch_InstructionBuffer_reg[6]  <i_clk (rise)>  
+    bit 2 	u_fetch_InstructionBuffer_reg[7]  <i_clk (rise)>  
+    bit 3 	u_fetch_InstructionBuffer_reg[8]  <i_clk (rise)>  
+    bit 4 	u_fetch_InstructionBuffer_reg[9]  <i_clk (rise)>  
+    bit 5 	u_fetch_InstructionBuffer_reg[10]  <i_clk (rise)>  
+    bit 6 	u_fetch_InstructionBuffer_reg[11]  <i_clk (rise)>  
+    bit 7 	u_fetch_InstructionBuffer_reg[12]  <i_clk (rise)>  
+    bit 8 	u_fetch_InstructionBuffer_reg[13]  <i_clk (rise)>  
+    bit 9 	u_fetch_InstructionBuffer_reg[14]  <i_clk (rise)>  
+------------------------
+Chain 9: AutoChain_8 
+  scan_in:      DFT_sdi_8 
+  scan_out:     DFT_sdo_8   
+  shift_enable: i_scan_en (active high) 
+  clock_domain: dom_1 (edge: rise)
+  length: 9
+    bit 1 	u_fetch_InstructionBuffer_reg[15]  <i_clk (rise)>  
+    bit 2 	u_fetch_InstructionBuffer_reg[16]  <i_clk (rise)>  
+    bit 3 	u_fetch_InstructionBuffer_reg[17]  <i_clk (rise)>  
+    bit 4 	u_fetch_InstructionBuffer_reg[18]  <i_clk (rise)>  
+    bit 5 	u_fetch_InstructionBuffer_reg[19]  <i_clk (rise)>  
+    bit 6 	u_fetch_InstructionBuffer_reg[20]  <i_clk (rise)>  
+    bit 7 	u_fetch_InstructionBuffer_reg[21]  <i_clk (rise)>  
+    bit 8 	u_fetch_InstructionBuffer_reg[22]  <i_clk (rise)>  
+    bit 9 	u_fetch_InstructionBuffer_reg[23]  <i_clk (rise)>  
+------------------------
+Chain 10: AutoChain_9 
+  scan_in:      DFT_sdi_9 
+  scan_out:     DFT_sdo_9   
+  shift_enable: i_scan_en (active high) 
+  clock_domain: dom_1 (edge: rise)
+  length: 9
+    bit 1 	u_fetch_InstructionBuffer_reg[24]  <i_clk (rise)>  
+    bit 2 	u_fetch_InstructionBuffer_reg[25]  <i_clk (rise)>  
+    bit 3 	u_fetch_InstructionBuffer_reg[26]  <i_clk (rise)>  
+    bit 4 	u_fetch_InstructionBuffer_reg[27]  <i_clk (rise)>  
+    bit 5 	u_fetch_InstructionBuffer_reg[28]  <i_clk (rise)>  
+    bit 6 	u_fetch_InstructionBuffer_reg[29]  <i_clk (rise)>  
+    bit 7 	u_fetch_InstructionBuffer_reg[30]  <i_clk (rise)>  
+    bit 8 	u_fetch_InstructionBuffer_reg[31]  <i_clk (rise)>  
+    bit 9 	u_fetch_u_add_pc_reg[2]  <i_clk (rise)>  
+------------------------
+

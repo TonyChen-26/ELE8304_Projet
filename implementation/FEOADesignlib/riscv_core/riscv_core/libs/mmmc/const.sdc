@@ -1,0 +1,1 @@
+/export/tmp/8304_8/Labs/lab2/implementation/riscv_library_PNR/riscv_core/layout/mmmc/modes/const/const.sdc

@@ -17,11 +17,12 @@ entity riscv_id is
     i_rd_addr   : in std_logic_vector(4 downto 0);   -- Address to write data to in register file
     i_rd_data   : in std_logic_vector(31 downto 0);  -- Data to write back to register file
     i_flush     : in std_logic;
-
+    i_pc        : in std_logic_vector(XLEN-1 downto 0);
     -- Outputs to IF/EX stage
 
     o_rs1_data  : out std_logic_vector(31 downto 0);
     o_rs2_data  : out std_logic_vector(31 downto 0);
+    o_rd_addr   : out std_logic_vector(REG_WIDTH-1 downto 0);
     o_branch    : out std_logic;
     o_jump      : out std_logic;
     o_rw        : out std_logic;
@@ -30,6 +31,7 @@ entity riscv_id is
     o_sign      : out std_logic;
     o_src_imm   : out std_logic;
     o_alu_op    : out std_logic_vector(2 downto 0);
+    o_pc        : out std_logic_vector(XLEN-1 downto 0);
     o_imm       : out std_logic_vector(31 downto 0)
   );
 end entity riscv_id;
@@ -259,7 +261,8 @@ end if;
 end if;
 	
 end process;
-
+      o_rd_addr <= i_rd_addr; -- pas sur
+      o_pc <= i_pc;
       o_rs1_data  <= o_rs1_data_buffer_2;  -- Link buffer to real output
       o_rs2_data  <= o_rs2_data_buffer_2;  -- Link buffer to real output
       o_branch    <= o_branch_buffer_2;     -- Link buffer to real output
