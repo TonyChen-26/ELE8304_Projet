@@ -1,0 +1,116 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+use work.riscv_pkg.all;
+
+entity write_back is
+  port (
+    -- Clock and Reset
+    i_rstn       : in  std_logic;                           -- Active-low reset
+    i_clk        : in  std_logic;                           -- Clock signal
+
+    -- Inputs
+    i_load_data  : in  std_logic_vector(XLEN-1 downto 0);   -- Data loaded from memory
+    i_alu_result : in  std_logic_vector(XLEN-1 downto 0);   -- Result from ALU
+    i_rd_addr    : in  std_logic_vector(REG_WIDTH-1 downto 0); -- Destination register address
+    i_rw         : in  std_logic;                           -- Read/Write control signal
+    i_wb         : in  std_logic;                           -- Write-back enable signal
+
+    -- Outputs
+    o_wb         : out std_logic;                           -- Write-back control signal
+    o_rd_addr    : out std_logic_vector(REG_WIDTH-1 downto 0); -- Destination register address
+    o_rd_data    : out std_logic_vector(XLEN-1 downto 0)    -- Data to write back to register
+  );
+end entity write_back;
+
+architecture beh of write_back is
+begin
+  -- Pass through signals
+  o_rd_addr <= i_rd_addr;  -- Propagate register address to output
+  o_wb <= i_wb;            -- Propagate write-back signal to output
+
+  -- Select data for write-back based on Read/Write control signal
+  with i_rw select 
+    o_rd_data <= 
+      i_load_data  when '1',   -- Load data if i_rw is '1'
+      i_alu_result when others; -- Otherwise, use ALU result
+end architecture beh;
+
+--library ieee;
+--use ieee.std_logic_1164.all;
+--use ieee.numeric_std.all;
+--use work.riscv_pkg.all;
+--
+--entity write_back is
+--
+--  port (
+--  i_load_data	: in  std_logic_vector(XLEN-1 downto 0);
+--  i_alu_result 	: in  std_logic_vector(XLEN-1 downto 0);
+--  i_rd_addr 	: in  std_logic_vector(REG_WIDTH-1 downto 0);  
+--  i_rw 			: in  std_logic;	  
+--  i_wb 			: in  std_logic;
+--  i_rstn		: in  std_logic;
+--  i_clk 		: in  std_logic;
+--	
+--  o_wb 			: out std_logic;
+--  o_rd_addr 	: out std_logic_vector(REG_WIDTH-1 downto 0); 
+--  o_rd_data 	: out std_logic_vector(XLEN-1 downto 0)
+--  ); 
+--  
+--end entity write_back;
+--
+--architecture beh of write_back is 	
+--
+--begin
+--  o_rd_addr <= i_rd_addr;
+--  o_wb <= i_wb;
+--  
+--  with i_rw select o_rd_data <= 
+--  i_load_data  when '1',
+--  i_alu_result when others; 
+--  
+--end architecture beh;
+--library ieee;
+--use ieee.std_logic_1164.all;
+--use ieee.numeric_std.all;
+--
+--entity write_back is
+--  port (
+--    -- Inputs
+--    i_rw         : in  std_logic;                     -- Read/Write control signal
+--    i_wb         : in  std_logic;                     -- Write-Back control signal
+--    i_load_data  : in  std_logic_vector(31 downto 0); -- Data from memory
+--    i_alu_result : in  std_logic_vector(31 downto 0); -- Data from ALU
+--    i_rd_addr    : in  std_logic_vector(4 downto 0);  -- Register destination address
+--
+--    -- Outputs
+--    o_rd_data    : out std_logic_vector(31 downto 0); -- Data to write-back to the register
+--    o_wb         : out std_logic;                     -- Pass-through WB signal
+--    o_rd_addr    : out std_logic_vector(4 downto 0)   -- Pass-through destination address
+--  );
+--end write_back;
+--
+--architecture behavior of write_back is
+--begin
+--
+--  process(i_rw,i_wb,i_load_data,i_alu_result,i_rd_addr)
+--  begin
+--    if i_wb = '1' then
+--      -- Select data based on the RW signal
+--      if i_rw = '1' then
+--        o_rd_data <= i_load_data;  -- Write memory data
+--      else
+--        o_rd_data <= i_alu_result; -- Write ALU result
+--      end if;
+--    else
+--      o_rd_data <= (others => '0'); -- Default value if WB is not active
+--    end if;
+--
+--    -- Pass-through signals
+--   
+--    o_wb      <= i_wb;
+--    o_rd_addr <= i_rd_addr;
+--  end process;
+--
+--
+--end behavior;

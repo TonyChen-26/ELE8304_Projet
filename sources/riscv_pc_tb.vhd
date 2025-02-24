@@ -2,90 +2,100 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
-
 library work;
 use work.riscv_pkg.all;
 
 entity tb_riscv_pc is
-end tb_riscv_pc;
+
+end entity tb_riscv_pc;
 
 architecture beh of tb_riscv_pc is
 
- 
-  signal tb_clk       : std_logic := '0';
-  signal tb_rstn      : std_logic := '1';
-  signal tb_stall     : std_logic := '0';
-  signal tb_transfert : std_logic := '0';
-  signal tb_target    : std_logic_vector(XLEN-1 downto 0) := (others => '0');
-  signal tb_pc        : std_logic_vector(XLEN-1 downto 0);
+  -- Constantes
+  constant CLK_PERIOD      : time := 10 ns;
+  constant XLEN            : integer := 32;
+  constant RESET_VECTOR    : unsigned(XLEN-1 downto 0) := x"00000000";
+  constant ADDR_INCR       : unsigned(XLEN-1 downto 0) := to_unsigned(4, XLEN);
 
- 
-  constant clk_period : time := 10 ns;
+  -- Signaux
+  signal i_clk       : std_logic := '0';
+  signal i_rstn      : std_logic := '1';
+  signal i_stall     : std_logic := '0';
+  signal i_transfert : std_logic := '0';
+  signal i_target    : std_logic_vector(XLEN-1 downto 0) := (others => '0');
+  signal o_pc        : std_logic_vector(XLEN-1 downto 0);
+
+  -- Pour les vérifications
+  signal pc_expected : unsigned(XLEN-1 downto 0) := RESET_VECTOR;
 
 begin
 
-
+  -- Instanciation du module riscv_pc
   uut: entity work.riscv_pc
-    generic map (RESET_VECTOR => 16#00000000#)
+    generic map (
+      RESET_VECTOR => to_integer(RESET_VECTOR)
+    )
     port map (
-      i_clk       => tb_clk,
-      i_rstn      => tb_rstn,
-      i_stall     => tb_stall,
-      i_transfert => tb_transfert,
-      i_target    => tb_target,
-      o_pc        => tb_pc
+      i_clk       => i_clk,
+      i_rstn      => i_rstn,
+      i_stall     => i_stall,
+      i_transfert => i_transfert,
+      i_target    => i_target,
+      o_pc        => o_pc
     );
 
-
-  process
+  -- Génération de l'horloge
+  clk_gen: process
   begin
-    tb_clk <= '0';
-    wait for clk_period / 2;
-    tb_clk <= '1';
-    wait for clk_period / 2;
+    while true loop
+      i_clk <= '0';
+      wait for CLK_PERIOD / 2;
+      i_clk <= '1';
+      wait for CLK_PERIOD / 2;
+    end loop;
   end process;
 
-
-  process
+  -- Processus de test
+  stim_proc: process
   begin
-    -- Test case 1: Reset counter
-    tb_rstn <= '0';  -- Assert reset
-    wait for clk_period;
+    -- Reset
+    i_rstn <= '0';
+    wait for CLK_PERIOD;
+    assert std_logic_vector(pc_expected) = o_pc report "RESET failed!" severity error;
+    
+    i_rstn <= '1';
 
+    wait for CLK_PERIOD;
+	
+    pc_expected <= pc_expected + ADDR_INCR;
+    wait for 5 ns;
+    -- Vérification de l'incrémentation normale
+ 
+    assert std_logic_vector(pc_expected)  = o_pc report "Increment failed!" severity error;
 
-    -- Check if the PC = RESET_VECTOR 
-    assert tb_pc = std_logic_vector(to_unsigned(16#00000000#, XLEN))
-    report "PC reset failed" severity error;
-    tb_rstn <= '1';  -- Deassert reset
-    wait for clk_period;
-    -- Test case 2: Normal operation - PC increments by ADDR_INCR
+    -- Vérification du stall
+    i_stall <= '1';
+    wait for CLK_PERIOD;
+    assert std_logic_vector(pc_expected) = o_pc report "Stall failed!" severity error;
 
-    assert tb_pc = std_logic_vector(to_unsigned(ADDR_INCR, XLEN))
-      report "PC increment failed" severity error;
+    -- Vérification du transfert
+    i_stall <= '0';
+    i_transfert <= '1';
+    i_target <= x"00001000";
+    wait for CLK_PERIOD;
+    pc_expected <= unsigned(i_target);
+    wait for CLK_PERIOD;
+    assert std_logic_vector(pc_expected) = o_pc report "Transfer failed!" severity error;
 
-    -- Test case 3: Stall the program counter
-    tb_stall <= '1';  -- Enable stall
-    wait for clk_period;
-    assert tb_pc = std_logic_vector(to_unsigned(ADDR_INCR, XLEN))
-      report "PC stall failed" severity error;  -- PC should not increment
+    -- Retour à l'incrémentation
+    i_transfert <= '0';
+    pc_expected <= pc_expected + ADDR_INCR;
+    wait for CLK_PERIOD;
+    assert std_logic_vector(pc_expected) = o_pc report "Post-transfer increment failed!" severity error;
 
-    -- Test case 4: Remove stall and check increment
-    tb_stall <= '0';  -- Disable stall
-    wait for clk_period;
-    assert tb_pc = std_logic_vector(to_unsigned(ADDR_INCR * 2, XLEN))
-    report "PC increment after stall failed" severity error;
-
-    -- Test case 5: Transfer to a new target
-    tb_transfert <= '1';  -- Enable transfer
-    tb_target <= std_logic_vector(to_unsigned(16#12345678#, XLEN));  -- Target address
-    wait for clk_period;
-
-    -- Check if the PC jumped to the target address
-    assert tb_pc = std_logic_vector(to_unsigned(16#12345678#, XLEN))
-      report "PC transfer failed" severity error;
-
-    -- End simulation
+    -- Fin du test
     wait;
   end process;
 
 end architecture beh;
+

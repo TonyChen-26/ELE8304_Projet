@@ -1,0 +1,40 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+use work.riscv_pkg.all;
+
+entity predecode is
+  port (
+    -- Instruction input
+    instr     : in  std_logic_vector(XLEN-1 downto 0);
+    
+    -- Register addresses
+    rs1_addr  : out std_logic_vector(REG_WIDTH-1 downto 0);
+    rs2_addr  : out std_logic_vector(REG_WIDTH-1 downto 0);
+    rd_addr   : out std_logic_vector(REG_WIDTH-1 downto 0);
+    
+    -- Instruction fields
+    opcode    : out std_logic_vector(6 downto 0);
+    funct3    : out std_logic_vector(2 downto 0);
+    funct7    : out std_logic_vector(6 downto 0);
+    
+    -- For shift instructions
+    shamt     : out std_logic_vector(4 downto 0)
+  );
+end entity predecode;
+
+architecture beh of predecode is
+begin
+  -- Direct field extraction for all instruction formats
+  opcode   <= instr(6 downto 0);       -- Common to all formats
+  funct3   <= instr(14 downto 12);     -- Common to R/I/S/B types
+  funct7   <= instr(31 downto 25);     -- R-type and shift immediates
+  
+  -- Register addresses
+  rs1_addr <= instr(19 downto 15);     -- Source register 1 (R/I/S/B types)
+  rs2_addr <= instr(24 downto 20);     -- Source register 2 (R/S/B types)
+  rd_addr  <= instr(11 downto 7);      -- Destination register (R/I/U/J types)
+  
+  -- Shift amount for immediate shifts
+  shamt    <= instr(24 downto 20);     -- For SLLI, SRLI, SRAI
+end architecture beh;
