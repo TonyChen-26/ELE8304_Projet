@@ -1,14 +1,51 @@
-# Laboratoire 2 - Conception d'un microprocesseur
+# Projet RISC-V Pipeline avec Gestion des Conflits
 
-Ce répertoire contient les fichiers associés au laboratoire 2 du cours
-[ELE8304](https://www.polymtl.ca/etudes/cours/circuits-integres-tres-grande-echelle). Le but de ce
-laboratoire est de concevoir un microprocesseur simple. Ses objectifs sont les suivants:
-  - Maitriser la conception de systèmes numériques séquentiels
-  - Introduire le flot de conception ASIC: simulation, synthèse, placement et routage
-  - Se familiariser avec les concepts d'analyse temporelle et de contraintes temporelles
-  - Introduire les notions de base d'architecture d'ordinateur
+## Description
 
-La poursuite de ce laboratoire suppose au préalable de suivre le [tutoriel de conception de circuits
-numériques intégrés](https://intranet.grm.polymtl.ca/wiki/doku.php?id=tutoriels:numerique).
+Ce projet implémente un cœur de processeur RISC-V avec un pipeline incluant des mécanismes de forwarding et de résolution des conflits.
 
-Les logiciels et les technologies utilisées sont fournis par [CMC](https://www.cmc.ca/WhatWeOffer/Products/CMC-00200-04870.aspx). Le kit de référence est basé sur la technologie 45nm éducative de *Cadence*: *Generic Process Design Kit* [GPDK045](https://www.cmc.ca/WhatWeOffer/Products/CMC-00200-04870.aspx).
+## Fonctionnalités
+
+- Pipeline 5 étapes : FETCH, DECODE, EXECUTE, MEMORY, WRITE_BACK
+- Gestion des conflits :
+  - Hazards structurels
+  - Hazards de données avec forwarding
+  - Hazards de contrôle
+- Implémentation en VHDL
+- Simulation et validation avec des jeux de tests
+
+## Architecture du projet
+
+- **asm/** : Initial revision
+- **constraints/** : Initial revision
+- **doc/** : Initial revision
+- **implementation/** : Initial revision
+- **scripts/** : Initial revision
+- **simulation/** : Initial revision
+- **sources/** : Updating final product
+- **README.md** : Initial revision
+- **setup.csh** : Initial revision
+- **transcript** : 21 octobre
+
+## Prérequis
+
+- Vivado ou ModelSim pour la simulation
+- Un environnement VHDL compatible
+
+## Compilation et Simulation
+
+1. Compiler les fichiers VHDL :
+   ```bash
+   vcom -work work src/*.vhd
+   ```
+2. Lancer la simulation avec le testbench :
+   ```bash
+   vsim -c -do "run -all" testbench/tb_processor
+   ```
+
+## Auteur
+
+Zacharie E
+
+Tony C
+
