@@ -16,16 +16,16 @@ Ce projet implémente un cœur de processeur RISC-V avec un pipeline incluant de
 
 ## Architecture du projet
 
-- **asm/** : Initial revision
-- **constraints/** : Initial revision
-- **doc/** : Initial revision
-- **implementation/** : Initial revision
-- **scripts/** : Initial revision
-- **simulation/** : Initial revision
-- **sources/** : Updating final product
-- **README.md** : Initial revision
-- **setup.csh** : Initial revision
-- **transcript** : 21 octobre
+- **asm/** 
+- **constraints/** 
+- **doc/** 
+- **implementation/** 
+- **scripts/**
+- **simulation/** 
+- **sources/** 
+- **README.md** 
+- **setup.csh** 
+- **transcript** 
 
 ## Prérequis
 
